@@ -105,13 +105,13 @@ span.glowing {
   &.up {
     top: var(--vertical-frame);
     left: var(--horizontal-frame);
-    background: radial-gradient(var(--primary), transparent 75%);
+    background: radial-gradient(var(--primary), transparent 50%);
   }
 
   &.down {
     bottom: var(--vertical-frame);
     right: var(--horizontal-frame);
-    background: radial-gradient(var(--secondary), transparent 75%);
+    background: radial-gradient(var(--secondary), transparent 50%);
   }
 }
 
@@ -120,11 +120,7 @@ body {
   flex-direction: column;
   color: rgb(var(--foreground-rgb));
 
-  background: linear-gradient(
-      to bottom right,
-      transparent,
-      color.adjust(var(--primary), $lightness: -30%)
-    )
+  background: linear-gradient(to bottom right, transparent, var(--primary))
     var(--secondary);
 
   --bar-config: 4rem;
