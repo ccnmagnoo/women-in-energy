@@ -6,7 +6,7 @@ The **Women in Energy Services App** is a dedicated platform aimed at showcasing
 energy services provided by women professionals who are licensed by the **Superintendencia
 de Electricidad y Combustibles (SEC)**. This app addresses the current disparity in the
 representation of women within the energy sector by providing a gender-inclusive
-perspective to energy-related services that are often overlooked.
+perspective to energy-related services that are often overlooked in Chile.
 
 While the official SEC website ([www.sec.cl](https://www.sec.cl)) offers a comprehensive
 list of certified energy professionals, the gender perspective is not adequately
@@ -77,5 +77,5 @@ help enhance the app's features and impact. To contribute, please follow these s
 We value your feedback and suggestions. If you have any questions, ideas, or concerns,
 please reach out to us at [ccamposn@minenergia.cl](mailto:ccamposn@minenergia.cl).
 
-Thi is a public and open initiative, so et's work together to empower women professionals
-in the energy sector and promote a more inclusive and diverse industry!
+This is a public and open initiative, so let's work together to empower women
+professionals in the energy sector and promote a more inclusive and diverse industry.
