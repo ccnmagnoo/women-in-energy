@@ -9,8 +9,10 @@
   --foreground-rgb: 0, 0, 0;
 
   --color-hue: 264;
-  --primary: hsla(var(--color-hue), 100%, 70%);
-  --secondary: hsla(calc(var(--color-hue) + 270), 100%, 70%);
+  --light-primary: hsla(var(--color-hue), 100%, 70%);
+  --light-secondary: hsla(calc(var(--color-hue) + 270), 100%, 70%);
+  --dark-primary: hsla(var(--color-hue), 40%, 50%);
+  --dark-secondary: hsla(calc(var(--color-hue) + 270), 100%, 35%);
 
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -105,23 +107,27 @@ span.glowing {
   &.up {
     top: var(--vertical-frame);
     left: var(--horizontal-frame);
-    background: radial-gradient(var(--primary), transparent 50%);
+    background: radial-gradient(var(--light-primary), transparent 50%);
   }
 
   &.down {
     bottom: var(--vertical-frame);
     right: var(--horizontal-frame);
-    background: radial-gradient(var(--secondary), transparent 50%);
+    background: radial-gradient(var(--light-secondary), transparent 50%);
   }
 }
 
 body {
   display: flex;
   flex-direction: column;
-  color: rgb(var(--foreground-rgb));
+  // color: rgb(var(--foreground-rgb));
+  color: hsla(var(--color-hue), 50%, 100%);
+  text-shadow: 1px 0px 4px #00000065;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+    Arial, sans-serif;
 
-  background: linear-gradient(to bottom right, transparent, var(--primary))
-    var(--secondary);
+  background: linear-gradient(to bottom right, transparent, var(--dark-primary))
+    var(--dark-secondary);
 
   --bar-config: 4rem;
 

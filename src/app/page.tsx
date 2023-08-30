@@ -2,7 +2,7 @@ function Home() {
   return (
     <>
       <header>mujeres instaladoras</header>
-      <main>main</main>
+      <main>content</main>
       <footer>bottom bar</footer>
     </>
   );
