@@ -158,13 +158,13 @@
     <defs>
         <linearGradient id="eyXuZREt7Vj25-fill" x1="169.09587" y1="7.33959" x2="172.81078" y2="7.821636"
             spreadMethod="pad" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0)">
-            <stop id="eyXuZREt7Vj25-fill-0" offset="0%" stop-color="#ecb132" />
-            <stop id="eyXuZREt7Vj25-fill-1" offset="100%" stop-color="#ffd63c" />
+            <stop id="eyXuZREt7Vj25-fill-0" offset="0%" stop-color="#a233ec" />
+            <stop id="eyXuZREt7Vj25-fill-1" offset="100%" stop-color="#c685f1" />
         </linearGradient>
         <linearGradient id="eyXuZREt7Vj52-fill" x1="11.6391" y1="107.90489" x2="82.38754" y2="107.90489"
             spreadMethod="pad" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0)">
-            <stop id="eyXuZREt7Vj52-fill-0" offset="0%" stop-color="#008041" />
-            <stop id="eyXuZREt7Vj52-fill-1" offset="100%" stop-color="#12fff3" />
+            <stop id="eyXuZREt7Vj52-fill-0" offset="0%" stop-color="#12fff3" />
+            <stop id="eyXuZREt7Vj52-fill-1" offset="100%" stop-color="#0ea19a" />
         </linearGradient>
     </defs>
     <g>
@@ -234,16 +234,16 @@
                         fill="url(#eyXuZREt7Vj25-fill)" stroke-width="0.532692" stroke-dasharray="2.13078,2.13078" />
                     <path
                         d="M186.77586,15.224612c1.35673,1.241828-4.68119.02976-13.82116.02976-5.06957,0-16.14643,1.644863-14.56307.571493c2.19881-1.490589,4.63627-3.609736,13.09903-3.706032c9.50641-.108169,14.29829,2.20144,14.86419,2.719423Z"
-                        fill="#ecb133" stroke-width="0.258544" stroke-dasharray="1.03419,1.03419" />
+                        fill="#a233ec" stroke-width="0.258544" stroke-dasharray="1.03419,1.03419" />
                     <path
                         d="M171.59538,-1.521268l2.47752.01253c.15603.000789.63362.404506.62386.641416l-.43563,10.570264c-.01.236909-.082.663748-.238.661232l-2.28318-.03681c-.15602-.0025-.14555-.351131-.16156-.587609l-.702-10.364057c-.016-.23648.38865-.898634.71899-.896964Z"
-                        fill="#ecb133" stroke-width="0.3797" stroke-dasharray="1.5188,1.5188" />
+                        fill="#a233ec" stroke-width="0.3797" stroke-dasharray="1.5188,1.5188" />
                     <path
                         d="M183.38274,9.888859l1.47194.4014c.0927.02528.33818.244671.30978.326945l-1.26701,3.670869c-.0284.08228-.11206.221752-.20457.195869l-1.35407-.378848c-.0926-.02589-.053-.147574-.04-.233835l.57093-3.780176c.0129-.08629.31678-.255744.51304-.202224Z"
-                        fill="#ecb133" stroke-width="0.180387" stroke-dasharray="0.72155,0.72155" />
+                        fill="#a233ec" stroke-width="0.180387" stroke-dasharray="0.72155,0.72155" />
                     <path
                         d="M160.33895,10.408169l1.45679-.453332c.0917-.02855.41669.02436.437.109l.90636,3.776125c.0203.08464.0248.247216-.0671.275155l-1.34528.408944c-.092.02798-.12406-.0959-.1595-.175614l-1.55196-3.493868c-.0355-.07968.1295-.385987.32374-.446432Z"
-                        fill="#ffd42a" stroke-width="0.180387" stroke-dasharray="0.72155,0.72155" />
+                        fill="#c685f1" stroke-width="0.180387" stroke-dasharray="0.72155,0.72155" />
                 </g>
             </g>
             <g transform="matrix(.999989-.004661 0.004661 0.999989 55.632-38.79)">

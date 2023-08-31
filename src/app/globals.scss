@@ -100,6 +100,8 @@ body {
   height: min(60vw, 80vh);
   width: max-content;
   object-fit: contain;
+  filter: drop-shadow(10px 10px 5px rgb($color: black, $alpha: 0.1));
+  transition: all 0.2s ease-out;
 }
 
 #site-logo {
