@@ -83,13 +83,12 @@
   padding: 0;
   margin: 0;
   /* debug */
-  border: 0.5px dotted red;
+  border: 0.5px dotted red !important;
 }
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   overflow-y: hidden;
   height: 100%;
 }
@@ -113,7 +112,7 @@ body {
 }
 
 span.glowing {
-  --glow-size: 150vh;
+  --glow-size: 130vh;
   --horizontal-frame: 0vw;
   --vertical-frame: -20vw;
   position: absolute;
@@ -135,9 +134,8 @@ span.glowing {
   }
 }
 
-header,
-footer {
-  background-color: rgba($color: #ffffff, $alpha: 0.2);
+header {
+  background-color: rgba($color: #00000010, $alpha: 0.2);
 }
 
 body {
