@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import woman from '../../public/woman-in-energy-css.svg';
 import Image from 'next/image';
+import { Background } from '@/components/Background';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,13 +15,8 @@ export const metadata: Metadata = {
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <span className='glowing up'></span>
-        <span className='glowing down'></span>
-        <Image alt='' src={woman} id='woman-sketch' />
-
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
+      <Background></Background>
     </html>
   );
 }
