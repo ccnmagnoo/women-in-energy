@@ -94,6 +94,15 @@ body {
   height: 100%;
 }
 
+#site-logo {
+  width: 200px;
+  position: relative;
+  left: 20px;
+  top: 5px;
+  height: max-content;
+  object-fit: contain;
+}
+
 span.glowing {
   --glow-size: 150vh;
   --horizontal-frame: 0vw;
@@ -115,6 +124,11 @@ span.glowing {
     right: var(--horizontal-frame);
     background: radial-gradient(var(--light-secondary), transparent 50%);
   }
+}
+
+header,
+footer {
+  background-color: rgba($color: #ffffff, $alpha: 0.2);
 }
 
 body {
