@@ -5,12 +5,12 @@ import GoogleProvider from 'next-auth/providers/google';
 
 //res https://www.youtube.com/watch?v=YCEnpcCYlyo
 
-export const authOptions = {
+const authOptions = {
   //Configuration access providers
   providers: [
     FacebookProvider({
-      clientId: '',
-      clientSecret: '',
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     InstagramProvider({
       clientId: '',
@@ -23,4 +23,6 @@ export const authOptions = {
   ],
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
