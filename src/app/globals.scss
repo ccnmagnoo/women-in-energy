@@ -94,6 +94,15 @@ body {
   height: 100%;
 }
 
+#woman-sketch {
+  position: absolute;
+  right: 0;
+  bottom: -100px;
+  height: 80vh;
+  width: max-content;
+  object-fit: contain;
+}
+
 #site-logo {
   width: 200px;
   position: relative;

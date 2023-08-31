@@ -1,6 +1,8 @@
 import './globals.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import woman from '../../public/woman-in-energy-css.svg';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +17,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <body className={inter.className}>
         <span className='glowing up'></span>
         <span className='glowing down'></span>
+
         {children}
+        <Image alt='' src={woman} id='woman-sketch' />
       </body>
     </html>
   );

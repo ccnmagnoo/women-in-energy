@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import woman from '../../public/woman-in-energy-css.svg';
 import logo from '../../public/mi-logo.svg';
 
 function Home() {
