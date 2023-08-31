@@ -98,7 +98,7 @@ body {
   position: absolute;
   right: 0;
   bottom: -100px;
-  height: 80vh;
+  height: min(60vw, 80vh);
   width: max-content;
   object-fit: contain;
 }

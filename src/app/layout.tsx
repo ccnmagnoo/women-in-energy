@@ -17,9 +17,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <body className={inter.className}>
         <span className='glowing up'></span>
         <span className='glowing down'></span>
+        <Image alt='' src={woman} id='woman-sketch' />
 
         {children}
-        <Image alt='' src={woman} id='woman-sketch' />
       </body>
     </html>
   );
