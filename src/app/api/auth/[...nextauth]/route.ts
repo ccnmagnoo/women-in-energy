@@ -8,7 +8,7 @@ import GoogleProvider from 'next-auth/providers/google';
 const authOptions = {
   //Configuration access providers
   providers: [
-    FacebookProvider({
+    GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
@@ -16,7 +16,7 @@ const authOptions = {
       clientId: '',
       clientSecret: '',
     }),
-    GoogleProvider({
+    FacebookProvider({
       clientId: '',
       clientSecret: '',
     }),
