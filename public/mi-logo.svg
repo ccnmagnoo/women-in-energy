@@ -27,15 +27,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="3.4981545"
-     inkscape:cx="60.317518"
-     inkscape:cy="15.293778"
+     inkscape:zoom="3.1716375"
+     inkscape:cx="108.77662"
+     inkscape:cy="24.750622"
      inkscape:window-width="1533"
      inkscape:window-height="818"
      inkscape:window-x="2194"
      inkscape:window-y="18"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g7440" />
   <defs
      id="defs2">
     <filter
@@ -68,13 +68,13 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter6534"
-       x="-0.0046832428"
-       y="-0.0078983464"
-       width="1.0093665"
-       height="1.0157967">
+       x="-0.0095576379"
+       y="-0.016119074"
+       width="1.0191153"
+       height="1.0322381">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="0.011204424"
+         stdDeviation="0.022866171"
          id="feGaussianBlur6536" />
     </filter>
     <filter
@@ -188,11 +188,12 @@
            id="cotton_egg"
            transform="translate(1.3861492,0.34085637)">
           <circle
-             style="fill:#ffffff;fill-opacity:0.76408458;stroke:none;stroke-width:0.291632;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter7432)"
+             style="fill:#ffffff;fill-opacity:0.36011904;stroke:none;stroke-width:0.291632;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter7432)"
              id="cotton"
              cx="64.492783"
              cy="87.965492"
-             r="2" />
+             r="2"
+             transform="matrix(1.3596853,0,0,1.3596853,-23.197106,-31.639895)" />
           <path
              id="bowl_3"
              style="fill:#00fbde;fill-opacity:1;stroke:none;stroke-width:0.25812;filter:url(#filter6526)"
