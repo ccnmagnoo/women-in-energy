@@ -109,8 +109,8 @@ body {
 
   header {
     z-index: 1;
-    background-color: rgba($color: #ffffff10, $alpha: 1);
-    color: #000;
+    background-color: var(--dark-primary);
+    color: #ffffff;
     font-size: 1rem;
     min-height: calc(var(--bar-config) + 2rem);
 
