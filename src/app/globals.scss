@@ -108,7 +108,9 @@ body {
   --bar-config: 4rem;
 
   header {
-    background-color: rgba($color: #00000010, $alpha: 0.2);
+    z-index: 1;
+    background-color: rgba($color: #ffffff10, $alpha: 1);
+    color: #000;
     font-size: 1rem;
     min-height: calc(var(--bar-config) + 2rem);
 
@@ -123,15 +125,18 @@ body {
   }
 
   main {
+    z-index: 1;
     flex: 1 1 0;
   }
 
   footer {
+    z-index: 1;
     min-height: var(--bar-config);
   }
 
   #background {
     z-index: 0;
+
     #woman-sketch {
       position: absolute;
       right: 0;
@@ -142,6 +147,7 @@ body {
       filter: drop-shadow(10px 10px 5px rgb($color: black, $alpha: 0.1));
       transition: all 0.2s ease-out;
     }
+
     span.glowing {
       --glow-size: 130vh;
       --horizontal-frame: 0vw;
