@@ -3,9 +3,17 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import InstagramProvider from 'next-auth/providers/instagram';
 import GoogleProvider from 'next-auth/providers/google';
 
-//res https://www.youtube.com/watch?v=YCEnpcCYlyo
+import { AuthOptions, Theme } from 'next-auth';
 
-const authOptions = {
+//res https://www.youtube.com/watch?v=YCEnpcCYlyo
+const theme: Theme = {
+  colorScheme: 'light',
+  brandColor: '#A233EC01',
+  logo: '/_next/static/media/mi-logo.a7490708.svg',
+  buttonText: '#A233EC01',
+};
+
+const authOptions: AuthOptions = {
   //Configuration access providers
   providers: [
     GoogleProvider({
@@ -21,8 +29,8 @@ const authOptions = {
       clientSecret: '',
     }),
   ],
+  theme: theme,
 };
 
 const handler = NextAuth(authOptions);
-
 export { handler as GET, handler as POST };

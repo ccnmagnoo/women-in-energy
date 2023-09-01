@@ -7,7 +7,6 @@
 
   //🎨 color palette
   --foreground-rgb: 0, 0, 0;
-
   --color-hue: 264;
   --light-primary: hsla(var(--color-hue), 100%, 70%);
   --light-secondary: hsla(calc(var(--color-hue) + 270), 100%, 70%);
@@ -83,7 +82,7 @@
   padding: 0;
   margin: 0;
   /* debug */
-  border: 0.5px dotted red !important;
+  border: 0.5px dotted white !important;
 }
 
 html,
