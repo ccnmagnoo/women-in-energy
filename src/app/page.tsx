@@ -1,4 +1,8 @@
 function Home() {
-  return <main>dashboard</main>;
+  return (
+    <main>
+      <div className='cardboard'>cardboard</div>
+    </main>
+  );
 }
 export default Home;
