@@ -1,0 +1,37 @@
+#background {
+  z-index: 0;
+
+  #woman-sketch {
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+    height: min(60vw, 80vh);
+    width: max-content;
+    object-fit: contain;
+    filter: drop-shadow(var(--shadow));
+    transition: all 0.2s ease-out;
+  }
+
+  span.glowing {
+    --glow-size: 70vh;
+    --horizontal-frame: 18vw;
+    --vertical-frame: 1vw;
+    position: absolute;
+    border: initial;
+    height: var(--glow-size);
+    width: var(--glow-size);
+    border-radius: 1000px;
+
+    &.up {
+      top: var(--vertical-frame);
+      left: var(--horizontal-frame);
+      background: linear-gradient(to bottom, var(--secondary), transparent);
+    }
+
+    &.down {
+      bottom: var(--vertical-frame);
+      right: var(--horizontal-frame);
+      background: linear-gradient(to top, var(--primary), transparent);
+    }
+  }
+}

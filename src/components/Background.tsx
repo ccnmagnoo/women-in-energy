@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import woman from '../../public/woman-in-energy-css.svg';
+import woman from '@/app/static/woman-in-energy-css.svg';
 
 export const Background = () => {
   return (

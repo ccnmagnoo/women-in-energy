@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Providers from './Providers';
 import { Background } from '@/components/Background';
 import { Navbar } from '@/components/Navbar';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
+      <Head>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <body className={inter.className}>
         <Providers>
           <header>

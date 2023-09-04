@@ -2,7 +2,7 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../public/mi-logo.svg';
+import logo from '@/app/static/mi-logo.svg';
 
 export const Navbar = () => {
   const session = useSession().data;
