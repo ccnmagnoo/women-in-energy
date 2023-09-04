@@ -2,6 +2,8 @@ import './globals.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Providers from './Providers';
+import { Background } from '@/components/Background';
+import { Navbar } from '@/components/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +16,14 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <header>
+            <Navbar />
+          </header>
+          {children}
+          <footer>bottom bar</footer>
+        </Providers>
+        <Background />
       </body>
     </html>
   );
