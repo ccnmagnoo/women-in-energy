@@ -2,12 +2,13 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import logo from '../../public/mi-logo.svg';
 
 export const Navbar = () => {
   const session = useSession().data;
   return (
     <section>
-      logo
+      <Image src={logo} id='site-logo' alt='' />
       <nav>
         <Link href='/'>inicio</Link>
         <button onClick={() => signIn()}>login</button>

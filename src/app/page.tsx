@@ -8,7 +8,6 @@ function Home() {
     <>
       <header>
         <Navbar />
-        <Image src={logo} alt='' id='site-logo' />
       </header>
       <main>dashboard</main>
       <footer>bottom bar</footer>
