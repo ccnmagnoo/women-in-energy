@@ -1,7 +1,9 @@
+import ServiceSearchBar from '@/components/ServiceSearchBar';
+
 function Home() {
   return (
     <main>
-      <div className='cardboard'>cardboard</div>
+      <ServiceSearchBar />
     </main>
   );
 }
