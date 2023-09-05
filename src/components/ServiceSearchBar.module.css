@@ -16,7 +16,7 @@
   color: rgba(32, 17, 37, 0.877);
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
-  text-shadow: 1px 1px 2px var(--primary);
+  text-shadow: 1px 1px 1px var(--primary);
   padding: 0 2rem;
   width: fit-content;
   min-width: 400px;
@@ -27,6 +27,7 @@
 
 .searchbar:focus {
   background: white;
+  outline: none;
 }
 
 .button {
