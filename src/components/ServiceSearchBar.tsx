@@ -7,6 +7,8 @@ const ServiceSearchBar = () => {
         <section className={styles.container}>
           <form action=''>
             <input
+              autoFocus={true}
+              required
               className={styles.searchbar}
               placeholder='¿Qué quieres arreglar?'
               maxLength={100}

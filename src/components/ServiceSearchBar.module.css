@@ -1,8 +1,8 @@
 .container {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 200px;
   overflow: hidden;
-  display: flex;
+  display: flexbox;
   position: relative;
   min-width: 400px;
   align-items: center;
@@ -22,13 +22,11 @@
   min-width: 400px;
   max-width: 80vw;
   min-height: 50px;
-  flex: 1 1 0;
   transition: all 0.5ms ease-out;
 }
 
 .searchbar:focus {
   background: white;
-  border: none;
 }
 
 .button {
