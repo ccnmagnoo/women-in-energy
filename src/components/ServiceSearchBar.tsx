@@ -1,13 +1,23 @@
+import styles from './ServiceSearchBar.module.css';
+
 const ServiceSearchBar = () => {
   return (
-    <section>
+    <>
       <article className='card big'>
-        <form action=''>
-          <input maxLength={100} minLength={10} type='text' />
-          <button>buscar</button>
-        </form>
+        <section className={styles.container}>
+          <form action=''>
+            <input
+              className={styles.searchbar}
+              placeholder='¿Qué quieres arreglar?'
+              maxLength={100}
+              minLength={10}
+              type='text'
+            />
+            <button className={styles.button}>buscar</button>
+          </form>
+        </section>
       </article>
-    </section>
+    </>
   );
 };
 

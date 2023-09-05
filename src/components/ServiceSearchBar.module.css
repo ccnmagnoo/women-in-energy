@@ -1,0 +1,47 @@
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 200px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  min-width: 400px;
+  align-items: center;
+}
+
+.searchbar {
+  display: inline;
+  background: transparent;
+  text-align: center;
+  border: unset;
+  color: rgba(32, 17, 37, 0.877);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px var(--primary);
+  padding: 0 2rem;
+  width: fit-content;
+  min-width: 400px;
+  max-width: 80vw;
+  min-height: 50px;
+  flex: 1 1 0;
+  transition: all 0.5ms ease-out;
+}
+
+.searchbar:focus {
+  background: white;
+  border: none;
+}
+
+.button {
+  background-color: var(--primary);
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  min-height: 55px;
+  border: none;
+  padding: 0 10px;
+  transition: all 0.5ms ease-out;
+}
+
+.button:hover {
+  filter: brightness(1.2);
+}
