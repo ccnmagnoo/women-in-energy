@@ -1,21 +1,26 @@
-import styles from './ServiceSearchBar.module.css';
+'use client';
+
+import { ChangeEvent } from 'react';
+import styles from './ServiceSearchBar.module.scss';
 
 const ServiceSearchBar = () => {
+  function handler(event: ChangeEvent<HTMLInputElement>) {
+    event.preventDefault();
+  }
   return (
     <>
       <article className='card big'>
         <section className={styles.container}>
-          <form action=''>
+          <form>
             <input
-              autoFocus={true}
               required
               className={styles.searchbar}
-              placeholder='¿Qué quieres arreglar?'
               maxLength={100}
               minLength={10}
               type='text'
             />
             <button className={styles.button}>buscar</button>
+            <label className={styles.labelline}>¿qué quieres arreglar hoy?</label>
           </form>
         </section>
       </article>
