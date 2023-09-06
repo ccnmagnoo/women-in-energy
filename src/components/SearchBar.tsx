@@ -7,9 +7,11 @@ import { InputService } from '@/Models/Input';
 const ServiceSearchBar = ({
   form,
   register,
+  placeholder,
 }: {
   form: UseFormReturn<Partial<InputService>>;
   register: keyof Partial<InputService>;
+  placeholder?: string;
 }) => {
   const handler = (data: Partial<InputService>) => console.log(data);
 
@@ -21,9 +23,9 @@ const ServiceSearchBar = ({
             required
             {...form.register(register)}
             className={styles.searchbar}
-            placeholder='¿Qué arreglo quieres hacer?'
+            placeholder={placeholder}
             maxLength={100}
-            minLength={10}
+            minLength={5}
             type='text'
           ></input>
           <button className={styles.button}>buscar</button>
