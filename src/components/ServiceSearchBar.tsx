@@ -8,23 +8,21 @@ const ServiceSearchBar = () => {
     event.preventDefault();
   }
   return (
-    <>
-      <article className='card big'>
-        <section className={styles.container}>
-          <form>
-            <input
-              required
-              className={styles.searchbar}
-              maxLength={100}
-              minLength={10}
-              type='text'
-            />
-            <button className={styles.button}>buscar</button>
-            <label className={styles.labelline}>¿qué quieres arreglar hoy?</label>
-          </form>
-        </section>
-      </article>
-    </>
+    <article className='card big'>
+      <section className={styles.container}>
+        <form>
+          <input
+            required
+            className={styles.searchbar}
+            placeholder='¿Qué arreglo quieres hacer?'
+            maxLength={100}
+            minLength={10}
+            type='text'
+          ></input>
+          <button className={styles.button}>buscar</button>
+        </form>
+      </section>
+    </article>
   );
 };
 
