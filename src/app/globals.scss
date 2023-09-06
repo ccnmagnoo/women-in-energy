@@ -190,3 +190,8 @@ a {
     border-radius: 10px;
   }
 }
+@media (width <= 756px) {
+  .card.big {
+    padding: 2rem;
+  }
+}
