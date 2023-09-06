@@ -1,20 +1,25 @@
 'use client';
 
-import { ChangeEvent } from 'react';
-import styles from './ServiceSearchBar.module.scss';
+import styles from './SearchBar.module.scss';
 import { UseFormReturn } from 'react-hook-form';
 import { InputService } from '@/Models/Input';
 
-const ServiceSearchBar = ({ form }: { form: UseFormReturn<Partial<InputService>> }) => {
+const ServiceSearchBar = ({
+  form,
+  register,
+}: {
+  form: UseFormReturn<Partial<InputService>>;
+  register: keyof Partial<InputService>;
+}) => {
   const handler = (data: Partial<InputService>) => console.log(data);
 
   return (
-    <article className='card big'>
-      <section className={styles.container}>
+    <section className='card big'>
+      <div className={styles.container}>
         <form onSubmit={form.handleSubmit(handler)}>
           <input
             required
-            {...form.register('description')}
+            {...form.register(register)}
             className={styles.searchbar}
             placeholder='¿Qué arreglo quieres hacer?'
             maxLength={100}
@@ -23,8 +28,8 @@ const ServiceSearchBar = ({ form }: { form: UseFormReturn<Partial<InputService>>
           ></input>
           <button className={styles.button}>buscar</button>
         </form>
-      </section>
-    </article>
+      </div>
+    </section>
   );
 };
 

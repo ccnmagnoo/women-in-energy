@@ -1,6 +1,6 @@
 'use client';
 import { InputService } from '@/Models/Input';
-import ServiceSearchBar from '@/components/ServiceSearchBar';
+import ServiceSearchBar from '@/components/SearchBar';
 import { useForm } from 'react-hook-form';
 
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <main>
-      <ServiceSearchBar form={form} />
+      <ServiceSearchBar form={form} register='description' />
     </main>
   );
 }
