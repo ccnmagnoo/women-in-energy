@@ -4,6 +4,7 @@ import SearchBar from '@/components/SearchBar';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+//page with initial search logic
 function Home() {
   //form hook
   const form = useForm<Partial<InputService>>();

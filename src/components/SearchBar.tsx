@@ -18,11 +18,11 @@ const ServiceSearchBar = ({
 }) => {
   const handler = (data: Partial<InputService>) => {
     console.log(data);
-    dispatch !== undefined ? dispatch('location') : null;
+    dispatch ? dispatch('location') : null;
   };
 
   return (
-    <section className='card big'>
+    <section className='card big animate'>
       <div className={styles.container}>
         <form onSubmit={form.handleSubmit(handler)}>
           <input
