@@ -3,23 +3,30 @@
 import styles from './SearchBar.module.scss';
 import { UseFormReturn } from 'react-hook-form';
 import { InputService } from '@/Models/Input';
+import { Dispatch, SetStateAction } from 'react';
 
 const ServiceSearchBar = ({
   form,
   register,
   placeholder,
+  dispatch,
 }: {
   form: UseFormReturn<Partial<InputService>>;
   register: keyof Partial<InputService>;
   placeholder?: string;
+  dispatch?: Dispatch<SetStateAction<keyof InputService>>;
 }) => {
-  const handler = (data: Partial<InputService>) => console.log(data);
+  const handler = (data: Partial<InputService>) => {
+    console.log(data);
+    dispatch !== undefined ? dispatch('location') : null;
+  };
 
   return (
     <section className='card big'>
       <div className={styles.container}>
         <form onSubmit={form.handleSubmit(handler)}>
           <input
+            autoFocus={true}
             required
             {...form.register(register)}
             className={styles.searchbar}
