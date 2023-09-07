@@ -35,7 +35,9 @@ const ServiceSearchBar = ({
             minLength={5}
             type='text'
           ></input>
-          <button className={styles.button}>buscar</button>
+          <button type='submit' className={styles.button}>
+            buscar
+          </button>
         </form>
       </div>
     </section>
