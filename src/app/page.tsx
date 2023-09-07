@@ -7,16 +7,22 @@ import { useForm } from 'react-hook-form';
 function Home() {
   //form hook
   const form = useForm<Partial<InputService>>();
-  const [showLocationForm, setLocationForm] = useState<boolean>(false);
+  const [activeForm, setActiveForm] = useState<keyof InputService>('description');
 
   return (
     <main>
-      <SearchBar
-        form={form}
-        register='description'
-        placeholder='¿Qué quieres arreglar hoy?'
-      />
-      <SearchBar form={form} register='location' placeholder='¿comuna' />
+      {activeForm === 'description' ? (
+        <SearchBar
+          form={form}
+          register='description'
+          placeholder='¿Qué quieres arreglar hoy?'
+          dispatch={setActiveForm}
+        />
+      ) : undefined}
+
+      {activeForm === 'location' ? (
+        <SearchBar form={form} register='location' placeholder='¿ciudad o comuna?' />
+      ) : undefined}
     </main>
   );
 }
