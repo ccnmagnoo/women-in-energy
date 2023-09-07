@@ -14,6 +14,7 @@ function Home() {
     <main>
       {activeForm === 'description' ? (
         <SearchBar
+          key='description'
           form={form}
           register='description'
           placeholder='¿Qué quieres arreglar hoy?'
@@ -22,7 +23,12 @@ function Home() {
       ) : undefined}
 
       {activeForm === 'location' ? (
-        <SearchBar form={form} register='location' placeholder='¿ciudad o comuna?' />
+        <SearchBar
+          key='location'
+          form={form}
+          register='location'
+          placeholder='¿ciudad o comuna?'
+        />
       ) : undefined}
     </main>
   );
