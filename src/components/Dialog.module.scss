@@ -1,0 +1,38 @@
+.dialog {
+  position: absolute;
+
+  right: 10vw;
+  top: 25vh;
+  border-radius: 10px;
+  border: 2px solid var(--secondary);
+  padding: 1rem;
+
+  background: radial-gradient(at 80% 80%, var(--secondary), transparent);
+
+  font-family: monospace;
+  font-size: 1.5rem;
+
+  transition: all 0.5s ease-out;
+
+  &::after {
+    $tag_size: 15px;
+    content: '';
+
+    position: absolute;
+    bottom: calc($tag_size * (-2));
+
+    border: $tag_size solid transparent;
+    border-top: $tag_size solid var(--secondary);
+    position: absolute;
+  }
+  & :first-child {
+    font-style: italic;
+  }
+  & :last-child {
+    font-weight: bold;
+    text-transform: capitalize;
+    & :first-child {
+      text-transform: lowercase;
+    }
+  }
+}

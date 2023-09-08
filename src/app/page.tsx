@@ -3,6 +3,7 @@ import { InputService } from '@/Models/Input';
 import SearchBar from '@/components/SearchBar';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Dialog } from '@/components/Dialog';
 
 //page with initial search logic
 function Home() {
@@ -21,15 +22,16 @@ function Home() {
           dispatch={setActiveForm}
         />
       ) : undefined}
-
       {activeForm === 'location' ? (
         <SearchBar
           key='location'
           form={form}
           register='location'
-          placeholder='¿ciudad o comuna?'
+          placeholder='¿su ciudad o comuna?'
         />
       ) : undefined}
+
+      <Dialog form={form} />
     </main>
   );
 }
