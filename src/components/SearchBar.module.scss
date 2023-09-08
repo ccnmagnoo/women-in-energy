@@ -1,76 +1,80 @@
 .container {
+  $size: 60px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
+  flex-direction: row;
   position: relative;
   align-items: center;
+  justify-content: space-around;
   z-index: 0;
-}
 
-.searchbar {
-  background: transparent;
-  text-align: center;
-  z-index: 10;
-  padding: 0;
-  margin: 0;
-  min-width: 500px;
-  min-height: 50px;
-
-  border: none;
-
-  color: rgb(114, 85, 124);
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 4px 4px var(--primary);
-  font-weight: 900;
-
-  flex: 1 1 0;
-  transition: all 0.5ms ease-out;
-
-  &::placeholder {
-    color: rgb(166, 138, 185);
-    text-shadow: 1px 1px 1px 1px white;
-    font-weight: bolder;
-  }
-
-  &:focus {
-    background: rgba(255, 255, 255, 0.26);
-    outline: none;
-  }
-}
-@media (width <= 756px) {
   .searchbar {
-    font-size: 1rem;
-    width: 100%;
-    min-width: auto;
-    min-height: 50px;
-  }
-}
+    background: transparent;
+    text-align: center;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    min-width: 500px;
+    height: $size;
 
-.button {
-  background: var(--primary)
-    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
-  border: none;
+    border: none;
 
-  padding: 15px 10px;
-  transition: all 0.1s ease-out;
-  flex: 1 1 0;
+    color: rgb(114, 85, 124);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 4px 4px var(--primary);
+    font-weight: 900;
 
-  &:hover {
-    filter: brightness(1.1);
+    flex: 1 1 0;
+    transition: all 0.5ms ease-out;
+
+    &::placeholder {
+      color: rgb(166, 138, 185);
+      text-shadow: 1px 1px 1px 1px white;
+      font-weight: bolder;
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.26);
+      outline: none;
+    }
   }
-  &:active {
-    filter: brightness(1.4);
+  @media (width <= 756px) {
+    .searchbar {
+      font-size: 1rem;
+      width: 100%;
+      min-width: auto;
+      min-height: $size;
+    }
   }
-}
-@media (width <= 756px) {
+
   .button {
-    font-size: 1rem;
-    width: 100%;
+    background: var(--primary)
+      radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: none;
+    height: $size;
+
+    padding: 0 10px;
+    transition: all 0.1s ease-out;
+    flex: 1 1 0;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+    &:active {
+      filter: brightness(1.4);
+    }
+  }
+  @media (width <= 756px) {
+    .button {
+      font-size: 1rem;
+      width: 100%;
+    }
   }
 }
