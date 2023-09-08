@@ -27,12 +27,17 @@
   }
   & :first-child {
     font-style: italic;
+    max-width: 250px;
+    word-wrap: break-word;
   }
-  & :last-child {
+  & :nth-child(2) {
     font-weight: bold;
     text-transform: capitalize;
     & :first-child {
       text-transform: lowercase;
     }
+  }
+  @media (width<=765px) {
+    font-size: 1rem;
   }
 }
