@@ -24,7 +24,7 @@ const ServiceSearchBar = ({
   return (
     <section className='card big animate'>
       <div className={styles.container}>
-        <form onSubmit={form.handleSubmit(handler)}>
+        <form onSubmit={form.handleSubmit(handler)} autoComplete='off'>
           <input
             autoFocus={true}
             required
