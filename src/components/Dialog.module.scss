@@ -20,6 +20,7 @@
 
     position: absolute;
     bottom: calc($tag_size * (-2));
+    right: 20px;
 
     border: $tag_size solid transparent;
     border-top: $tag_size solid var(--secondary);
