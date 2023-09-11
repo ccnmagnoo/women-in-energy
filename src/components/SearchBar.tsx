@@ -9,16 +9,18 @@ const ServiceSearchBar = ({
   form,
   register,
   placeholder,
+  setDispatch,
   dispatch,
 }: {
   form: UseFormReturn<Partial<InputService>>;
   register: keyof Partial<InputService>;
   placeholder?: string;
-  dispatch?: Dispatch<SetStateAction<keyof InputService>>;
+  setDispatch?: Dispatch<SetStateAction<keyof InputService>>;
+  dispatch?: keyof Partial<InputService>;
 }) => {
   const handler = (data: Partial<InputService>) => {
     console.log(data);
-    dispatch ? dispatch('location') : null;
+    setDispatch && dispatch && setDispatch(dispatch);
   };
 
   return (
