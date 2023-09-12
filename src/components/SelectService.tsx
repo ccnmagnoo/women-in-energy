@@ -19,35 +19,29 @@ const SelectService = ({
 }) => {
   const handler = (data: Partial<InputService>) => {
     console.log(data);
+
     setDispatch && dispatch && setDispatch(dispatch);
   };
 
   return (
     <section className='card big animate'>
       <div className={styles.container}>
-        <form onSubmit={form.handleSubmit(handler)} autoComplete='off'>
-          <input
-            id='eli'
-            autoFocus={true}
-            required
-            {...form.register(register)}
-            className={styles.searchbar}
-            type='radio'
-            value='eli'
-          />
-          <label htmlFor='eli'>eléctrico</label>
-          <input
-            id='gas'
-            autoFocus={true}
-            required
-            {...form.register(register)}
-            className={styles.searchbar}
-            type='radio'
-            value='gas'
-          />
-          <label htmlFor='gas'>gas</label>
-        </form>
+        <section className={styles.selectContainer}>
+          <button
+            className={styles.serviceButton}
+            onClick={() => form.setValue('service', 'eli')}
+          >
+            eléctrica
+          </button>
+          <button
+            className={styles.serviceButton}
+            onClick={() => form.setValue('service', 'gas')}
+          >
+            gas
+          </button>
+        </section>
       </div>
+      {form.watch('service')}
     </section>
   );
 };
