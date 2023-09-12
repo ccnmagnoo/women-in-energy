@@ -41,4 +41,20 @@
   @media (width<=765px) {
     font-size: 1rem;
   }
+
+  .tag {
+    $size: 30px;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: var(--primary);
+    padding: 10px;
+    border-radius: 100px;
+    display: flex;
+
+    .icon {
+      width: $size;
+      height: $size;
+    }
+  }
 }
