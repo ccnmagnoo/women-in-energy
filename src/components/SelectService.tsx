@@ -6,6 +6,7 @@ import { InputService } from '@/Models/Input';
 import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import gas_ico from '@/app/static/gas-ico.svg';
+import eli_ico from '@/app/static/eli-ico.svg';
 
 const SelectService = ({
   form,
@@ -33,18 +34,18 @@ const SelectService = ({
             className={styles.serviceButton}
             onClick={() => form.setValue('service', 'eli')}
           >
-            eléctrica
+            <Image className={styles.icon} src={eli_ico} alt='' />
+            <span>eléctrica</span>
           </button>
           <button
             className={styles.serviceButton}
             onClick={() => form.setValue('service', 'gas')}
           >
-            <Image src={gas_ico} alt='' />
-            gas
+            <Image className={styles.icon} src={gas_ico} alt='' />
+            <span>gas</span>
           </button>
         </section>
       </div>
-      {form.watch('service')}
     </section>
   );
 };

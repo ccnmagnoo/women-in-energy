@@ -98,11 +98,23 @@
       cursor: pointer;
       background: $color;
       transition: all 50ms ease-in-out;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+
       &:hover {
         background: radial-gradient(circle at 50% 0%, $color, $accent 150%);
       }
       &:active {
         box-shadow: inset 0px 0px 10px 5px white;
+      }
+      .icon {
+        $size: 70px;
+        width: $size;
+        height: $size;
       }
     }
   }
@@ -112,9 +124,19 @@
       min-width: 70vw;
       gap: 10px;
       padding: 10px;
+      & * {
+        border: red 1px solid;
+      }
+
       .serviceButton {
         width: 100%;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        flex-direction: row;
+        .icon {
+          $size: 40px;
+          width: $size;
+          height: $size;
+        }
       }
     }
   }
