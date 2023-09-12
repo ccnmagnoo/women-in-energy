@@ -31,7 +31,9 @@ export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> })
             <p>
               <span>en </span>
               {obs('location')}😍
-              <span className={styles.tag}>{renderIcon(form.watch('service'))}</span>
+              {form.watch('service') && (
+                <span className={styles.tag}>{renderIcon(form.watch('service'))}</span>
+              )}
             </p>
           )}
         </article>
