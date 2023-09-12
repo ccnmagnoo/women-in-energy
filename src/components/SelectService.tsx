@@ -4,6 +4,8 @@ import styles from './SearchBar.module.scss';
 import { UseFormReturn } from 'react-hook-form';
 import { InputService } from '@/Models/Input';
 import { Dispatch, SetStateAction } from 'react';
+import Image from 'next/image';
+import gas_ico from '@/app/static/gas-ico.svg';
 
 const SelectService = ({
   form,
@@ -37,6 +39,7 @@ const SelectService = ({
             className={styles.serviceButton}
             onClick={() => form.setValue('service', 'gas')}
           >
+            <Image src={gas_ico} alt='' />
             gas
           </button>
         </section>

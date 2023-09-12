@@ -96,7 +96,7 @@
       text-shadow: 1px 1px 2px $accent;
 
       cursor: pointer;
-      background: radial-gradient(circle at 30% 0%, $color, $accent 220%);
+      background: $color;
       transition: all 50ms ease-in-out;
       &:hover {
         background: radial-gradient(circle at 50% 0%, $color, $accent 150%);
@@ -109,12 +109,12 @@
   @media (width <= 765px) {
     .selectContainer {
       justify-content: center;
-      min-width: 80vw;
+      min-width: 70vw;
       gap: 10px;
       padding: 10px;
       .serviceButton {
         width: 100%;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
   }
