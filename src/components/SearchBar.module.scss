@@ -82,7 +82,9 @@
     max-width: 700px;
     display: flex;
     align-items: center;
-    padding: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 
     .serviceButton {
       $color: var(--primary);
@@ -94,13 +96,25 @@
       text-shadow: 1px 1px 2px $accent;
 
       cursor: pointer;
-      background: radial-gradient(circle at 30% 0%, $color, $accent 200%);
+      background: radial-gradient(circle at 30% 0%, $color, $accent 220%);
       transition: all 50ms ease-in-out;
       &:hover {
         background: radial-gradient(circle at 50% 0%, $color, $accent 150%);
       }
       &:active {
         box-shadow: inset 0px 0px 10px 5px white;
+      }
+    }
+  }
+  @media (width <= 765px) {
+    .selectContainer {
+      justify-content: center;
+      min-width: 80vw;
+      gap: 10px;
+      padding: 10px;
+      .serviceButton {
+        width: 100%;
+        font-size: 1rem;
       }
     }
   }
