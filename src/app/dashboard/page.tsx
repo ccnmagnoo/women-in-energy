@@ -19,6 +19,7 @@ const Dashboard = () => {
       dashboard page
       {service.location}
       {service.description}
+      {service.service}
     </main>
   );
 };
