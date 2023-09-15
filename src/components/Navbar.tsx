@@ -16,6 +16,7 @@ export const Navbar = () => {
       {/* Navigation */}
       <nav className={styles.navbar}>
         <Link href='/'>inicio</Link>
+
         {session ? (
           <button
             className={[styles.logButton, styles.logout].join(' ')}
@@ -31,6 +32,8 @@ export const Navbar = () => {
             login
           </button>
         )}
+
+        {/* session info👤 */}
         <User session={session} />
       </nav>
     </section>
