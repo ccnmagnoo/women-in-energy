@@ -34,7 +34,7 @@ function Home() {
           dispatch='service'
         />
       )}
-      {activeForm === 'service' && <SelectService form={form} register='service' />}
+      {activeForm === 'service' && <SelectService form={form} />}
 
       <Dialog form={form} />
     </main>
