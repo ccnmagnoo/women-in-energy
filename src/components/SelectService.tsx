@@ -9,16 +9,7 @@ import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
 import { useRouter } from 'next/navigation';
 
-const SelectService = ({
-  form,
-  setDispatch,
-  dispatch,
-}: {
-  form: UseFormReturn<Partial<InputService>>;
-  placeholder?: string;
-  setDispatch?: Dispatch<SetStateAction<keyof InputService>>;
-  dispatch?: keyof Partial<InputService>;
-}) => {
+const SelectService = ({ form }: { form: UseFormReturn<Partial<InputService>> }) => {
   const router = useRouter();
 
   function handler<T extends InputService>(service: T['service']) {
