@@ -10,12 +10,10 @@ import eli_ico from '@/app/static/eli-ico.svg';
 
 const SelectService = ({
   form,
-  register,
   setDispatch,
   dispatch,
 }: {
   form: UseFormReturn<Partial<InputService>>;
-  register: keyof Partial<InputService>;
   placeholder?: string;
   setDispatch?: Dispatch<SetStateAction<keyof InputService>>;
   dispatch?: keyof Partial<InputService>;
