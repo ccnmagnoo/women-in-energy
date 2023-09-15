@@ -6,9 +6,11 @@ export const User = ({ session }: { session: Session | null }) => {
   return (
     <section className={styles.user_container}>
       Hola {session?.user?.name?.split(' ')[0]}
-      {session?.user?.image && (
-        <Image width={50} height={50} src={session?.user?.image} alt='' />
-      )}
+      <span className={styles.user_pic}>
+        {session?.user?.image && (
+          <Image width={50} height={50} src={session?.user?.image} alt='' />
+        )}
+      </span>
     </section>
   );
 };
