@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
+import { useRouter } from 'next/navigation';
 
 const SelectService = ({
   form,
@@ -18,9 +19,16 @@ const SelectService = ({
   setDispatch?: Dispatch<SetStateAction<keyof InputService>>;
   dispatch?: keyof Partial<InputService>;
 }) => {
+  const router = useRouter();
+
   function handler<T extends InputService>(service: T['service']) {
     form.setValue('service', service);
     console.log('setting service:', service);
+    router.push(
+      `/dashboard?description=${form.getValues('description')}&service=${form.getValues(
+        'service'
+      )}&location=${form.getValues('location')}`
+    );
   }
 
   return (
