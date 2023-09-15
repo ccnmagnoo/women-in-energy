@@ -18,27 +18,20 @@ const SelectService = ({
   setDispatch?: Dispatch<SetStateAction<keyof InputService>>;
   dispatch?: keyof Partial<InputService>;
 }) => {
-  const handler = (data: Partial<InputService>) => {
-    console.log(data);
-
-    setDispatch && dispatch && setDispatch(dispatch);
-  };
+  function handler<T extends InputService>(service: T['service']) {
+    form.setValue('service', service);
+    console.log('setting service:', service);
+  }
 
   return (
     <section className='card big animate'>
       <div className={styles.container}>
         <section className={styles.selectContainer}>
-          <button
-            className={styles.serviceButton}
-            onClick={() => form.setValue('service', 'eli')}
-          >
+          <button className={styles.serviceButton} onClick={() => handler('eli')}>
             <Image className={styles.icon} src={eli_ico} alt='' />
             <span>eléctrica</span>
           </button>
-          <button
-            className={styles.serviceButton}
-            onClick={() => form.setValue('service', 'gas')}
-          >
+          <button className={styles.serviceButton} onClick={() => handler('gas')}>
             <Image className={styles.icon} src={gas_ico} alt='' />
             <span>gas</span>
           </button>
