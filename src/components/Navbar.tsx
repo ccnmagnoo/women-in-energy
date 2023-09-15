@@ -15,21 +15,21 @@ export const Navbar = () => {
 
       {/* Navigation */}
       <nav className={styles.navbar}>
-        <Link href='/'>inicio</Link>
+        <Link href='/'>buscar🔎</Link>
 
         {session ? (
           <button
             className={[styles.logButton, styles.logout].join(' ')}
             onClick={() => signOut()}
           >
-            logout
+            cerrar
           </button>
         ) : (
           <button
             className={[styles.logButton, styles.login].join(' ')}
             onClick={() => signIn()}
           >
-            login
+            ingreso
           </button>
         )}
 
