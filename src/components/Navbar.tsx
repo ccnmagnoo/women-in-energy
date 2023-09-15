@@ -17,12 +17,15 @@ export const Navbar = () => {
       <nav className={styles.navbar}>
         <Link href='/'>buscar</Link>
 
+        {/* session info👤 */}
+        <User session={session} />
+
         {session ? (
           <button
             className={[styles.logButton, styles.logout].join(' ')}
             onClick={() => signOut()}
           >
-            cerrar
+            salir
           </button>
         ) : (
           <button
@@ -32,9 +35,6 @@ export const Navbar = () => {
             ingreso
           </button>
         )}
-
-        {/* session info👤 */}
-        <User session={session} />
       </nav>
     </section>
   );
