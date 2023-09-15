@@ -16,9 +16,9 @@ const Dashboard = () => {
   };
   return (
     <main>
-      dashboard page
-      {service.location}
-      {service.description}
+      dashboard page <br />
+      {service.location} <br />
+      {service.description} <br />
       {service.service}
     </main>
   );
