@@ -3,7 +3,6 @@
 import styles from './SearchBar.module.scss';
 import { UseFormReturn } from 'react-hook-form';
 import { InputService } from '@/Models/Input';
-import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
