@@ -25,11 +25,19 @@ const SelectService = ({ form }: { form: UseFormReturn<Partial<InputService>> })
     <section className='card big animate'>
       <div className={styles.container}>
         <section className={styles.selectContainer}>
-          <button className={styles.serviceButton} onClick={() => handler('eli')}>
+          <button
+            accessKey='e'
+            className={styles.serviceButton}
+            onClick={() => handler('eli')}
+          >
             <Image className={styles.icon} src={eli_ico} alt='' />
             <span>eléctrica</span>
           </button>
-          <button className={styles.serviceButton} onClick={() => handler('gas')}>
+          <button
+            accessKey='g'
+            className={styles.serviceButton}
+            onClick={() => handler('gas')}
+          >
             <Image className={styles.icon} src={gas_ico} alt='' />
             <span>gas</span>
           </button>
