@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google';
 import Providers from './Providers';
 import { Background } from '@/components/Background';
 import { Navbar } from '@/components/Navbar';
-import Head from 'next/head';
 import { URL } from 'url';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -13,8 +12,10 @@ export const metadata: Metadata = {
   title: 'instaladoras',
   authors: { name: 'Carlos Campos', url: new URL('https://github.com/ccnmagnoo') },
   description: 'Instaladoras certificadas SEC de electricidad y gas',
+  icons: {
+    icon: '/src/app/static/mi-ico.png',
+  },
 };
-
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
