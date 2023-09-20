@@ -6,6 +6,7 @@ import { Background } from '@/components/Background';
 import { Navbar } from '@/components/Navbar';
 import { URL } from 'url';
 import { ReactNode } from 'react';
+import { Bottombar } from '@/components/Bottombar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,7 +27,9 @@ function RootLayout({ children }: { children: ReactNode }) {
             <Navbar />
           </header>
           {children}
-          <footer>bottom bar</footer>
+          <footer>
+            <Bottombar />
+          </footer>
         </Providers>
         <Background />
       </body>

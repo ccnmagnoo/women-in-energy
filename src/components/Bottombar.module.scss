@@ -1,0 +1,15 @@
+.bottombar {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  ul {
+    display: flex;
+    gap: 30px;
+  }
+}
