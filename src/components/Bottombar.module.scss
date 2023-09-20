@@ -11,6 +11,14 @@
   ul {
     display: flex;
     list-style-type: none;
-    gap: 30px;
+    gap: 20px;
+
+    li {
+      cursor: pointer;
+      padding: 5px;
+    }
+    li:hover {
+      text-decoration: underline;
+    }
   }
 }
