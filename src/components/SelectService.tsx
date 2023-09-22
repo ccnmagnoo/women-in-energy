@@ -7,17 +7,19 @@ import Image from 'next/image';
 import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
 import { useRouter } from 'next/navigation';
+import { getTerritory } from 'chilean-territory-code';
 
 const SelectService = ({ form }: { form: UseFormReturn<Partial<InputService>> }) => {
   const router = useRouter();
 
   function handler<T extends InputService>(service: T['service']) {
     form.setValue('service', service);
-    console.log('setting service:', service);
+
+    //address to
     router.push(
       `/dashboard?description=${form.getValues('description')}&service=${form.getValues(
         'service'
-      )}&location=${form.getValues('location')}`
+      )}&location=${getTerritory(form.getValues('location'))}`
     );
   }
 
