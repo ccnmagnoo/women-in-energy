@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
+import { getTerritory } from 'chilean-territory-code';
 
 export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> }) => {
   const { watch: obs } = form;
@@ -30,7 +31,8 @@ export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> })
           {obs('location') && (
             <p>
               <span>en </span>
-              {obs('location')}😍
+              {getTerritory(obs('location'))?.name}😍 (
+              {100 - (getTerritory(obs('location'))?.leven ?? 10) * 10}%)
               {form.watch('service') && (
                 <span className={styles.tag}>{renderIcon(form.watch('service'))}</span>
               )}
