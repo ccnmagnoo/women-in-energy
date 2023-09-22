@@ -19,7 +19,7 @@ const SelectService = ({ form }: { form: UseFormReturn<Partial<InputService>> })
     router.push(
       `/dashboard?description=${form.getValues('description')}&service=${form.getValues(
         'service'
-      )}&location=${getTerritory(form.getValues('location'))}`
+      )}&location=${getTerritory(form.getValues('location'))?.name}`
     );
   }
 
