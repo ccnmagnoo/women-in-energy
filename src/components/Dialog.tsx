@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 import gas_ico from '@/app/static/gas-ico.svg';
 import eli_ico from '@/app/static/eli-ico.svg';
+import { getTerritory } from 'chilean-territory-code';
 
 export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> }) => {
   const { watch: obs } = form;
