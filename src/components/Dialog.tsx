@@ -22,6 +22,12 @@ export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> })
     }
   }
 
+  function pproximity(leven?: number): React.ReactNode {
+    if (leven === undefined) return undefined;
+    if (leven > 10 || leven < 0) return undefined;
+    return <span className={styles.pproximity}>{100 - (leven ?? 10) * 10}%</span>;
+  }
+
   return (
     <>
       {obs('description') && (
@@ -31,8 +37,8 @@ export const Dialog = ({ form }: { form: UseFormReturn<Partial<InputService>> })
           {obs('location') && (
             <p>
               <span>en </span>
-              {getTerritory(obs('location'))?.name}😍 (
-              {100 - (getTerritory(obs('location'))?.leven ?? 10) * 10}%)
+              {getTerritory(obs('location'))?.name}😍
+              {pproximity(getTerritory(obs('location'))?.leven)}
               {form.watch('service') && (
                 <span className={styles.tag}>{renderIcon(form.watch('service'))}</span>
               )}
