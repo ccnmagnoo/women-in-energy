@@ -25,7 +25,7 @@ async function handler(req: Request) {
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-      body: encoded,
+      body: 'accion=buscar&rutInstalador=&claseInstalador=&ambito=1&rut=14.189.412-9',
     }
   );
   const hypertext = await data.text();
