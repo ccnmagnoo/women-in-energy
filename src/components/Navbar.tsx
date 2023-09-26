@@ -15,7 +15,7 @@ export const Navbar = () => {
 
       {/* Navigation */}
       <nav className={styles.navbar}>
-        <Link href='/'>buscar</Link>
+        <Link href='/'>buscar instaladoras</Link>
 
         {/* session info👤 */}
         <User session={session} />
