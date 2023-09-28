@@ -10,10 +10,8 @@ async function handler(req: Req, res: Res) {
     rut: getRut(searchParams.get('rut')),
   };
 
-  if (!service.rut)
-    return Res.json({ message: 'invalid identifier input' }, { status: 400 });
-  if (!service.service)
-    return Res.json({ message: 'invalid service type' }, { status: 400 });
+  if (!service.rut) return Res.json({}, { status: 400, statusText: 'invalid id' });
+  if (!service.service) return Res.json({}, { status: 400, statusText: 'invalid type' });
 
   //convert to model Payload
   const payload: SecPayload = {
@@ -30,6 +28,7 @@ async function handler(req: Req, res: Res) {
       body: buildUrl(payload),
     }
   );
+
   const hypertext = await data.text();
 
   //extracting data if exists
@@ -38,7 +37,7 @@ async function handler(req: Req, res: Res) {
 
   if (!result.length)
     return Res.json(
-      { response: 'no data' },
+      {},
       {
         status: 206,
         statusText: `no certification found for ${service.service}`,
@@ -47,7 +46,10 @@ async function handler(req: Req, res: Res) {
 
   //data res
   return Res.json(
-    { response: result.slice(0, 5).map((it) => cheerio.load(it).text()) },
+    {
+      response: result.slice(0, 5).map((it) => cheerio.load(it).text()),
+      source: data.url,
+    },
     { status: 200 }
   );
 }
