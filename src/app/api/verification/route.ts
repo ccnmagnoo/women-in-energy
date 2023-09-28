@@ -1,5 +1,6 @@
 import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { SecPayload, ServiceUrl } from './Service';
+import * as cheerio from 'cheerio';
 
 async function handler(req: Req, res: Res) {
   //retrieve ?-params
@@ -9,7 +10,10 @@ async function handler(req: Req, res: Res) {
     rut: getRut(searchParams.get('rut')),
   };
 
-  if (!service.rut) return Res.json({ message: 'invalid input' }, { status: 400 });
+  if (!service.rut)
+    return Res.json({ message: 'invalid identifier input' }, { status: 400 });
+  if (!service.service)
+    return Res.json({ message: 'invalid service type' }, { status: 400 });
 
   //convert to model Payload
   const payload: SecPayload = {
@@ -28,8 +32,15 @@ async function handler(req: Req, res: Res) {
   );
   const hypertext = await data.text();
 
+  //extracting data if exists
+  const $ = cheerio.load(hypertext);
+  const result = $('tr.odd').find('td').toArray();
+
   //data res
-  return Res.json({ response: hypertext.length }, { status: 200 });
+  return Res.json(
+    { response: result.slice(0, 4).map((it) => cheerio.load(it).text()) },
+    { status: 200 }
+  );
 }
 
 /**
