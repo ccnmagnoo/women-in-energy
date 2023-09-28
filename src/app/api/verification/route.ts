@@ -47,7 +47,7 @@ async function handler(req: Req, res: Res) {
 
   //data res
   return Res.json(
-    { response: result.slice(0, 4).map((it) => cheerio.load(it).text()) },
+    { response: result.slice(0, 5).map((it) => cheerio.load(it).text()) },
     { status: 200 }
   );
 }
