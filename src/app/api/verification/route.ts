@@ -36,6 +36,15 @@ async function handler(req: Req, res: Res) {
   const $ = cheerio.load(hypertext);
   const result = $('tr.odd').find('td').toArray();
 
+  if (!result.length)
+    return Res.json(
+      { response: 'no data' },
+      {
+        status: 206,
+        statusText: `no certification found for ${service.service}`,
+      }
+    );
+
   //data res
   return Res.json(
     { response: result.slice(0, 4).map((it) => cheerio.load(it).text()) },
