@@ -1,20 +1,20 @@
 import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { SecPayload, ServiceUrl } from './Service';
-import { URLSearchParams } from 'url';
 
-async function handler(req: Request) {
+async function handler(req: Req, res: Res) {
   //retrieve ?-params
   const { searchParams } = new URL(req.url);
-
   const service: Partial<ServiceUrl> = {
     service: getService(searchParams.get('service')),
     rut: getRut(searchParams.get('rut')),
   };
 
+  if (!service.rut) return Res.json({ message: 'invalid input' }, { status: 400 });
+
   //convert to model Payload
   const payload: SecPayload = {
-    ambito: 1,
-    rut: '14.189.412-9',
+    ambito: service.service === 'gas' ? 2 : 1,
+    rut: service.rut ?? '',
     accion: 'buscar',
   };
 
@@ -29,23 +29,31 @@ async function handler(req: Request) {
   const hypertext = await data.text();
 
   //data res
-  return Res.json({ response: hypertext });
+  return Res.json({ response: hypertext.length }, { status: 200 });
 }
 
+/**
+ *
+ * @param payload object to convert to x-www-form request
+ * @returns string with x-www-form format, this is requested by POST source
+ */
 const buildUrl = (payload: Object): string => {
   return Object.entries(payload)
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&');
 };
 
+/**
+ * @param input string corresponding a type of services to search "eli"|"gas"|undefined
+ * @returns it´s if a valid service type, if not gives undefined
+ */
 const getService = (input?: string | null): ServiceUrl['service'] | undefined => {
-  if (input) return undefined;
+  if (!input) return undefined;
   if (input === 'eli' || input === 'gas') return input as ServiceUrl['service'];
   return undefined;
 };
 
 /**
- *
  * @param rut string of rol id format "12000000-1"
  * @returns string with dot format "12.000.000-1"
  */
@@ -54,7 +62,7 @@ const getRut = (rut?: string | null): string | undefined => {
 
   const [body, cv] = rut.split('-', 2);
 
-  if (typeof +body !== 'number') return undefined;
+  if (typeof +body !== 'number' || isNaN(+body)) return undefined;
 
   return (+body).toLocaleString().replace(',', '.') + '-' + cv;
 };
