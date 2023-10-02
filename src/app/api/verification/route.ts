@@ -2,6 +2,12 @@ import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { SecPayload, ServiceUrl } from './Service';
 import * as cheerio from 'cheerio';
 
+/**
+ *
+ * @param req api params
+ * @param res api request
+ * @returns promise 200{response:string[],source:url}
+ */
 async function handler(req: Req, res: Res) {
   //retrieve ?-params
   const { searchParams } = new URL(req.url);
