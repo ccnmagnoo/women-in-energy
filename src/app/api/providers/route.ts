@@ -28,12 +28,15 @@ async function handler(req: Req, res: Res) {
   );
 
   const snapshot = await getDocs(providersQuery);
-  const result: DocumentData = [];
+  const result: DocumentData[] = [];
   snapshot.forEach((doc) => {
     result.push(doc.data());
   });
 
-  return Res.json({ search: toSearch, response: result }, { status: 200 });
+  return Res.json(
+    { search: { ...toSearch, size: result.length }, response: result },
+    { status: 200 }
+  );
 }
 
 /**
