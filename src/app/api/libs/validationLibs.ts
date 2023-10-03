@@ -14,7 +14,7 @@ const getService = (input?: string | null): ServiceUrl['service'] | undefined =>
  * @param rut string of rol id format "12000000-1"
  * @returns string with dot format "12.000.000-1"
  */
-const getRut = (rut?: string | null): string | undefined => {
+const getDottedRut = (rut?: string | null): string | undefined => {
   if (!rut) return undefined;
 
   const [body, cv] = rut.split('-', 2);
@@ -24,4 +24,4 @@ const getRut = (rut?: string | null): string | undefined => {
   return (+body).toLocaleString().replace(',', '.') + '-' + cv;
 };
 
-export { getRut, getService };
+export { getDottedRut, getService };

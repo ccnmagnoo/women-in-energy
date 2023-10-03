@@ -1,7 +1,7 @@
 import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { SecPayload, ServiceUrl } from './Service';
 import * as cheerio from 'cheerio';
-import { getRut, getService } from '../libs/validationLibs';
+import { getDottedRut, getService } from '../libs/validationLibs';
 
 /**
  *
@@ -14,7 +14,7 @@ async function handler(req: Req, res: Res) {
   const { searchParams } = new URL(req.url);
   const service: Partial<ServiceUrl> = {
     service: getService(searchParams.get('service')),
-    rut: getRut(searchParams.get('rut')),
+    rut: getDottedRut(searchParams.get('rut')),
   };
 
   if (!service.rut) return Res.json({}, { status: 400, statusText: 'invalid id' });
