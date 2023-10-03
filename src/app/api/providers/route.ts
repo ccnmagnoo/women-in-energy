@@ -1,7 +1,7 @@
 import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { getService } from '../libs/validationLibs';
 import { InputService } from '@/Models/Input';
-import { getTerritory } from 'chilean-territory-code';
+import { getTerritory, getCitiesList } from 'chilean-territory-code';
 import {
   DocumentData,
   collection,
@@ -12,6 +12,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { db } from '../libs/database';
+import { Cut } from 'chilean-territory-code/build/models/territory';
 
 async function handler(req: Req, res: Res) {
   const { searchParams } = new URL(req.url);
@@ -20,6 +21,14 @@ async function handler(req: Req, res: Res) {
     location: getTerritory(searchParams.get('location') ?? undefined, 'city')?.name,
   };
 
+  //territorial scope
+  const scope: Record<string, Cut['city'][]> = {
+    city: [toSearch.location ?? ''],
+    province: getCitiesList(toSearch.location, 'province')?.map((it) => it.city) ?? [],
+    region: getCitiesList(toSearch.location, 'province')?.map((it) => it.city) ?? [],
+  };
+
+  //firebase query
   const providersQuery = query(
     collection(db, '/energy_providers/source_providers/providers'),
     where('personal.gender', '==', 'female'),
