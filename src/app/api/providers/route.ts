@@ -22,12 +22,18 @@ async function handler(req: Req, res: Res) {
   };
 
   //territorial scope
-  const scope: Record<string, Cut['city'][]> = {
+  const scope: Record<'city' | 'province' | 'region', Cut['city'][]> = {
     city: [toSearch.location ?? ''],
     province:
       getCitiesList(toSearch.location, 'city', 'province')?.map((it) => it.city) ?? [],
     region:
       getCitiesList(toSearch.location, 'city', 'region')?.map((it) => it.city) ?? [],
+  };
+  //exclude city on smaller scope
+  const redux_scope: typeof scope = {
+    city: scope.city,
+    province: scope.province.filter(() => {}),
+    region: scope.region.filter(() => {}),
   };
 
   console.log('scopes', scope);
