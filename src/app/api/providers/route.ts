@@ -24,9 +24,13 @@ async function handler(req: Req, res: Res) {
   //territorial scope
   const scope: Record<string, Cut['city'][]> = {
     city: [toSearch.location ?? ''],
-    province: getCitiesList(toSearch.location, 'province')?.map((it) => it.city) ?? [],
-    region: getCitiesList(toSearch.location, 'province')?.map((it) => it.city) ?? [],
+    province:
+      getCitiesList(toSearch.location, 'city', 'province')?.map((it) => it.city) ?? [],
+    region:
+      getCitiesList(toSearch.location, 'city', 'region')?.map((it) => it.city) ?? [],
   };
+
+  console.log('scopes', scope);
 
   //firebase query
   const providersQuery = query(
