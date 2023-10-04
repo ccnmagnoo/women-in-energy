@@ -29,14 +29,17 @@ async function handler(req: Req, res: Res) {
     region:
       getCitiesList(toSearch.location, 'city', 'region')?.map((it) => it.city) ?? [],
   };
-  //exclude city on smaller scope
+
+  //each territorial scope exclude children cities
   const redux_scope: typeof scope = {
     city: scope.city,
-    province: scope.province.filter(() => {}),
-    region: scope.region.filter(() => {}),
+    province: scope.province.filter((it) => !scope.city.includes(it)),
+    region: scope.region.filter(
+      (it) => !scope.province.includes(it) || !scope.city.includes(it)
+    ),
   };
 
-  console.log('scopes', scope);
+  console.log('redux scopes', redux_scope);
 
   //firebase query
   const providersQuery = query(
