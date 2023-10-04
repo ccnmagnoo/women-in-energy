@@ -4,6 +4,7 @@ import { InputService } from '@/Models/Input';
 import { getTerritory, getCitiesList } from 'chilean-territory-code';
 import {
   DocumentData,
+  Firestore,
   QueryFieldFilterConstraint,
   collection,
   getDoc,
@@ -42,29 +43,29 @@ async function handler(req: Req, res: Res) {
 
   console.log('redux scopes', redux_scope);
 
-  const data = where('address.city', '==', toSearch.location);
-
-  //firebase query
-  const providersQuery = query(
-    collection(db, '/energy_providers/source_providers/providers'),
-    where('personal.gender', '==', 'female'),
-    where('address.city', '==', toSearch.location),
-    where('license.service', '==', toSearch.service)
+  //firebase query just city
+  let result: DocumentData[] = await fetchDocs(
+    toSearch.service,
+    db,
+    where('address.city', '==', toSearch.location)
   );
-
-  const snapshot = await getDocs(providersQuery);
-  const result: DocumentData[] = [];
-  snapshot.forEach((doc) => {
-    result.push(doc.data());
-  });
-
-  if (result.length <= 10) {
-    const provincialQuery = query(
-      collection(db, '/energy_providers/source_providers/providers'),
-      where('personal.gender', '==', 'female'),
-      where('address.city', 'in', redux_scope.province),
-      where('license.service', '==', toSearch.service)
+  //firebase query provincial siblings
+  if (result.length <= 5) {
+    const provincialFetch = await fetchDocs(
+      toSearch.service,
+      db,
+      where('address.city', 'in', redux_scope.province)
     );
+    result = [...result, provincialFetch];
+  }
+  //firebase query regional siblings
+  if (result.length <= 5) {
+    const regionalFetch = await fetchDocs(
+      toSearch.service,
+      db,
+      where('address.city', 'in', redux_scope.region)
+    );
+    result = [...result, regionalFetch];
   }
 
   return Res.json(
@@ -74,7 +75,8 @@ async function handler(req: Req, res: Res) {
 }
 
 async function fetchDocs(
-  service: InputService['service'],
+  service: InputService['service'] = 'eli',
+  db: Firestore,
   territorialFilter: QueryFieldFilterConstraint
 ) {
   const providersQuery = query(
