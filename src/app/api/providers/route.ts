@@ -4,6 +4,7 @@ import { InputService } from '@/Models/Input';
 import { getTerritory, getCitiesList } from 'chilean-territory-code';
 import {
   DocumentData,
+  QueryFieldFilterConstraint,
   collection,
   getDoc,
   getDocs,
@@ -41,6 +42,8 @@ async function handler(req: Req, res: Res) {
 
   console.log('redux scopes', redux_scope);
 
+  const data = where('address.city', '==', toSearch.location);
+
   //firebase query
   const providersQuery = query(
     collection(db, '/energy_providers/source_providers/providers'),
@@ -55,10 +58,37 @@ async function handler(req: Req, res: Res) {
     result.push(doc.data());
   });
 
+  if (result.length <= 10) {
+    const provincialQuery = query(
+      collection(db, '/energy_providers/source_providers/providers'),
+      where('personal.gender', '==', 'female'),
+      where('address.city', 'in', redux_scope.province),
+      where('license.service', '==', toSearch.service)
+    );
+  }
+
   return Res.json(
     { search: { ...toSearch, size: result.length }, response: result },
     { status: 200 }
   );
+}
+
+async function fetchDocs(
+  service: InputService['service'],
+  territorialFilter: QueryFieldFilterConstraint
+) {
+  const providersQuery = query(
+    collection(db, '/energy_providers/source_providers/providers'),
+    where('personal.gender', '==', 'female'),
+    territorialFilter,
+    where('license.service', '==', service)
+  );
+  const snapshot = await getDocs(providersQuery);
+  const result: DocumentData[] = [];
+  snapshot.forEach((doc) => {
+    result.push(doc.data());
+  });
+  return result;
 }
 
 /**
