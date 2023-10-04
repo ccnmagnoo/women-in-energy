@@ -41,35 +41,44 @@ async function handler(req: Req, res: Res) {
     ),
   };
 
-  console.log('redux scopes', redux_scope);
-
   //firebase query just city
-  let result: DocumentData[] = await fetchDocs(
+  let result: Record<'city' | 'province' | 'region', DocumentData[]> = {
+    city: [],
+    province: [],
+    region: [],
+  };
+
+  result.city = await fetchDocs(
     toSearch.service,
     db,
     where('address.city', '==', toSearch.location)
   );
   //firebase query provincial siblings
-  if (result.length <= 5) {
-    const provincialFetch = await fetchDocs(
+  if (result.city.length <= 10) {
+    const limitedCities = redux_scope.province.splice(0, 30);
+    console.log('searching on provincial scope ', limitedCities.length);
+
+    result.province = await fetchDocs(
       toSearch.service,
       db,
-      where('address.city', 'in', redux_scope.province)
+      where('address.city', 'in', limitedCities)
     );
-    result = [...result, provincialFetch];
   }
   //firebase query regional siblings
-  if (result.length <= 5) {
-    const regionalFetch = await fetchDocs(
+  if (result.province.length + result.city.length <= 10) {
+    const limitedCities = redux_scope.region.splice(0, 30);
+    console.log('searching on regional scope ', limitedCities.length);
+    result.region = await fetchDocs(
       toSearch.service,
       db,
-      where('address.city', 'in', redux_scope.region)
+      where('address.city', 'in', limitedCities)
     );
-    result = [...result, regionalFetch];
   }
 
+  let result_size = 1;
+
   return Res.json(
-    { search: { ...toSearch, size: result.length }, response: result },
+    { search: { ...toSearch, size: null }, response: result },
     { status: 200 }
   );
 }
