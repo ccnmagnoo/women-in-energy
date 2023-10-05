@@ -75,10 +75,13 @@ async function handler(req: Req, res: Res) {
     );
   }
 
-  let result_size = 1;
+  let result_size = 0;
+  for (let key in result) {
+    result_size += result[key as 'city' | 'province' | 'region'].length;
+  }
 
   return Res.json(
-    { search: { ...toSearch, size: null }, response: result },
+    { search: { ...toSearch, size: result_size }, response: result },
     { status: 200 }
   );
 }
@@ -97,7 +100,7 @@ async function fetchDocs(
   const snapshot = await getDocs(providersQuery);
   const result: DocumentData[] = [];
   snapshot.forEach((doc) => {
-    result.push(doc.data());
+    result.push({ ...doc.data(), uuid: doc.id });
   });
   return result;
 }
