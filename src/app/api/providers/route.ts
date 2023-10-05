@@ -7,9 +7,7 @@ import {
   Firestore,
   QueryFieldFilterConstraint,
   collection,
-  getDoc,
   getDocs,
-  limit,
   query,
   where,
 } from 'firebase/firestore';
