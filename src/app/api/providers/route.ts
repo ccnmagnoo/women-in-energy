@@ -13,6 +13,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../libs/database';
 import { Cut } from 'chilean-territory-code/build/models/territory';
+import { Service } from '@/Models/Providers';
 
 async function handler(req: Req, res: Res) {
   const { searchParams } = new URL(req.url);
@@ -85,7 +86,7 @@ async function handler(req: Req, res: Res) {
 }
 
 async function fetchDocs(
-  service: InputService['service'] = 'eli',
+  service: Service = 'eli',
   db: Firestore,
   territorialFilter: QueryFieldFilterConstraint
 ) {
