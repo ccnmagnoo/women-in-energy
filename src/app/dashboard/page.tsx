@@ -1,7 +1,8 @@
 'use client';
 import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
+import { ResultProviders } from '@/Models/Providers';
 
 const Dashboard = () => {
   const by_url = useSearchParams();
@@ -19,21 +20,20 @@ const Dashboard = () => {
     magnitude: undefined,
   };
 
-  const build: Record<string, string | undefined> = {};
+  const buildParams: Record<string, string | undefined> = {};
   Object.keys(searchParams).forEach((key) => {
-    build[key] = by_url.get(key) || undefined;
+    buildParams[key] = by_url.get(key) || undefined;
   });
 
   //providers hooks
-  const [providers, setProviders] = useState();
-  fetchProviders(build);
+  const [providers, setProviders] = useState(undefined);
 
   return (
     <main>
       dashboard page <br />
-      {build.location} <br />
-      {build.description} <br />
-      {build.service}
+      {buildParams.location} <br />
+      {buildParams.description} <br />
+      {buildParams.service}
     </main>
   );
 };
@@ -48,7 +48,8 @@ async function fetchProviders<T extends Record<string, string | undefined>, K>(
         .map(([key, value]) => `${key}=${value ?? ''}`)
         .join('&');
 
-    fetch(api);
+    const data = await fetch(api);
+    console.log('data', data);
   } catch (error) {
     console.error(error);
   }
