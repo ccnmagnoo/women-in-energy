@@ -1,7 +1,7 @@
 import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { getService } from '../libs/validationLibs';
 import { InputService } from '@/Models/Input';
-import { getTerritory, getCitiesList } from 'chilean-territory-code';
+import { getTerritory, getCitiesList, getCut } from 'chilean-territory-code';
 import {
   DocumentData,
   Firestore,
@@ -27,8 +27,7 @@ async function handler(req: Req, res: Res) {
     city: [toSearch.location ?? ''],
     province:
       getCitiesList(toSearch.location, 'city', 'province')?.map((it) => it.city) ?? [],
-    region:
-      getCitiesList(toSearch.location, 'city', 'region')?.map((it) => it.city) ?? [],
+    region: [getCut(toSearch.location ?? '', 'city')?.region ?? ''],
   };
 
   //each territorial scope exclude children cities
@@ -55,7 +54,7 @@ async function handler(req: Req, res: Res) {
   //firebase query provincial siblings
   if (result.city.length <= 10) {
     const limitedCities = redux_scope.province.splice(0, 30);
-    console.log('searching on provincial scope ', limitedCities.length);
+    console.log('searching on provincial scope ', limitedCities.length, 'cities');
 
     result.province = await fetchDocs(
       toSearch.service,
@@ -66,11 +65,11 @@ async function handler(req: Req, res: Res) {
   //firebase query regional siblings
   if (result.province.length + result.city.length <= 10) {
     const limitedCities = redux_scope.region.splice(0, 30);
-    console.log('searching on regional scope ', limitedCities.length);
+    console.log('searching on regional scope ', limitedCities.length, 'cities');
     result.region = await fetchDocs(
       toSearch.service,
       db,
-      where('address.city', 'in', limitedCities)
+      where('address.region', '==', scope.region[0])
     );
   }
 
