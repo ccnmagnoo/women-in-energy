@@ -1,8 +1,8 @@
 'use client';
 import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
-import { useState } from 'react';
-import { ResultProviders } from '@/Models/Providers';
+import { useEffect, useState } from 'react';
+import { ResultProviders, SearchResponse } from '@/Models/Providers';
 
 const Dashboard = () => {
   const by_url = useSearchParams();
@@ -26,21 +26,28 @@ const Dashboard = () => {
   });
 
   //providers hooks
-  const [providers, setProviders] = useState(undefined);
+  const [providers, setProviders] = useState<ResultProviders | undefined>(undefined);
+  useEffect(() => {
+    async function fetch() {
+      const data = await fetchProviders(buildParams);
+      setProviders(data);
+    }
+
+    fetch();
+  }, []);
 
   return (
     <main>
       dashboard page <br />
       {buildParams.location} <br />
       {buildParams.description} <br />
-      {buildParams.service}
+      {buildParams.service} <br />
+      {providers?.search.size}
     </main>
   );
 };
 
-async function fetchProviders<T extends Record<string, string | undefined>, K>(
-  params: T
-) {
+async function fetchProviders<T extends Record<string, string | undefined>>(params: T) {
   try {
     const api =
       '/api/providers?' +
@@ -49,7 +56,8 @@ async function fetchProviders<T extends Record<string, string | undefined>, K>(
         .join('&');
 
     const data = await fetch(api);
-    console.log('data', data);
+
+    return data.json();
   } catch (error) {
     console.error(error);
   }
