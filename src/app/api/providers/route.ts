@@ -13,7 +13,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../libs/database';
 import { Cut } from 'chilean-territory-code/build/models/territory';
-import { Service } from '@/Models/Providers';
+import { SearchResponse, Service } from '@/Models/Providers';
 
 async function handler(req: Req, res: Res) {
   const { searchParams } = new URL(req.url);
@@ -23,7 +23,7 @@ async function handler(req: Req, res: Res) {
   };
 
   //territorial scope
-  const scope: Record<'city' | 'province' | 'region', Cut['city'][]> = {
+  const scope: SearchResponse<Cut['city']> = {
     city: [toSearch.location ?? ''],
     province:
       getCitiesList(toSearch.location, 'city', 'province')?.map((it) => it.city) ?? [],
@@ -41,7 +41,7 @@ async function handler(req: Req, res: Res) {
   };
 
   //firebase query just city
-  let result: Record<'city' | 'province' | 'region', DocumentData[]> = {
+  let result: SearchResponse<DocumentData> = {
     city: [],
     province: [],
     region: [],

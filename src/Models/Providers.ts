@@ -45,4 +45,4 @@ type ResultProviders = {
   response: SearchResponse<Provider>; //response by scope
 };
 
-export type { Service, Provider, ResultProviders };
+export type { Service, SearchResponse, Provider, ResultProviders };
