@@ -3,6 +3,7 @@ import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
 import { ResultProviders, SearchResponse } from '@/Models/Providers';
+import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = () => {
   const by_url = useSearchParams();
@@ -42,12 +43,13 @@ const Dashboard = () => {
       {buildParams.location} <br />
       {buildParams.description} <br />
       {buildParams.service} <br />
-      {providers?.search.size}
+      resultados: {providers?.search.size}
+      <ProvidersContainer res={providers}></ProvidersContainer>
     </main>
   );
 };
 
-async function fetchProviders<T extends Record<string, string | undefined>>(params: T) {
+async function fetchProviders<T extends {}>(params: T) {
   try {
     const api =
       '/api/providers?' +
