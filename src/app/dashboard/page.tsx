@@ -1,8 +1,8 @@
 'use client';
-import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
-import { ResultProviders, SearchResponse } from '@/Models/Providers';
+import { ResultProviders } from '@/Models/Providers';
 import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = () => {
