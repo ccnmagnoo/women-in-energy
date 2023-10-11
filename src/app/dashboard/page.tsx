@@ -44,7 +44,7 @@ const Dashboard = () => {
       {buildParams.description} <br />
       {buildParams.service} <br />
       resultados: {providers?.search.size}
-      <ProvidersContainer res={providers}></ProvidersContainer>
+      <ProvidersContainer res={providers} />
     </main>
   );
 };
