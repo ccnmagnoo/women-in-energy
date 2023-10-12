@@ -22,7 +22,14 @@ export const ProvidersContainer = ({
         Object.entries(res?.response).map(([scope, listProviders]) => {
           return (
             <section key={scope}>
-              {scope}-{listProviders.length}
+              {scope} ({listProviders.length})
+              {listProviders.map((provider) => {
+                return (
+                  <article key={provider.uuid}>
+                    {provider.personal.name} {provider.rut}
+                  </article>
+                );
+              })}
             </section>
           );
         })}
