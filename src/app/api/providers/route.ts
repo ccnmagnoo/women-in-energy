@@ -64,15 +64,22 @@ async function handler(req: Req, res: Res) {
   }
   //firebase query regional siblings
   if (result.province.length + result.city.length <= 10) {
-    const limitedCities = redux_scope.region.splice(0, 30);
-    console.log('searching on regional scope ', limitedCities.length, 'cities');
-    result.region = await fetchDocs(
+    console.log('searching on regional scope ', scope.region[0], 'region');
+
+    const regionResult = await fetchDocs(
       toSearch.service,
       db,
       where('address.region', '==', scope.region[0])
     );
+    //filter documents already exists in city and provincial scope, filter by uuid
+    result.region = regionResult.filter((documentData) => {
+      return (
+        !result.city.map((it) => it.uuid).includes(documentData.uuid) &&
+        !result.province.map((it) => it.uuid).includes(documentData.uuid)
+      );
+    });
   }
-
+  //resume with number on result
   let result_size = 0;
   for (let key in result) {
     result_size += result[key as 'city' | 'province' | 'region'].length;
