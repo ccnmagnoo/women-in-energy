@@ -12,7 +12,7 @@ export const ProvidersContainer = ({
 }) => {
   return (
     <section className={style.container}>
-      <h1>resultado</h1>
+      <h2>resultado</h2>
       <p>
         {res?.search.size} mujeres profesionales encontradas en{' '}
         <span>{res?.search.location}</span> :{/* scope loop */}
@@ -21,12 +21,14 @@ export const ProvidersContainer = ({
       {res &&
         Object.entries(res?.response).map(([scope, listProviders]) => {
           return (
-            <section key={scope}>
-              {scope} ({listProviders.length})
+            <section key={scope} className={`${style.providerSection} ${scope}`}>
+              <h3>
+                {scope} ({listProviders.length})
+              </h3>
               {listProviders.map((provider) => {
                 return (
-                  <article key={provider.uuid}>
-                    {provider.personal.name} {provider.rut}
+                  <article key={provider.uuid} className={`${style.card} ${scope}`}>
+                    {provider.personal.name} {provider.rut} ({provider.address.city})
                   </article>
                 );
               })}
