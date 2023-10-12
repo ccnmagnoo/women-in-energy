@@ -3,15 +3,15 @@
   flex-direction: column;
   position: absolute;
   align-self: flex-start;
-  bottom: 60px;
-  border: 1px red solid;
+  top: 165px;
 
   width: min(90vw, 1100px);
   max-height: 500px;
   overflow-y: auto;
   scrollbar-gutter: stable both-edges;
 
+  border-radius: 5px;
   backdrop-filter: blur(4px);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
   padding: 1rem;
 }
