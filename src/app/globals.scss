@@ -43,6 +43,7 @@ body {
   position: relative;
   display: flex;
   overflow-x: hidden;
+
   flex-direction: column;
   color: var(--text);
   text-shadow: 1px 0px 4px #00000065;
@@ -60,7 +61,7 @@ body {
     #site-logo {
       position: absolute;
       left: 10vw;
-      top: 15vh;
+      top: 12vh;
       width: min(80vw, 615px);
       height: max-content;
       object-fit: contain;

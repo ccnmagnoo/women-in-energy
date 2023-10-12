@@ -1,3 +1,17 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-self: flex-start;
+  bottom: 60px;
   border: 1px red solid;
+
+  width: min(90vw, 1000px);
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+
+  backdrop-filter: blur(4px);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  padding: 1rem;
 }

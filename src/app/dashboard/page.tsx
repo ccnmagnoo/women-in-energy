@@ -39,12 +39,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      dashboard page <br />
-      {buildParams.location} <br />
-      {buildParams.description} <br />
-      {buildParams.service} <br />
-      resultados: {providers?.search.size}
-      <ProvidersContainer res={providers} />
+      <ProvidersContainer res={providers} req={buildParams} />
     </main>
   );
 };
