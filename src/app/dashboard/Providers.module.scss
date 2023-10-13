@@ -44,9 +44,10 @@
 
         position: relative;
 
-        &[data-scope='city'] {
-          // background-color: white;
-        }
+        // &[data-scope='city'] {
+        //  background-color: white;
+
+        // }
 
         article.card {
           padding: 5px;
@@ -60,8 +61,8 @@
             background: $primary;
             font-size: large;
           }
-          &[data-scope='province'] {
-          }
+          // &[data-scope='province'] {
+          // }
           &[data-scope='region'] {
             height: 150px;
             aspect-ratio: unset;
