@@ -1,7 +1,8 @@
-import { ResultProviders } from '@/Models/Providers';
-import style from './ProvidersContainer.module.scss';
+import { ResultProviders, Territory } from '@/Models/Providers';
+import style from './Providers.module.scss';
 import React from 'react';
 import { InputService } from '@/Models/Input';
+import { ProviderCard } from './ProviderCard';
 
 export const ProvidersContainer = ({
   res,
@@ -13,6 +14,7 @@ export const ProvidersContainer = ({
   return (
     <section className={style.container}>
       <h2>resultado</h2>
+
       <p>
         {res?.search.size} mujeres profesionales encontradas en{' '}
         <span>{res?.search.location}</span> :{/* scope loop */}
@@ -25,13 +27,15 @@ export const ProvidersContainer = ({
               <h3>
                 {scope} ({listProviders.length})
               </h3>
-              {listProviders.map((provider) => {
-                return (
-                  <article key={provider.uuid} className={`${style.card} ${scope}`}>
-                    {provider.personal.name} {provider.rut} ({provider.address.city})
-                  </article>
-                );
-              })}
+              <ul>
+                {listProviders.map((provider) => {
+                  return (
+                    <li key={provider.uuid} className={`${style.card} ${scope}`}>
+                      <ProviderCard provider={provider} scope={scope as Territory} />
+                    </li>
+                  );
+                })}
+              </ul>
             </section>
           );
         })}
