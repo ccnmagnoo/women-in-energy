@@ -23,14 +23,14 @@ export const ProvidersContainer = ({
       {res &&
         Object.entries(res?.response).map(([scope, listProviders]) => {
           return (
-            <section key={scope} className={`${style.providerSection} ${scope}`}>
+            <section key={scope} className={style.providerSection}>
               <h3>
                 {scope} ({listProviders.length})
               </h3>
               <ul>
                 {listProviders.map((provider) => {
                   return (
-                    <li key={provider.uuid} className={`${style.card} ${scope}`}>
+                    <li key={provider.uuid} data-scope={scope}>
                       <ProviderCard provider={provider} scope={scope as Territory} />
                     </li>
                   );

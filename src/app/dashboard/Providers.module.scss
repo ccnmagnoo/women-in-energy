@@ -1,12 +1,14 @@
 .container {
+  $primary: var(--primary);
+  $secondary: var(--secondary);
   display: flex;
   flex-direction: column;
   position: absolute;
   align-self: flex-start;
   top: 165px;
 
-  width: min(90vw, 1100px);
-  max-height: 500px;
+  width: min(100vw, 1100px);
+  max-height: 520px;
   overflow-y: auto;
   scrollbar-gutter: stable both-edges;
 
@@ -14,4 +16,46 @@
   backdrop-filter: blur(4px);
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
   padding: 1rem;
+
+  .providerSection {
+    margin-top: 10px;
+    border: 1px red dotted;
+    h3 {
+      color: $primary;
+    }
+
+    ul {
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      gap: 20px;
+      border: 1px white dotted;
+      justify-items: center;
+
+      li {
+        list-style: none;
+        flex: 1 1 0;
+        align-items: center;
+
+        &[data-scope='city'] {
+        }
+
+        article.card {
+          border: 1px solid blue;
+          height: 200px;
+          aspect-ratio: 1/1.61;
+
+          &[data-scope='city'] {
+            border: 1px solid red;
+          }
+          &[data-scope='province'] {
+            border: 1px solid blue;
+          }
+          &[data-scope='region'] {
+            border: 1px solid green;
+          }
+        }
+      }
+    }
+  }
 }
