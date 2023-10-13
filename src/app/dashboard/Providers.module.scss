@@ -7,7 +7,7 @@
   align-self: flex-start;
   top: 165px;
 
-  width: min(100vw, 1100px);
+  width: min(100vw, 1000px);
   max-height: 520px;
   overflow-y: auto;
   scrollbar-gutter: stable both-edges;
@@ -28,9 +28,8 @@
       display: flex;
       position: relative;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px;
       border: 1px white dotted;
-      justify-items: center;
 
       li {
         list-style: none;
@@ -41,18 +40,27 @@
         }
 
         article.card {
+          padding: 5px;
+          background: rgba(133, 6, 145, 0.308);
+
           border: 1px solid blue;
-          height: 200px;
+          height: 260px;
           aspect-ratio: 1/1.61;
 
           &[data-scope='city'] {
-            border: 1px solid red;
+            background: $primary;
+            font-size: large;
           }
           &[data-scope='province'] {
             border: 1px solid blue;
           }
           &[data-scope='region'] {
             border: 1px solid green;
+            height: 150px;
+            aspect-ratio: unset;
+            min-width: 120px;
+            font-size: 0.9re;
+            max-width: 140px;
           }
         }
       }

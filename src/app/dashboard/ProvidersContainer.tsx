@@ -13,12 +13,14 @@ export const ProvidersContainer = ({
 }) => {
   return (
     <section className={style.container}>
-      <h2>resultado</h2>
+      <section>
+        <h2>resultado</h2>
 
-      <p>
-        {res?.search.size} mujeres profesionales encontradas en{' '}
-        <span>{res?.search.location}</span> :{/* scope loop */}
-      </p>
+        <p>
+          {res?.search.size} mujeres profesionales encontradas en{' '}
+          <span>{res?.search.location}</span> :{/* scope loop */}
+        </p>
+      </section>
 
       {res &&
         Object.entries(res?.response).map(([scope, listProviders]) => {
