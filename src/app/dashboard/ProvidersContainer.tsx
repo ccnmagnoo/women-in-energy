@@ -13,7 +13,7 @@ export const ProvidersContainer = ({
 }) => {
   return (
     <section className={style.container}>
-      <section>
+      <section className={style.header}>
         <h2>resultado</h2>
 
         <p>
@@ -22,25 +22,27 @@ export const ProvidersContainer = ({
         </p>
       </section>
 
-      {res &&
-        Object.entries(res?.response).map(([scope, listProviders]) => {
-          return (
-            <section key={scope} className={style.providerSection}>
-              <h3>
-                {scope} ({listProviders.length})
-              </h3>
-              <ul>
-                {listProviders.map((provider) => {
-                  return (
-                    <li key={provider.uuid} data-scope={scope}>
-                      <ProviderCard provider={provider} scope={scope as Territory} />
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          );
-        })}
+      <section className={style.body}>
+        {res &&
+          Object.entries(res?.response).map(([scope, listProviders]) => {
+            return (
+              <article key={scope} className={style.territorialSection}>
+                <h3>
+                  {scope} ({listProviders.length})
+                </h3>
+                <ul>
+                  {listProviders.map((provider) => {
+                    return (
+                      <li key={provider.uuid} data-scope={scope}>
+                        <ProviderCard provider={provider} scope={scope as Territory} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </article>
+            );
+          })}
+      </section>
     </section>
   );
 };
