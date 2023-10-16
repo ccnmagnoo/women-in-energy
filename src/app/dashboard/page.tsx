@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
-import { ResultProviders } from '@/Models/Providers';
+import { Eli, Gas, ResultProviders } from '@/Models/Providers';
 import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = () => {
@@ -26,8 +26,13 @@ const Dashboard = () => {
     buildParams[key] = by_url.get(key) || undefined;
   });
 
+  //validation type
+  type SetService = typeof buildParams.service extends Eli ? Eli : Gas;
+
   //providers hooks
-  const [providers, setProviders] = useState<ResultProviders | undefined>(undefined);
+  const [providers, setProviders] = useState<ResultProviders<SetService> | undefined>(
+    undefined
+  );
   useEffect(() => {
     async function fetch() {
       const data = await fetchProviders(buildParams);

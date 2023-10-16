@@ -18,10 +18,12 @@ type Personal = {
   gender: Gender;
 };
 
-type Service = 'eli' | 'gas';
-type License = {
-  service: Service;
-  category: 'A' | 'B' | 'C' | 'D' | '1' | '2' | '3' | '4' | '1 y 4'; //Letters: eli , Numbers:gas
+type Eli = 'eli';
+type Gas = 'gas';
+type Service = Eli | Gas;
+type License<S extends Service> = {
+  service: S;
+  category: S extends Eli ? 'A' | 'B' | 'C' | 'D' : '1' | '2' | '3' | '4' | '1 y 4'; //Letters: eli , Numbers:gas
 };
 
 type Contact = {
@@ -30,19 +32,19 @@ type Contact = {
   movil: number;
 };
 
-type Provider = {
+type Provider<S extends Service> = {
   rut: string;
   address: Address<{ street?: string }>;
   personal: Partial<Personal>;
   contact: Partial<Contact>;
-  license: License;
+  license: License<S>;
   updateAt: Date;
   uuid: string;
 };
 //main retrieve object from api/providers
-type ResultProviders = {
+type ResultProviders<S extends Service> = {
   search: SearchStats<{ size: number }>;
-  response: SearchResponse<Provider>; //response by scope
+  response: SearchResponse<Provider<S>>; //response by scope
 };
 
-export type { Service, SearchResponse, Provider, ResultProviders, Territory };
+export type { Service, SearchResponse, Provider, ResultProviders, Territory, Eli, Gas };

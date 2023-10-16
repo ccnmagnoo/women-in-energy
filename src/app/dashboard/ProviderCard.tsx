@@ -1,17 +1,19 @@
 import style from './Providers.module.scss';
-import { Provider, Territory } from '@/Models/Providers';
+import { Provider, Service, Territory } from '@/Models/Providers';
 import React from 'react';
 
-export const ProviderCard = ({
+export function ProviderCard<S extends Service>({
   provider,
   scope,
 }: {
-  provider: Provider;
+  provider: Provider<S>;
   scope: Territory;
-}) => {
+}) {
   return (
     <article className={style.card} data-scope={scope}>
-      {provider.personal.name} {provider.rut}
+      <h4>{provider.personal.name}</h4>
+      licencia {provider.license.category}
+      <p>{provider.address.city}</p>
     </article>
   );
-};
+}

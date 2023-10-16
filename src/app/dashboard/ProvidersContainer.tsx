@@ -1,16 +1,16 @@
-import { ResultProviders, Territory } from '@/Models/Providers';
+import { ResultProviders, Service, Territory } from '@/Models/Providers';
 import style from './Providers.module.scss';
 import React from 'react';
 import { InputService } from '@/Models/Input';
 import { ProviderCard } from './ProviderCard';
 
-export const ProvidersContainer = ({
+export function ProvidersContainer<S extends Service>({
   res,
   req,
 }: {
-  res?: ResultProviders;
+  res?: ResultProviders<S>;
   req: Partial<InputService>;
-}) => {
+}) {
   return (
     <section className={style.container}>
       <section className={style.header}>
@@ -48,7 +48,7 @@ export const ProvidersContainer = ({
       </section>
     </section>
   );
-};
+}
 
 function scopeSectionTitle(scope: Territory) {
   switch (scope) {
