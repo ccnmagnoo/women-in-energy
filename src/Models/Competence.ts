@@ -2,36 +2,47 @@
 
 import { Eli, Gas, License, Service } from './Providers';
 
-type Voltage = 'high' | 'low';
+type High = 'high';
+type Low = 'low';
 
-interface Install {
-  technology: string;
+interface Install<S extends Service> {
+  technology: S extends Eli
+    ? 'instalaciones' | 'motores' | 'alumbrado' | 'calefacción'
+    : 'producción' | 'almacenamiento' | 'transporte';
   description?: string;
   limitSize?: number;
-  feederSize?: number;
-  unit: 'kW' | 'Kg';
+  unit: S extends Eli ? 'kW' : 'Kg';
 }
 
-interface Competence {
+interface ElectricInstall extends Install<Eli> {
+  feederSize?: number;
+  voltage: High | Low;
+}
+interface GasInstall extends Install<Gas> {
+  pressure: High | Low;
+}
+
+interface Competence<S extends Service> {
   fireDanger: boolean;
-  installation: Install[];
+  studies: string[];
+  install: S extends Eli ? ElectricInstall[] : GasInstall[];
 }
 
 type CompetenceList<S extends Service> = {
-  [K in License<S>['category']]: Competence;
+  [K in License<S>['category']]: Competence<S>;
 };
 
 const EliCompetence: CompetenceList<Eli> = {
-  A: { fireDanger: false, installation: [] },
-  B: { fireDanger: false, installation: [] },
-  C: { fireDanger: false, installation: [] },
-  D: { fireDanger: false, installation: [] },
+  A: { fireDanger: false, studies: [], install: [] },
+  B: { fireDanger: false, studies: [], install: [] },
+  C: { fireDanger: false, studies: [], install: [] },
+  D: { fireDanger: false, studies: [], install: [] },
 };
 
 const GasCompetence: CompetenceList<Gas> = {
-  '1': { fireDanger: false, installation: [] },
-  '2': { fireDanger: false, installation: [] },
-  '3': { fireDanger: false, installation: [] },
-  '4': { fireDanger: false, installation: [] },
-  '1 y 4': { fireDanger: false, installation: [] },
+  '1': { fireDanger: false, studies: [], install: [] },
+  '2': { fireDanger: false, studies: [], install: [] },
+  '3': { fireDanger: false, studies: [], install: [] },
+  '4': { fireDanger: false, studies: [], install: [] },
+  '1 y 4': { fireDanger: false, studies: [], install: [] },
 };
