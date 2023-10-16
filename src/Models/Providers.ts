@@ -21,6 +21,7 @@ type Personal = {
 type Eli = 'eli';
 type Gas = 'gas';
 type Service = Eli | Gas;
+
 type License<S extends Service> = {
   service: S;
   category: S extends Eli ? 'A' | 'B' | 'C' | 'D' : '1' | '2' | '3' | '4' | '1 y 4'; //Letters: eli , Numbers:gas
@@ -47,4 +48,13 @@ type ResultProviders<S extends Service> = {
   response: SearchResponse<Provider<S>>; //response by scope
 };
 
-export type { Service, SearchResponse, Provider, ResultProviders, Territory, Eli, Gas };
+export type {
+  Service,
+  SearchResponse,
+  Provider,
+  ResultProviders,
+  Territory,
+  Eli,
+  Gas,
+  License,
+};

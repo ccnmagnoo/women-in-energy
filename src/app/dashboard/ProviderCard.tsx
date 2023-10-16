@@ -12,7 +12,7 @@ export function ProviderCard<S extends Service>({
   return (
     <article className={style.card} data-scope={scope}>
       <h4>{provider.personal.name}</h4>
-      licencia {provider.license.category}
+      licencia {provider.license.category} {provider.license.service}
       <p>{provider.address.city}</p>
     </article>
   );
