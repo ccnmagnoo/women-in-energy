@@ -24,16 +24,16 @@ export const ProvidersContainer = ({
 
       <section className={style.body}>
         {res &&
-          Object.entries(res?.response).map(([scope, listProviders]) => {
-            if (listProviders.length) {
+          Object.entries(res?.response).map(([scope, providersList]) => {
+            if (providersList.length) {
               //filter empty list
               return (
                 <article key={scope} className={style.territorialSection}>
                   <h3>
-                    {scopeSectionTitle(scope as Territory)} ({listProviders.length})
+                    {scopeSectionTitle(scope as Territory)} ({providersList.length})
                   </h3>
                   <ul>
-                    {listProviders.map((provider) => {
+                    {providersList.map((provider) => {
                       return (
                         <li key={provider.uuid} data-scope={scope}>
                           <ProviderCard provider={provider} scope={scope as Territory} />
@@ -56,7 +56,7 @@ function scopeSectionTitle(scope: Territory) {
       return 'en tu comuna';
     }
     case 'province': {
-      return 'a tu alrededor';
+      return 'en alrededores';
     }
     case 'region': {
       return 'en tu región';
