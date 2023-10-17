@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
-  padding: 2px 20px 2px 5px;
-  border-radius: 5px 5px 30px 5px;
+  padding: 2px 20px 2px 8px;
+  border-radius: 4px 4px 30px 4px;
   background: rgba(255, 255, 255, 0.2);
   .upper {
     .title {
@@ -14,9 +14,10 @@
   }
   .lower {
     .category {
-      font-size: larger;
+      font-size: large;
+      font-family: sans-serif;
       position: relative;
-      font-weight: 900;
+      font-weight: 700;
       justify-self: center;
     }
     .ico {
