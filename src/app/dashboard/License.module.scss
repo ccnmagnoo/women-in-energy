@@ -1,0 +1,27 @@
+.tag {
+  //   border: white 2px solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 2px 20px 2px 5px;
+  border-radius: 5px 5px 30px 5px;
+  background: rgba(255, 255, 255, 0.2);
+  .upper {
+    .title {
+      font-size: 0.8rem;
+    }
+  }
+  .lower {
+    .category {
+      font-size: larger;
+      position: relative;
+      font-weight: 900;
+      justify-self: center;
+    }
+    .ico {
+      position: relative;
+      justify-self: center;
+    }
+  }
+}

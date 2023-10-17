@@ -1,6 +1,7 @@
 import style from './Providers.module.scss';
 import { Provider, Service, Territory } from '@/Models/Providers';
 import React from 'react';
+import { LicenseTag } from './LicenseTag';
 
 export function ProviderCard<S extends Service>({
   provider,
@@ -11,8 +12,8 @@ export function ProviderCard<S extends Service>({
 }) {
   return (
     <article className={style.card} data-scope={scope}>
+      <LicenseTag license={provider.license} />
       <h4>{provider.personal.name}</h4>
-      licencia {provider.license.category} {provider.license.service}
       <p>{provider.address.city}</p>
     </article>
   );
