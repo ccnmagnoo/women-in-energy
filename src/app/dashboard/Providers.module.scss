@@ -1,6 +1,7 @@
 .container {
   $primary: var(--primary);
   $secondary: var(--secondary);
+  $accent: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -20,23 +21,23 @@
   .body {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
   }
 
   .territorialSection {
     margin-top: 10px;
-    border: 1px red dotted;
+    // border: 1px red dotted;
 
     h3 {
       color: $primary;
     }
 
     ul {
-      border: 1px white dotted;
+      // border: 1px white dotted;
       display: flex;
       position: relative;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 16px;
       justify-content: flex-start;
 
       li {
@@ -50,8 +51,10 @@
         // }
 
         article.card {
+          display: flex;
+          flex-direction: column;
           padding: 5px;
-          background: rgba(229, 0, 250, 0.5);
+          background: rgba(229, 0, 250, 0.6);
 
           border-radius: 5px;
           height: 260px;
@@ -67,6 +70,29 @@
             height: 150px;
             aspect-ratio: unset;
             font-size: 0.92rem;
+            .avatar {
+              padding: 8px;
+              img {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+
+          .avatar {
+            position: relative;
+            background-color: $accent;
+            border-radius: 50px;
+            padding: 10px;
+            width: fit-content;
+            justify-items: center;
+            align-self: center;
+
+            img {
+              position: relative;
+              width: 50px;
+              height: 50px;
+            }
           }
         }
       }

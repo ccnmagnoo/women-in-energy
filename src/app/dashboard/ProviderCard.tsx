@@ -1,7 +1,9 @@
 import style from './Providers.module.scss';
+import avatar from '@/app/static/woman-ico.svg';
 import { Provider, Service, Territory } from '@/Models/Providers';
 import React from 'react';
 import { LicenseTag } from './LicenseTag';
+import Image from 'next/image';
 
 export function ProviderCard<S extends Service>({
   provider,
@@ -13,8 +15,17 @@ export function ProviderCard<S extends Service>({
   return (
     <article className={style.card} data-scope={scope}>
       <LicenseTag license={provider.license} />
-      <h4>{provider.personal.name}</h4>
+      <div className={style.avatar}>
+        <Image src={avatar} alt='avatar' />
+      </div>
+      <h4>{getName(provider)}</h4>
       <p>{provider.address.city}</p>
     </article>
+  );
+}
+
+function getName<S extends Service>(provider: Provider<S>) {
+  return (
+    provider.personal.name?.split(' ')[0] + ' ' + provider.personal.surname?.split(' ')[0]
   );
 }
