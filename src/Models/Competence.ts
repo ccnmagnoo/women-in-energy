@@ -1,6 +1,5 @@
 //ref https://www.sec.cl/area-instaladores/instaladores-electricos/#1582631689365-5ce39298-c21f
 
-import { unwatchFile } from 'fs';
 import { Eli, Gas, License, Service } from './Providers';
 
 type High = 'high';
@@ -35,7 +34,7 @@ type CompetenceList<S extends Service> = {
   [K in License<S>['category']]: Competence<S>;
 };
 
-const EliCompetence: CompetenceList<Eli> = {
+const eliCompetence: CompetenceList<Eli> = {
   A: {
     resume: 'Sin límite de potencia Instalada',
     fireDanger: true,
@@ -171,7 +170,7 @@ const EliCompetence: CompetenceList<Eli> = {
   },
 };
 
-const GasCompetence: CompetenceList<Gas> = {
+const gasCompetence: CompetenceList<Gas> = {
   '1': {
     resume: 'Instalaciones de gas de alta presión',
     fireDanger: true,
@@ -260,3 +259,6 @@ const GasCompetence: CompetenceList<Gas> = {
     ],
   },
 };
+
+export { eliCompetence, gasCompetence };
+export type { CompetenceList, Competence, ElectricInstall, GasInstall, Install };
