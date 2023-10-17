@@ -1,0 +1,58 @@
+.contact {
+  $accent: rgba(255, 255, 255, 0.151);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+
+  a {
+    display: flex;
+    $contact-size: 50px;
+    justify-content: center;
+    align-items: center;
+
+    min-width: $contact-size * 1.2;
+    height: $contact-size;
+
+    margin: 6px;
+    transition: background-color, transform 100ms ease-out;
+
+    &:first-child {
+      border-radius: 2px 20px 2px 2px;
+    }
+    &:last-child {
+      border-radius: 20px 0px 2px 2px;
+    }
+    &:hover {
+      background-color: $accent;
+    }
+    &:active {
+      background-color: var(--secondary);
+      transform: translateY(2px);
+    }
+
+    img {
+      position: relative;
+      width: $contact-size - 20px;
+      height: $contact-size - 20px;
+    }
+  }
+}
+[data-scope='region'] {
+  .contact {
+    a {
+      $contact-size: 35px;
+      width: $contact-size;
+      height: 30px;
+
+      img {
+        position: relative;
+        width: calc($contact-size - 15px);
+        height: calc($contact-size - 15px);
+      }
+    }
+  }
+}
