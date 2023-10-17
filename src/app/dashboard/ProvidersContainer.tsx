@@ -33,13 +33,18 @@ export function ProvidersContainer<S extends Service>({
                     {scopeSectionTitle(scope as Territory)} ({providersList.length})
                   </h3>
                   <ul>
-                    {providersList.map((provider) => {
-                      return (
-                        <li key={provider.uuid} data-scope={scope}>
-                          <ProviderCard provider={provider} scope={scope as Territory} />
-                        </li>
-                      );
-                    })}
+                    {providersList
+                      .sort((a, b) => (b.license.category > a.license.category ? 1 : -1))
+                      .map((provider) => {
+                        return (
+                          <li key={provider.uuid} data-scope={scope}>
+                            <ProviderCard
+                              provider={provider}
+                              scope={scope as Territory}
+                            />
+                          </li>
+                        );
+                      })}
                   </ul>
                 </article>
               );
