@@ -67,7 +67,7 @@
           // &[data-scope='province'] {
           // }
           &[data-scope='region'] {
-            height: 150px;
+            height: 160px;
             aspect-ratio: unset;
             font-size: 0.92rem;
             .avatar {
@@ -92,6 +92,18 @@
               position: relative;
               width: 50px;
               height: 50px;
+            }
+          }
+          .personalInformation {
+            display: block;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+
+            text-align: center;
+            p {
+              font-size: small;
             }
           }
         }

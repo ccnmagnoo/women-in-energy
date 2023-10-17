@@ -18,8 +18,10 @@ export function ProviderCard<S extends Service>({
       <div className={style.avatar}>
         <Image src={avatar} alt='avatar' />
       </div>
-      <h4>{getName(provider)}</h4>
-      <p>{provider.address.city}</p>
+      <section className={style.personalInformation}>
+        <h4>{getName(provider)}</h4>
+        <p>{provider.address.city}</p>
+      </section>
     </article>
   );
 }
