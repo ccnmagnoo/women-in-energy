@@ -42,71 +42,7 @@
 
       li {
         list-style: none;
-
         position: relative;
-
-        // &[data-scope='city'] {
-        //  background-color: white;
-
-        // }
-
-        article.card {
-          display: flex;
-          flex-direction: column;
-          padding: 5px;
-          background: rgba(229, 0, 250, 0.6);
-
-          border-radius: 5px;
-          height: 260px;
-          min-width: 150px;
-
-          &[data-scope='city'] {
-            background: $primary;
-            font-size: large;
-          }
-          // &[data-scope='province'] {
-          // }
-          &[data-scope='region'] {
-            height: 170px;
-            aspect-ratio: unset;
-            font-size: 0.92rem;
-            .avatar {
-              padding: 4px;
-              img {
-                width: 28px;
-                height: 28px;
-              }
-            }
-          }
-
-          .avatar {
-            position: relative;
-            background-color: $accent;
-            border-radius: 50px;
-            padding: 10px;
-            width: fit-content;
-            justify-items: center;
-            align-self: center;
-
-            img {
-              position: relative;
-              width: 50px;
-              height: 50px;
-            }
-          }
-          .personalInformation {
-            display: block;
-            position: relative;
-            bottom: 0px;
-            left: 0;
-            width: 100%;
-
-            text-align: center;
-            p {
-              font-size: small;
-            }
-          }
-        }
       }
     }
   }
