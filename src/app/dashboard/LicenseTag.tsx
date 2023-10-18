@@ -1,12 +1,13 @@
-import { Eli, Gas, License, Service } from '@/Models/Providers';
+import { Eli, Gas, License, Provider, Service } from '@/Models/Providers';
 import Image from 'next/image';
 import style from './License.module.scss';
 import React from 'react';
 import { CompetenceList, eliCompetence, gasCompetence } from '@/Models/Competence';
+import Validation from './Validation';
 
-export function LicenseTag<S extends Service>({ license }: { license: License<S> }) {
+export function LicenseTag<S extends Service>({ provider }: { provider: Provider<S> }) {
   const competence: CompetenceList<Gas | Eli> =
-    license.service === 'eli' ? eliCompetence : gasCompetence;
+    provider.license.service === 'eli' ? eliCompetence : gasCompetence;
 
   return (
     <div className={style.container}>
@@ -15,11 +16,14 @@ export function LicenseTag<S extends Service>({ license }: { license: License<S>
           <span className={style.title}>clase</span>
         </div>
         <div className={style.lower}>
-          <span className={style.category}>{license.category}</span>
-          <span className={style.ico}>{license.service === 'eli' ? '⚡' : '🔥'}</span>
+          <span className={style.category}>{provider.license.category}</span>
+          <span className={style.ico}>
+            {provider.license.service === 'eli' ? '⚡' : '🔥'}
+          </span>
         </div>
+        <Validation provider={provider}></Validation>
       </div>
-      <Image src={competence[license.category].icon} alt=''></Image>
+      <Image src={competence[provider.license.category].icon} alt=''></Image>
     </div>
   );
 }

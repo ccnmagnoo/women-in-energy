@@ -1,7 +1,6 @@
 import style from './Card.module.scss';
 import avatar from '@/app/static/woman-ico.svg';
 import { Provider, Service, Territory } from '@/Models/Providers';
-import React from 'react';
 import { LicenseTag } from './LicenseTag';
 import { Contact } from './Contact';
 import Image from 'next/image';
@@ -15,14 +14,16 @@ export function ProviderCard<S extends Service>({
 }) {
   return (
     <article className={style.card} data-scope={scope}>
-      <LicenseTag license={provider.license} />
+      <LicenseTag provider={provider} />
       <section className={style.avatar}>
         <Image src={avatar} alt='avatar' />
       </section>
+
       <section className={style.personalInformation}>
         <h4>{getName(provider)}</h4>
         <p>{provider.address.city}</p>
       </section>
+
       <Contact provider={provider}></Contact>
     </article>
   );
