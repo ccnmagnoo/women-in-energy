@@ -33,6 +33,7 @@ export function ProvidersContainer<S extends Service>({
                     {scopeSectionTitle(scope as Territory)} ({providersList.length})
                   </h3>
                   <ul>
+                    {/* sorting given lower license priority */}
                     {providersList
                       .sort((a, b) => (b.license.category > a.license.category ? 1 : -1))
                       .map((provider) => {
