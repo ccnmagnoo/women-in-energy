@@ -1,12 +1,13 @@
 .stamp {
+  $displace: 50px;
   // border: 1px solid white;
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  right: -14px;
+  right: -$displace * 0.65;
   top: -3px;
-  width: 50px;
+  width: $displace;
   height: 30px;
   opacity: 0.5;
 
@@ -21,24 +22,29 @@
     color: var(--primary);
     border-radius: 2px;
     padding: 3px 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
     font-size: 0.8rem;
+
+    position: absolute;
+    display: hidden;
+    top: 0;
+    right: -$displace * 0.5;
+
     opacity: 0;
     transition: 200ms all ease-out;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 
+    //pointer <-
     &::after {
+      $pointer_size: 10px;
       content: '';
       position: absolute;
       left: -19px;
-      top: 6px;
-      border: 10px solid transparent;
-      border-right: 10px solid white;
+      top: 5px;
+      border: $pointer_size solid transparent;
+      border-right: $pointer_size solid white;
 
       width: 0px;
-      height: w0px;
+      height: 0px;
     }
 
     > p {
@@ -52,8 +58,9 @@
   &:hover {
     opacity: 1;
     .dialog {
+      display: block;
       opacity: 1;
-      right: -4rem;
+      right: -40px;
     }
   }
 }
