@@ -33,6 +33,7 @@ const Dashboard = () => {
   const [providers, setProviders] = useState<ResultProviders<SetService> | undefined>(
     undefined
   );
+
   useEffect(() => {
     async function fetch() {
       const data = await fetchProviders(buildParams);
