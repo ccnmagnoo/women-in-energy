@@ -62,7 +62,7 @@ function scopeSectionTitle(scope: Territory) {
       return 'en tu comuna';
     }
     case 'province': {
-      return 'en alrededores';
+      return 'en la provincia';
     }
     case 'region': {
       return 'en tu región';
