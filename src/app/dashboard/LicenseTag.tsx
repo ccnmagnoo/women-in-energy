@@ -1,9 +1,12 @@
-import { License, Service } from '@/Models/Providers';
+import { Eli, Gas, License, Service } from '@/Models/Providers';
+import Image from 'next/image';
 import style from './License.module.scss';
 import React from 'react';
+import { CompetenceList, eliCompetence, gasCompetence } from '@/Models/Competence';
 
 export function LicenseTag<S extends Service>({ license }: { license: License<S> }) {
-  const data = license;
+  const competence: CompetenceList<Gas | Eli> =
+    license.service === 'eli' ? eliCompetence : gasCompetence;
 
   return (
     <div className={style.container}>
@@ -16,6 +19,7 @@ export function LicenseTag<S extends Service>({ license }: { license: License<S>
           <span className={style.ico}>{license.service === 'eli' ? '⚡' : '🔥'}</span>
         </div>
       </div>
+      <Image src={competence[license.category].icon} alt=''></Image>
     </div>
   );
 }
