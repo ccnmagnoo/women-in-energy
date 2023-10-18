@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import style from './Validation.module.scss';
 import { ValidationRequest } from '@/Models/Validation';
 import validStamp from '@/app/static/valid-ico.svg';
+import invalidStamp from '@/app/static/novalid-ico.svg';
 import Image from 'next/image';
 
 function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
@@ -29,8 +30,16 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
       {validation && (
         <section className={style.stamp}>
           {validation.response.at(-1) === 'VIGENTE' ? (
-            <Image src={validStamp} alt=''></Image>
-          ) : undefined}
+            <Image src={validStamp} alt='' />
+          ) : (
+            <Image src={invalidStamp} alt='' />
+          )}
+          <article className={style.dialog}>
+            <p>SEC</p>
+            <a href={validation.source} target='_blank'>
+              {validation.response.at(-1)?.toLowerCase()}
+            </a>
+          </article>
         </section>
       )}
     </>

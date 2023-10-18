@@ -1,10 +1,59 @@
 .stamp {
+  // border: 1px solid white;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -14px;
+  top: -3px;
+  width: 50px;
+  height: 30px;
+  opacity: 0.5;
+
   > img {
     width: 15px;
     height: 15px;
     color: var(--secondary);
+  }
+
+  .dialog {
+    background: white;
+    color: var(--primary);
+    border-radius: 2px;
+    padding: 3px 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: 100ms all ease-out;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -19px;
+      top: 6px;
+      border: 10px solid transparent;
+      border-right: 10px solid white;
+
+      width: 0px;
+      height: w0px;
+    }
+
+    > p {
+      display: block;
+    }
+    > a {
+      font-weight: 700;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+    .dialog {
+      opacity: 1;
+      right: -4rem;
+    }
   }
 }
