@@ -58,6 +58,7 @@
 
   &:hover {
     opacity: 1;
+    cursor: pointer;
     .dialog {
       display: block;
       opacity: 1; //final visible
