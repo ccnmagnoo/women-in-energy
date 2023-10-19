@@ -1,4 +1,4 @@
-import style from './Card.module.scss';
+import style from './ProviderCard.module.scss';
 import avatar from '@/app/static/woman-ico.svg';
 import { Provider, Service, Territory } from '@/Models/Providers';
 import { LicenseTag } from './LicenseTag';
