@@ -11,7 +11,7 @@ export function LicenseTag<S extends Service>({ provider }: { provider: Provider
 
   return (
     <div className={style.container}>
-      <div className={style.tag}>
+      <section className={style.tag}>
         <div className={style.upper}>
           <span className={style.title}>clase</span>
         </div>
@@ -22,8 +22,11 @@ export function LicenseTag<S extends Service>({ provider }: { provider: Provider
           </span>
         </div>
         <Validation provider={provider}></Validation>
-      </div>
-      <Image src={competence[provider.license.category].icon} alt=''></Image>
+      </section>
+      <section className={style.cornerIco}>
+        <Image src={competence[provider.license.category].icon} alt=''></Image>
+        <p>{competence[provider.license.category].resume.short}</p>
+      </section>
     </div>
   );
 }

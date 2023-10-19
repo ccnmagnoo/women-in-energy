@@ -15,6 +15,7 @@ export function ProviderCard<S extends Service>({
   return (
     <article className={style.card} data-scope={scope}>
       <LicenseTag provider={provider} />
+
       <section className={style.avatar}>
         <Image src={avatar} alt='avatar' />
       </section>
