@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const page = ({ params }: { params: { slug: string } }) => {
-  return <div>{params.slug}</div>;
+const page = ({ params }: { params: { uuid: string } }) => {
+  return <div>{params.uuid}</div>;
 };
+
+export default page;
