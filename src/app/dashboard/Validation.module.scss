@@ -1,11 +1,11 @@
 .stamp {
-  $displace: 100px;
+  $displace: 80px;
   // border: 1px solid white;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: -$displace * 0.4;
+  right: -$displace * 0.35;
   top: -3px;
   width: $displace;
   height: 30px;
@@ -21,7 +21,7 @@
     background: white;
     color: var(--primary);
     border-radius: 2px;
-    padding: 3px 10px;
+    padding: 3px 5px;
     font-size: 0.8rem;
 
     position: absolute;
