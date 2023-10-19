@@ -29,7 +29,7 @@ interface GasInstall extends Install<Gas> {
 }
 
 interface Competence<S extends Service> {
-  resume: string;
+  resume: { details: string; short: string };
   fireDanger?: boolean;
   studies: string[];
   icon?: any;
@@ -42,7 +42,7 @@ type CompetenceList<S extends Service> = {
 
 const eliCompetence: CompetenceList<Eli> = {
   A: {
-    resume: 'Sin límite de potencia Instalada',
+    resume: { details: 'Sin límite de potencia Instalada', short: 'industrial' },
     fireDanger: true,
     icon: industry,
     studies: ['Ingeniería Civil Eléctrica', 'Ingeniería Ejecución Eléctrica'],
@@ -78,7 +78,7 @@ const eliCompetence: CompetenceList<Eli> = {
     ],
   },
   B: {
-    resume: 'Instalaciones de baja tensión con riesgo',
+    resume: { details: 'Instalaciones de baja tensión con riesgo', short: 'grandes' },
     fireDanger: true,
     icon: hospital,
     studies: ['Técnico Electricista', 'Técnico Equivalente'],
@@ -114,7 +114,10 @@ const eliCompetence: CompetenceList<Eli> = {
     ],
   },
   C: {
-    resume: 'Instalaciones de baja tensión sin riesgo de incendio',
+    resume: {
+      details: 'Instalaciones de baja tensión sin riesgo de incendio',
+      short: 'edificios',
+    },
     fireDanger: false,
     icon: building,
     studies: ['Técnico Electricista', 'Técnico Equivalente'],
@@ -150,7 +153,10 @@ const eliCompetence: CompetenceList<Eli> = {
     ],
   },
   D: {
-    resume: 'Instalaciones de baja tensión domiciliarias',
+    resume: {
+      details: 'Instalaciones de baja tensión domiciliarias',
+      short: 'domiciliario',
+    },
     fireDanger: false,
     icon: house,
     studies: ['Título de Especialidad Eléctrica'],
@@ -182,7 +188,7 @@ const eliCompetence: CompetenceList<Eli> = {
 
 const gasCompetence: CompetenceList<Gas> = {
   '1': {
-    resume: 'Instalaciones de gas de alta presión',
+    resume: { details: 'Instalaciones de gas de alta presión', short: 'industrial' },
     fireDanger: true,
     icon: industry,
     studies: [
@@ -218,7 +224,7 @@ const gasCompetence: CompetenceList<Gas> = {
     ],
   },
   '2': {
-    resume: 'Instalaciones de media presión',
+    resume: { details: 'Instalaciones de media presión', short: 'media presión' },
     fireDanger: true,
     icon: building,
     studies: ['Ingeniería Civil', 'Ingeniería Ejecución', 'Ingeniería equivalente'],
@@ -232,10 +238,10 @@ const gasCompetence: CompetenceList<Gas> = {
     ],
   },
   '3': {
-    resume: 'Instalaciones interiores y baja presión',
+    resume: { details: 'Instalaciones interiores y baja presión', short: 'domiciliario' },
     fireDanger: true,
     icon: house,
-    studies: ['Técnico', 'Formación Técnica-Profesional', ''],
+    studies: ['Técnico', 'Formación Técnica-Profesional'],
     install: [
       {
         pressure: 'low',
@@ -246,7 +252,7 @@ const gasCompetence: CompetenceList<Gas> = {
     ],
   },
   '4': {
-    resume: 'Instalaciones de biogás',
+    resume: { details: 'Instalaciones de biogás', short: 'biogás' },
     fireDanger: true,
     icon: propane,
     studies: ['Tener licencia clase 1'],
@@ -260,7 +266,7 @@ const gasCompetence: CompetenceList<Gas> = {
     ],
   },
   '1 y 4': {
-    resume: 'Instalaciones de alta presión y biogás',
+    resume: { details: 'Instalaciones de biogás', short: 'biogás' },
     fireDanger: true,
     icon: propane,
     studies: ['Ingeniería Civil', 'Ingeniería Ejecución'],
