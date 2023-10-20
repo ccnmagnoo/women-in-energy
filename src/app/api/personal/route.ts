@@ -10,9 +10,9 @@ async function handler(req: Req, res: Res) {
   if (!uuid) return Res.json({}, { status: 400, statusText: 'param required' });
 
   //firebase
-  const ref = doc(db, '/energy_providers/source_providers/providers', uuid);
 
   try {
+    const ref = doc(db, '/energy_providers/source_providers/providers', uuid);
     const snap = await getDoc(ref);
 
     if (!snap.exists())
