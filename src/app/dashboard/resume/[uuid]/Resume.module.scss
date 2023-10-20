@@ -1,0 +1,13 @@
+.main {
+  border: 1px solid white;
+  display: flex;
+  position: relative;
+  height: 200vh;
+  overflow-y: auto;
+
+  > .jest {
+    background: black;
+    width: 50vw;
+    height: 100px;
+  }
+}
