@@ -42,7 +42,7 @@ type CompetenceList<S extends Service> = {
 
 const eliCompetence: CompetenceList<Eli> = {
   A: {
-    resume: { details: 'Sin límite de potencia Instalada', short: 'industrial' },
+    resume: { details: 'Sin límite de potencia Instalada', short: 'industrias' },
     fireDanger: true,
     icon: industry,
     studies: ['Ingeniería Civil Eléctrica', 'Ingeniería Ejecución Eléctrica'],
@@ -78,7 +78,7 @@ const eliCompetence: CompetenceList<Eli> = {
     ],
   },
   B: {
-    resume: { details: 'Instalaciones de baja tensión con riesgo', short: 'grandes' },
+    resume: { details: 'Instalaciones de baja tensión con riesgo', short: 'centros' },
     fireDanger: true,
     icon: hospital,
     studies: ['Técnico Electricista', 'Técnico Equivalente'],
@@ -155,7 +155,7 @@ const eliCompetence: CompetenceList<Eli> = {
   D: {
     resume: {
       details: 'Instalaciones de baja tensión domiciliarias',
-      short: 'domiciliario',
+      short: 'viviendas',
     },
     fireDanger: false,
     icon: house,
@@ -188,7 +188,7 @@ const eliCompetence: CompetenceList<Eli> = {
 
 const gasCompetence: CompetenceList<Gas> = {
   '1': {
-    resume: { details: 'Instalaciones de gas de alta presión', short: 'industrial' },
+    resume: { details: 'Instalaciones de gas de alta presión', short: 'industrias' },
     fireDanger: true,
     icon: industry,
     studies: [
@@ -238,7 +238,7 @@ const gasCompetence: CompetenceList<Gas> = {
     ],
   },
   '3': {
-    resume: { details: 'Instalaciones interiores y baja presión', short: 'domiciliario' },
+    resume: { details: 'Instalaciones interiores y baja presión', short: 'viviendas' },
     fireDanger: true,
     icon: house,
     studies: ['Técnico', 'Formación Técnica-Profesional'],
