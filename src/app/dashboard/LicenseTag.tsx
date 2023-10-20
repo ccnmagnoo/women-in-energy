@@ -1,9 +1,12 @@
 import { Eli, Gas, License, Provider, Service } from '@/Models/Providers';
 import Image from 'next/image';
 import style from './License.module.scss';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { CompetenceList, eliCompetence, gasCompetence } from '@/Models/Competence';
-import Validation from './Validation';
+import loading from '@/app/static/loading.svg';
+// import Validation from './Validation';
+import { lazy } from 'react';
+const LazyValidation = lazy(() => import('./Validation'));
 
 export function LicenseTag<S extends Service>({ provider }: { provider: Provider<S> }) {
   const competence: CompetenceList<Gas | Eli> =
@@ -21,7 +24,10 @@ export function LicenseTag<S extends Service>({ provider }: { provider: Provider
             {provider.license.service === 'eli' ? '⚡' : '🔥'}
           </span>
         </div>
-        <Validation provider={provider}></Validation>
+        {/* <Validation provider={provider}></Validation> */}
+        <Suspense fallback={<Image src={loading} alt='..' />}>
+          <LazyValidation provider={provider} />
+        </Suspense>
       </section>
       <section className={style.cornerIco}>
         <Image src={competence[provider.license.category].icon} alt=''></Image>
