@@ -4,6 +4,7 @@ import { Provider, Service, Territory } from '@/Models/Providers';
 import { LicenseTag } from './LicenseTag';
 import { Contact } from './Contact';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export function ProviderCard<S extends Service>({
   provider,
@@ -12,13 +13,20 @@ export function ProviderCard<S extends Service>({
   provider: Provider<S>;
   scope: Territory;
 }) {
+  const router = useRouter();
+
+  function buttonHandler<S>(e: S) {
+    router.push('dashboard/resume/' + provider.uuid);
+  }
   return (
     <article className={style.card} data-scope={scope}>
       <LicenseTag provider={provider} />
 
-      <section className={style.avatar}>
-        <Image src={avatar} alt='avatar' />
-      </section>
+      <button onClick={buttonHandler}>
+        <section className={style.avatar}>
+          <Image src={avatar} alt='avatar' />
+        </section>
+      </button>
 
       <section className={style.personalInformation}>
         <h4>{getName(provider)}</h4>

@@ -39,6 +39,13 @@ $accent: rgba(255, 255, 255, 0.2);
     }
   }
 
+  > button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+  }
+
   .avatar {
     $border-size: 4px;
     position: relative;
@@ -47,11 +54,15 @@ $accent: rgba(255, 255, 255, 0.2);
     border: $border-size solid transparent;
     padding: 10px;
     width: fit-content;
+    aspect-ratio: 1/1;
     justify-items: center;
     align-self: center;
     cursor: pointer;
     &:hover {
       border: $border-size solid $accent;
+    }
+    &:active {
+      background-color: $secondary;
     }
 
     img {
