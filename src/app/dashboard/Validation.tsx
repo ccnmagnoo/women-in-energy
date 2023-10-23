@@ -1,5 +1,5 @@
 import { Provider, Service } from '@/Models/Providers';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './Validation.module.scss';
 import { ValidationRequest } from '@/Models/Validation';
 import validStamp from '@/app/static/valid-ico.svg';
@@ -9,7 +9,7 @@ import Image from 'next/image';
 function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
   const [validation, setValidation] = useState<ValidationRequest | undefined>(undefined);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const query = fetch(
