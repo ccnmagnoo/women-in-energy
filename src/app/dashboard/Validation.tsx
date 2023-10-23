@@ -24,6 +24,7 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
