@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
-import { Eli, Gas, ResultProviders } from '@/Models/Providers';
+import { Eli, Gas, ApiResponse } from '@/Models/Providers';
 import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = () => {
@@ -30,7 +30,7 @@ const Dashboard = () => {
   type SetService = typeof buildParams.service extends Eli ? Eli : Gas;
 
   //providers hooks
-  const [providers, setProviders] = useState<ResultProviders<SetService> | undefined>(
+  const [providers, setProviders] = useState<ApiResponse<SetService> | undefined>(
     undefined
   );
 

@@ -1,4 +1,10 @@
-import { ResultProviders, Service, Territory } from '@/Models/Providers';
+import {
+  Provider,
+  ResultProviders,
+  SearchResponse,
+  Service,
+  Territory,
+} from '@/Models/Providers';
 import style from './Providers.module.scss';
 import React from 'react';
 import { InputService } from '@/Models/Input';
@@ -8,7 +14,7 @@ export function ProvidersContainer<S extends Service>({
   res,
   req,
 }: {
-  res?: ResultProviders<S>;
+  res?: ResultProviders<SearchResponse<Provider<S>>>;
   req: Partial<InputService>;
 }) {
   return (
@@ -17,8 +23,8 @@ export function ProvidersContainer<S extends Service>({
         <h2>resultado</h2>
 
         <p>
-          {res?.search.size} mujeres profesionales encontradas en{' '}
-          <span>{res?.search.location}</span> :{/* scope loop */}
+          {res?.search?.size} mujeres profesionales encontradas en{' '}
+          <span>{res?.search?.location}</span> :{/* scope loop */}
         </p>
       </section>
 

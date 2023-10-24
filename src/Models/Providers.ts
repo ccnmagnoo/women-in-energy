@@ -42,17 +42,18 @@ type Provider<S extends Service> = {
   updateAt: Date;
   uuid: string;
 };
+
 //main retrieve object from api/providers
-type ResultProviders<S extends Service> = {
-  search: SearchStats<{ size: number }>;
-  response: SearchResponse<Provider<S>>; //response by scope
+type ApiResponse<S> = {
+  search?: SearchStats<{ size: number }>;
+  response: S; //response by scope
 };
 
 export type {
   Service,
   SearchResponse,
   Provider,
-  ResultProviders,
+  ApiResponse,
   Territory,
   Eli,
   Gas,
