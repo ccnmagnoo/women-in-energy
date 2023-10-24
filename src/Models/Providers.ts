@@ -44,9 +44,9 @@ type Provider<S extends Service> = {
 };
 
 //main retrieve object from api/providers
-type ApiResponse<S> = {
+type ApiResponse<API> = {
   search?: SearchStats<{ size: number }>;
-  response: S; //response by scope
+  response: API; //response by scope
 };
 
 export type {
