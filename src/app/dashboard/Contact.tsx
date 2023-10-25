@@ -29,9 +29,9 @@ export const Contact = <S extends Service>({ provider }: { provider: Provider<S>
   ${reqParams.description} ,espero que puedas ayudarme.%0D%0D
   Mis datos son:%0D
   ${session?.user?.name}, mi email es: ${session?.user?.email}.%0D%0D
-  Muchas gracias de antemano🖐️.%0D%0D
+  Muchas gracias.%0D%0D
   Promoviendo a las mujeres técnicas de Chile:%0D
-  http://instaladoras.web.app de minenergia.cl
+  http://instaladoras.web.app del minenergia.cl
   `;
 
   return (
