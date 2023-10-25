@@ -20,8 +20,9 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
 
   return (
     <main className={style.main}>
-      {provider?.response.rut}
-      <section className={style.container}></section>
+      <section className={style.container}>
+        {provider?.response.rut} {provider?.response.personal.name}
+      </section>
     </main>
   );
 }

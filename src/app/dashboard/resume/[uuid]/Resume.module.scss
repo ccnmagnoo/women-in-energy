@@ -1,13 +1,41 @@
+$card: radial-gradient(
+  circle at left 20% top 20%,
+  rgba(255, 255, 255, 0.8) 0%,
+  rgba(255, 255, 255, 0.1) 100%
+);
+$primary: var(--primary);
+$secondary: var(--secondary);
+
 .main {
-  border: 1px solid white;
+  // border: 1px solid white;
   display: flex;
   position: relative;
-  height: 200vh;
+  height: 100vh;
   overflow-y: auto;
 
   > .jest {
     background: black;
     width: 50vw;
     height: 100px;
+  }
+
+  .container {
+    background: $card;
+    border-radius: 8px;
+    // border: 2px $primary solid;
+
+    width: min(800px, 100%);
+    min-height: 80%;
+    margin: 0 5px;
+
+    backdrop-filter: blur(5px);
+    color: $primary;
+    transition: height 200ms ease-out;
+  }
+  @media (width <= 756px) {
+    .container {
+      min-height: 90%;
+      margin-top: 2rem;
+    }
   }
 }
