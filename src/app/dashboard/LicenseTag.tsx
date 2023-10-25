@@ -5,8 +5,11 @@ import React, { Suspense } from 'react';
 import { CompetenceList, eliCompetence, gasCompetence } from '@/Models/Competence';
 import loading from '@/app/static/loading.svg';
 // import Validation from './Validation';
-import { lazy } from 'react';
-const LazyValidation = lazy(() => import('./Validation'));
+import dynamic from 'next/dynamic';
+import { Loading } from '@/components/Loading';
+const DynamicValidation = dynamic(() => import('./Validation'), {
+  loading: () => <Loading size={16} />,
+});
 
 export function LicenseTag<S extends Service>({ provider }: { provider: Provider<S> }) {
   const competence: CompetenceList<Gas | Eli> =
@@ -26,7 +29,7 @@ export function LicenseTag<S extends Service>({ provider }: { provider: Provider
         </div>
         {/* <Validation provider={provider}></Validation> */}
         <Suspense fallback={<Image src={loading} alt='..' />}>
-          <LazyValidation provider={provider} />
+          <DynamicValidation provider={provider} />
         </Suspense>
       </section>
       <section className={style.cornerIco}>
