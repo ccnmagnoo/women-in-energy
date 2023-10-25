@@ -1,6 +1,6 @@
 import {
   Provider,
-  ResultProviders,
+  ApiResponse,
   SearchResponse,
   Service,
   Territory,
@@ -14,7 +14,7 @@ export function ProvidersContainer<S extends Service>({
   res,
   req,
 }: {
-  res?: ResultProviders<SearchResponse<Provider<S>>>;
+  res?: ApiResponse<SearchResponse<Provider<S>>>;
   req: Partial<InputService>;
 }) {
   return (
@@ -27,7 +27,6 @@ export function ProvidersContainer<S extends Service>({
           <span>{res?.search?.location}</span> :{/* scope loop */}
         </p>
       </section>
-
       <section className={style.body}>
         {res &&
           Object.entries(res?.response).map(([scope, providersList]) => {

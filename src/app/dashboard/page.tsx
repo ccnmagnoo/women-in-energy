@@ -2,8 +2,17 @@
 import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
-import { Eli, Gas, ApiResponse } from '@/Models/Providers';
+import { Eli, Gas, ApiResponse, SearchResponse, Provider } from '@/Models/Providers';
 import { ProvidersContainer } from './ProvidersContainer';
+import dynamic from 'next/dynamic';
+import { Loading } from '@/components/Loading';
+
+const DynamicProviderContainer = dynamic(
+  () => import('./ProvidersContainer').then((mod) => mod.ProvidersContainer),
+  {
+    loading: () => <Loading size={40} />,
+  }
+);
 
 const Dashboard = () => {
   const by_url = useSearchParams();
@@ -30,9 +39,9 @@ const Dashboard = () => {
   type SetService = typeof buildParams.service extends Eli ? Eli : Gas;
 
   //providers hooks
-  const [providers, setProviders] = useState<ApiResponse<SetService> | undefined>(
-    undefined
-  );
+  const [providers, setProviders] = useState<
+    ApiResponse<SearchResponse<Provider<SetService>>> | undefined
+  >(undefined);
 
   useEffect(() => {
     async function fetch() {
@@ -46,7 +55,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <ProvidersContainer res={providers} req={buildParams} />
+      <DynamicProviderContainer res={providers} req={buildParams} />
     </main>
   );
 };
