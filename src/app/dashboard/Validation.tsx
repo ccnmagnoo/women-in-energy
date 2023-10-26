@@ -14,9 +14,7 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
       try {
         console.log('proxy', process.env.NEXTAUTH_URL);
         const query = fetch(
-          `${'http://localhost:3000/'}/api/verification?service=${
-            provider.license.service
-          }&rut=${provider.rut}`
+          `/api/verification?service=${provider.license.service}&rut=${provider.rut}`
         );
         const validation = await query;
         const result = await validation.json();
