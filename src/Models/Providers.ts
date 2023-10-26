@@ -1,3 +1,4 @@
+import { ServiceUrl } from './../app/api/verification/Service';
 import { InputService } from './Input';
 
 type SearchStats<T extends {}> = Pick<InputService, 'service' | 'location'> & T;
@@ -21,6 +22,11 @@ type Personal = {
 type Eli = 'eli';
 type Gas = 'gas';
 type Service = Eli | Gas;
+
+enum ServiceDeclare {
+  Eli = 'electrica',
+  Gas = 'gas',
+}
 
 type License<S extends Service> = {
   service: S;
@@ -58,4 +64,5 @@ export type {
   Eli,
   Gas,
   License,
+  ServiceDeclare,
 };

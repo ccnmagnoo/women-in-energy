@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import style from './Resume.module.scss';
-import { Provider, ApiResponse, Service } from '@/Models/Providers';
+import { Provider, ApiResponse, Service, ServiceDeclare } from '@/Models/Providers';
 import { LicenseTag } from '../../LicenseTag';
 import Image from 'next/image';
 import avatar from '@/app/static/woman-ico.svg';
@@ -32,7 +32,18 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
               <Image src={avatar} alt={''} />
             </section>
           </article>
-          <article className={style.personal}>informacin persona</article>
+          <article className={style.personal}>
+            <h2>
+              {provider?.response.personal.name?.split(' ')[0]}{' '}
+              {provider?.response.personal.surname}
+            </h2>
+            <h3>
+              <p>Certificada SEC</p>
+              <p>{provider?.response.license.service === 'eli' ? 'electrica' : 'gas'}</p>
+              <span>clase {provider?.response.license.category}</span>
+            </h3>
+            <p>{provider?.response.address.city}</p>
+          </article>
         </div>
 
         <div className={style.bottom}>contacto</div>

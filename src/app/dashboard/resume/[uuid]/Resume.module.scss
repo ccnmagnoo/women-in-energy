@@ -61,9 +61,26 @@ $secondary: var(--secondary);
       }
       .personal {
         background: $primary;
-        display: flex;
+        display: inline-block;
         flex: 1 1 0;
         border-radius: 4px;
+        padding: 10px;
+        > h2 {
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+          font-family: sans-serif;
+          font-weight: 100;
+        }
+        > h3 {
+          font-family: monospace;
+          font-size: larger;
+          display: flex;
+          gap: 5px;
+          color: $secondary;
+
+          > span {
+            font-weight: bolder;
+          }
+        }
       }
     }
   }
