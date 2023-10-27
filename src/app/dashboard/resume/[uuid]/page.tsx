@@ -26,12 +26,14 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
     <main className={style.main}>
       <section className={style.container}>
         <div className={style.top}>
+          {/* avatar license card */}
           <article className={style.avatarFrame}>
             {provider && <LicenseTag provider={provider?.response} />}
             <section className={style.avatar}>
               <Image src={avatar} alt={''} />
             </section>
           </article>
+          {/* personal information card */}
           <article className={style.personal}>
             <h2>
               {provider?.response.personal.name?.split(' ')[0]}{' '}
