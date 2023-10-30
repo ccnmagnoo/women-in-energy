@@ -17,6 +17,8 @@ energy-related careers.
 
 ## Key Features
 
+## First stage..
+
 ### 1. Women-Centric Listings
 
 The app exclusively features certified energy professionals who identify as women. It
@@ -29,6 +31,8 @@ Users can easily search for specific energy services or professionals using filt
 as location, specialization, and service type. The intuitive search functionality ensures
 that users can quickly find the services they need.
 
+## Second Stage
+
 ### 3. Certification Verification
 
 Each professional's certification can be verified through the app, offering users
@@ -40,6 +44,8 @@ users can trust the qualifications of the women professionals listed.
 The app highlights success stories, interviews, and articles about women who have excelled
 in the energy sector. These stories serve as inspiration for aspiring professionals and
 contribute to breaking down gender stereotypes in the industry.
+
+## Third Stage, 
 
 ### 5. Community Engagement
 
