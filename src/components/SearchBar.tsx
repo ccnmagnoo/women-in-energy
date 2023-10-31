@@ -34,7 +34,7 @@ const ServiceSearchBar = ({
             className={styles.searchbar}
             placeholder={placeholder}
             maxLength={100}
-            minLength={5}
+            minLength={4}
             type='text'
           ></input>
           <button type='submit' className={styles.button}>
