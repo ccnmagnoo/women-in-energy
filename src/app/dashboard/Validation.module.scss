@@ -51,12 +51,14 @@ $secondary: var(--secondary);
       width: 0px;
       height: 0px;
     }
+    a {
+      > p {
+        display: block;
+      }
 
-    > p {
-      display: block;
-    }
-    > a {
-      font-weight: 700;
+      > p:last-child {
+        font-weight: 800;
+      }
     }
   }
 

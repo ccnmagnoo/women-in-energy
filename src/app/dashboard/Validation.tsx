@@ -37,9 +37,9 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
             <Image src={invalidStamp} alt='' />
           )}
           <article className={style.dialog}>
-            <p>SEC</p>
             <a href={validation.source} target='_blank'>
-              {validation.response.at(-1)?.toLowerCase()}
+              <p>licencia</p>
+              <p>{validation.response.at(-1)?.toLowerCase()}</p>
             </a>
           </article>
         </section>
