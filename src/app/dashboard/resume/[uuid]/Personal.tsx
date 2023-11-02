@@ -18,8 +18,8 @@ export const Personal = <S extends Service>({
         {provider?.personal.name?.split(' ')[0]} {provider?.personal.surname}
       </h2>
       <h3>
-        <p>Certificada SEC</p>
-        <p>{provider?.license.service === 'eli' ? 'electrica' : 'gas'}</p>
+        <p>cerficación SEC</p>
+        <p>{provider?.license.service === 'eli' ? 'eléctrica' : 'gas'}</p>
         <span>clase {provider?.license.category}</span>
       </h3>
       <p>Servicios en {provider?.address.city} y alrededores</p>
