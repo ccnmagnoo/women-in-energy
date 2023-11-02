@@ -5,7 +5,6 @@ import style from './Resume.module.scss';
 import { LicenseTag } from '../../LicenseTag';
 import Image from 'next/image';
 import avatar from '@/app/static/woman-ico.svg';
-
 export const Card = <S extends Service>({
   provider,
 }: {
