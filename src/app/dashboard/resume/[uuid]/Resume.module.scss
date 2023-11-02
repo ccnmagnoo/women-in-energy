@@ -105,6 +105,23 @@ $secondary: var(--secondary);
           gap: 10px;
           > li {
             width: fit-content;
+            display: flex;
+
+            section {
+              display: flex;
+              gap: 5px;
+
+              span.unit {
+                font-size: 0.7rem;
+                background: white;
+                text-align: center;
+                text-justify: center;
+                padding: 1px 4px;
+                color: $primary;
+                opacity: 0.5;
+                border-radius: 5px;
+              }
+            }
           }
         }
       }
