@@ -5,6 +5,8 @@ import { Provider, ApiResponse, Service, ServiceDeclare } from '@/Models/Provide
 import { LicenseTag } from '../../LicenseTag';
 import Image from 'next/image';
 import avatar from '@/app/static/woman-ico.svg';
+import { Card } from './Card';
+import { Personal } from './Personal';
 
 function ProviderResume<S extends Service>({ params }: { params: { uuid: string } }) {
   const [provider, setProvider] = useState<undefined | ApiResponse<Provider<S>>>(
@@ -27,25 +29,9 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
       <section className={style.container}>
         <div className={style.top}>
           {/* avatar license card */}
-          <article className={style.avatarFrame}>
-            {provider && <LicenseTag provider={provider?.response} />}
-            <section className={style.avatar}>
-              <Image src={avatar} alt={''} />
-            </section>
-          </article>
+          <Card provider={provider?.response} />
           {/* personal information card */}
-          <article className={style.personal}>
-            <h2>
-              {provider?.response.personal.name?.split(' ')[0]}{' '}
-              {provider?.response.personal.surname}
-            </h2>
-            <h3>
-              <p>Certificada SEC</p>
-              <p>{provider?.response.license.service === 'eli' ? 'electrica' : 'gas'}</p>
-              <span>clase {provider?.response.license.category}</span>
-            </h3>
-            <p>{provider?.response.address.city}</p>
-          </article>
+          <Personal provider={provider?.response} />
         </div>
 
         <div className={style.bottom}>contacto</div>

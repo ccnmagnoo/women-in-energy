@@ -72,13 +72,23 @@ $secondary: var(--secondary);
         }
         > h3 {
           font-family: monospace;
-          font-size: larger;
+          font-size: 1.1rem;
           display: flex;
+          align-items: center;
+
           gap: 5px;
-          color: $secondary;
+          color: $primary;
+          background: $secondary;
+          border-radius: 1rem;
+          padding: 0.5rem;
+          width: fit-content;
 
           > span {
-            font-weight: bolder;
+            font-weight: 900;
+            background-color: $primary;
+            color: $secondary;
+            padding: 2px 5px;
+            border-radius: 0.6rem;
           }
         }
       }
