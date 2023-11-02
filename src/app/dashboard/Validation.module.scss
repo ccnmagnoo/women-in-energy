@@ -1,33 +1,37 @@
+$primary: var(--primary);
+$secondary: var(--secondary);
+
 .stamp {
-  $displace: 80px;
   // border: 1px solid white;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: -$displace * 0.35;
-  top: -3px;
-  width: $displace;
-  height: 30px;
+  right: -8px;
+  top: -8px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   opacity: 0.5;
   z-index: 2;
 
   > img {
     width: 15px;
     height: 15px;
-    color: var(--secondary);
+    color: $secondary;
   }
 
   .dialog {
     background: white;
-    color: var(--primary);
+    color: $primary;
     border-radius: 2px;
-    padding: 3px 5px;
-    font-size: 0.8rem;
+    padding: 3px 6px;
+    font-size: 1rem;
 
+    visibility: hidden;
     position: absolute;
-    display: hidden;
-    top: 0;
+
+    top: 4px;
     right: 0;
 
     opacity: 0; //initial hidden
@@ -57,12 +61,14 @@
   }
 
   &:hover {
+    background: radial-gradient(circle at center, $secondary, transparent 50%);
     opacity: 1;
     cursor: pointer;
     .dialog {
+      visibility: visible;
       display: block;
       opacity: 1; //final visible
-      right: -35px;
+      right: -70px;
     }
   }
 }
