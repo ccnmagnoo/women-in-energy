@@ -5,7 +5,7 @@ type SearchStats<T extends {}> = Pick<InputService, 'service' | 'location'> & T;
 type Territory = 'city' | 'province' | 'region';
 
 /**
- * @type Search response Generic for API response 
+ * @type Search response Generic for API response
  * @param L generic for providers or variations
  */
 type SearchResponse<L> = {
@@ -33,7 +33,7 @@ type Gas = 'gas';
 type Service = Eli | Gas;
 
 /**
- * @enum ES-CL language energetic specification, only frontend. 
+ * @enum ES-CL language energetic specification, only frontend.
  */
 enum ServiceDeclare {
   Eli = 'electrica',
@@ -41,7 +41,7 @@ enum ServiceDeclare {
 }
 
 /**
- * @type License dinamyc category on S extension 
+ * @type License dynamic category on S extension
  * @param category A,B,C,D on S:eli, 1,2,3,4,1 y 5 on S:gas
  */
 type License<S extends Service> = {
@@ -66,7 +66,7 @@ type Provider<S extends Service> = {
 };
 
 /**
- * @type ApiResponse  retrieve object from api/providers, 
+ * @type ApiResponse  retrieve object from api/providers,
  * @description  {search:STATS,response:TYPE}
  *  for app api format,
  * */
