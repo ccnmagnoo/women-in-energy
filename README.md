@@ -17,7 +17,7 @@ energy-related careers.
 
 ## Key Features
 
-## First stage..
+## First stage
 
 ### 1. Women-Centric Listings
 
@@ -45,7 +45,7 @@ The app highlights success stories, interviews, and articles about women who hav
 in the energy sector. These stories serve as inspiration for aspiring professionals and
 contribute to breaking down gender stereotypes in the industry.
 
-## Third Stage, 
+## Third Stage
 
 ### 5. Community Engagement
 
