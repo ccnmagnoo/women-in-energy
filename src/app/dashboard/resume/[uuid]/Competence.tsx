@@ -8,5 +8,5 @@ export const CompetenceCard = <S extends Service>({
 }: {
   competence: Competence<S>;
 }) => {
-  return <section className={style.competence}>{competence.resume.short}</section>;
+  return <section className={style.competence}>{competence.resume.details}</section>;
 };
