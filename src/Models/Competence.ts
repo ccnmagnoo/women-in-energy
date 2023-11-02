@@ -107,7 +107,7 @@ const eliCompetence: CompetenceList<Eli> = {
         voltage: 'low',
         technology: 'instalaciones',
         limitSize: 500,
-        feederSize: undefined,
+        feederSize: Infinity,
         unit: 'kW',
         icon: wire,
       },
