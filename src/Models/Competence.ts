@@ -1,9 +1,24 @@
 //ref https://www.sec.cl/area-instaladores/instaladores-electricos/#1582631689365-5ce39298-c21f
+//size ico
 import house from '@/app/static/size-domestic-ico.svg';
 import building from '@/app/static/size-building-ico.svg';
 import hospital from '@/app/static/size-hospital-ico.svg';
 import industry from '@/app/static/size-industry-ico.svg';
 import propane from '@/app/static/size-propane-ico.svg';
+
+//installation ico
+////eli
+import wire from '@/app/static/install-eli-wire.svg';
+import motor from '@/app/static/install-eli-motor.svg';
+import light from '@/app/static/install-eli-light.svg';
+import heater from '@/app/static/install-eli-heater.svg';
+////gas
+import boiler from '@/app/static/install-gas-boiler.svg';
+import production from '@/app/static/install-gas-production.svg';
+import lil_storage from '@/app/static/install-gas-propane.svg';
+import big_storage from '@/app/static/install-gas-bigtank.svg';
+import transport from '@/app/static/install-gas-transport.svg';
+import biogas from '@/app/static/install-gas-biogas.svg';
 
 import { Eli, Gas, License, Service } from './Providers';
 
@@ -14,8 +29,9 @@ type Low = 'low';
 interface Install<S extends Service> {
   technology: S extends Eli
     ? 'instalaciones' | 'motores' | 'alumbrado' | 'calefacción'
-    : 'instalaciones' | 'producción' | 'almacenamiento' | 'transporte';
+    : 'instalaciones' | 'producción' | 'almacenamiento' | 'transporte' | 'biogas';
   description?: string;
+  icon?: any;
   limitSize?: number;
   unit: S extends Eli ? 'kW' : 'Kg' | undefined;
 }
@@ -53,6 +69,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: Infinity,
         feederSize: Infinity,
         unit: 'kW',
+        icon: wire,
       },
       {
         voltage: 'high',
@@ -60,6 +77,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: Infinity,
         feederSize: Infinity,
         unit: 'kW',
+        icon: light,
       },
       {
         voltage: 'high',
@@ -67,6 +85,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: Infinity,
         feederSize: Infinity,
         unit: 'kW',
+        icon: heater,
       },
       {
         voltage: 'high',
@@ -74,6 +93,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: Infinity,
         feederSize: Infinity,
         unit: 'kW',
+        icon: motor,
       },
     ],
   },
@@ -89,6 +109,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 500,
         feederSize: undefined,
         unit: 'kW',
+        icon: wire,
       },
       {
         voltage: 'low',
@@ -96,6 +117,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 100,
         feederSize: 10,
         unit: 'kW',
+        icon: light,
       },
       {
         voltage: 'low',
@@ -103,6 +125,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 50,
         feederSize: 10,
         unit: 'kW',
+        icon: heater,
       },
       {
         voltage: 'low',
@@ -110,6 +133,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 50,
         feederSize: 10,
         unit: 'kW',
+        icon: motor,
       },
     ],
   },
@@ -128,6 +152,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 500,
         feederSize: undefined,
         unit: 'kW',
+        icon: wire,
       },
       {
         voltage: 'low',
@@ -135,6 +160,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 100,
         feederSize: 10,
         unit: 'kW',
+        icon: light,
       },
       {
         voltage: 'low',
@@ -142,6 +168,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 50,
         feederSize: 10,
         unit: 'kW',
+        icon: heater,
       },
       {
         voltage: 'low',
@@ -149,6 +176,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 50,
         feederSize: 10,
         unit: 'kW',
+        icon: motor,
       },
     ],
   },
@@ -167,6 +195,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 10,
         feederSize: undefined,
         unit: 'kW',
+        icon: wire,
       },
       {
         voltage: 'low',
@@ -174,6 +203,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 5,
         feederSize: undefined,
         unit: 'kW',
+        icon: heater,
       },
       {
         voltage: 'low',
@@ -181,6 +211,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 5,
         feederSize: undefined,
         unit: 'kW',
+        icon: motor,
       },
     ],
   },
@@ -200,26 +231,30 @@ const gasCompetence: CompetenceList<Gas> = {
       {
         pressure: 'high',
         technology: 'instalaciones',
-        limitSize: undefined,
-        unit: undefined,
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: boiler,
       },
       {
         pressure: 'high',
         technology: 'almacenamiento',
         limitSize: Infinity,
         unit: 'Kg',
+        icon: big_storage,
       },
       {
         pressure: 'high',
         technology: 'transporte',
-        limitSize: undefined,
-        unit: undefined,
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: transport,
       },
       {
         pressure: 'high',
         technology: 'producción',
-        limitSize: undefined,
-        unit: undefined,
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: production,
       },
     ],
   },
@@ -234,6 +269,14 @@ const gasCompetence: CompetenceList<Gas> = {
         technology: 'almacenamiento',
         limitSize: 6000,
         unit: 'Kg',
+        icon: big_storage,
+      },
+      {
+        pressure: 'medium',
+        technology: 'instalaciones',
+        limitSize: 6000,
+        unit: 'Kg',
+        icon: boiler,
       },
     ],
   },
@@ -248,6 +291,14 @@ const gasCompetence: CompetenceList<Gas> = {
         technology: 'almacenamiento',
         limitSize: 60,
         unit: 'Kg',
+        icon: lil_storage,
+      },
+      {
+        pressure: 'low',
+        technology: 'instalaciones',
+        limitSize: 60,
+        unit: 'Kg',
+        icon: boiler,
       },
     ],
   },
@@ -273,9 +324,38 @@ const gasCompetence: CompetenceList<Gas> = {
     install: [
       {
         pressure: 'high',
+        technology: 'instalaciones',
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: boiler,
+      },
+      {
+        pressure: 'high',
         technology: 'almacenamiento',
         limitSize: Infinity,
         unit: 'Kg',
+        icon: big_storage,
+      },
+      {
+        pressure: 'high',
+        technology: 'transporte',
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: transport,
+      },
+      {
+        pressure: 'high',
+        technology: 'producción',
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: production,
+      },
+      {
+        pressure: 'high',
+        technology: 'biogas',
+        limitSize: Infinity,
+        unit: 'Kg',
+        icon: biogas,
       },
     ],
   },
