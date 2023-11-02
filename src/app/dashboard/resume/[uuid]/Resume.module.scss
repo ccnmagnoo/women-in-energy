@@ -97,8 +97,15 @@ $secondary: var(--secondary);
             border-radius: 0.6rem;
           }
         }
-        > .competence {
+        > ul.competence {
           border: 1px solid red;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          > li {
+            width: fit-content;
+          }
         }
       }
     }

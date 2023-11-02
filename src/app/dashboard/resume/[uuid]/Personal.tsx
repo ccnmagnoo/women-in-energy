@@ -2,7 +2,7 @@ import { Eli, Gas, Provider, Service } from '@/Models/Providers';
 import React from 'react';
 import style from './Resume.module.scss';
 import { gasCompetence, eliCompetence, CompetenceList } from '@/Models/Competence';
-import { CompetenceCard } from './Competence';
+import { CompetenceCards } from './Competence';
 
 export const Personal = <S extends Service>({
   provider,
@@ -24,7 +24,7 @@ export const Personal = <S extends Service>({
       </h3>
       <p>Servicios en {provider?.address.city} y alrededores</p>
 
-      {provider && <CompetenceCard competence={competence[provider.license.category]} />}
+      {provider && <CompetenceCards competence={competence[provider.license.category]} />}
     </article>
   );
 };
