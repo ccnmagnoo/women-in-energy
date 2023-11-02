@@ -28,6 +28,7 @@ $secondary: var(--secondary);
 
     .top {
       display: flex;
+      flex-direction: row;
       gap: 10px;
 
       .avatarFrame {
@@ -78,6 +79,7 @@ $secondary: var(--secondary);
           font-family: monospace;
           font-size: 1.1rem;
           display: flex;
+          flex-direction: row;
           align-items: center;
 
           gap: 5px;
@@ -95,6 +97,9 @@ $secondary: var(--secondary);
             border-radius: 0.6rem;
           }
         }
+        > .competence {
+          border: 1px solid red;
+        }
       }
     }
   }
@@ -102,6 +107,21 @@ $secondary: var(--secondary);
     .container {
       min-height: 90%;
       margin-top: 2rem;
+
+      .top {
+        flex-direction: column;
+        .personal {
+          > h3 {
+            flex-direction: column;
+            padding: 5px;
+            border-radius: 10px;
+            > span {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
     }
   }
 }
