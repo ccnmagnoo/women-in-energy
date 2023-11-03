@@ -5,6 +5,7 @@ $card: radial-gradient(
 );
 $primary: var(--primary);
 $secondary: var(--secondary);
+$shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
 .main {
   // border: 1px solid white;
@@ -70,7 +71,7 @@ $secondary: var(--secondary);
         border-radius: 4px;
         padding: 10px;
         > h2 {
-          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+          text-shadow: $shadow;
           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
             'Lucida Sans', Arial, sans-serif;
           font-weight: 200;
@@ -81,6 +82,7 @@ $secondary: var(--secondary);
           display: flex;
           flex-direction: row;
           align-items: center;
+          box-shadow: $shadow;
 
           gap: 5px;
           color: $primary;
@@ -128,7 +130,7 @@ $secondary: var(--secondary);
 
             border: $border solid $secondary;
             border-radius: 100px;
-            box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: $shadow;
 
             cursor: pointer;
             transition: all 400ms ease-in-out;
