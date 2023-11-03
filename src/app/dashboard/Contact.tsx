@@ -8,7 +8,7 @@ import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
-export const Contact = <S extends Service>({ provider }: { provider: Provider<S> }) => {
+export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
   const by_url = useSearchParams();
   const toSearch: PartialStringified<InputService> = {
     description: undefined,
@@ -24,7 +24,7 @@ export const Contact = <S extends Service>({ provider }: { provider: Provider<S>
     reqParams[key] = by_url.get(key) || undefined;
   });
 
-  const serviceMessage = `Junto con saludar ${provider.personal.name}%0D
+  const serviceMessage = `Junto con saludar ${provider?.personal.name}%0D
   Necesito que me pueda colaborar con la siguiente tarea:%0D
   ${reqParams.description} ,espero que puedas ayudarme.%0D%0D
   Mis datos son:%0D
@@ -38,14 +38,14 @@ export const Contact = <S extends Service>({ provider }: { provider: Provider<S>
     <section className={style.contact}>
       {/* https://faq.whatsapp.com/5913398998672934 */}
       <a
-        href={`https://wa.me/${provider.contact.movil}?text=${serviceMessage}`}
+        href={`https://wa.me/${provider?.contact.movil}?text=${serviceMessage}`}
         target='_blank'
       >
         <Image src={sms} alt={''}></Image>
       </a>
       <a
-        href={`mailto:${provider.contact.email}?subject=Requerimiento de servicio ${
-          provider.license.service === 'eli' ? 'eléctrico' : ' de Gas'
+        href={`mailto:${provider?.contact.email}?subject=Requerimiento de servicio ${
+          provider?.license.service === 'eli' ? 'eléctrico' : ' de Gas'
         } SEC&body=${serviceMessage}`}
         target='_blank'
       >
