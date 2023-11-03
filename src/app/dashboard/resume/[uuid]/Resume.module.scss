@@ -118,13 +118,18 @@ $secondary: var(--secondary);
             $curtain: rgba(255, 255, 255, 0.3);
 
             width: $install-ico-size + $border * 2; //on hover, to content-fit
-            // width: fit-content;
+            // width: 170px;
             display: flex;
 
             align-items: center;
             overflow-x: hidden;
 
-            background-color: white; //on hover has to change to $curtain
+            background-color: rgba(
+              255,
+              255,
+              255,
+              0.267
+            ); //on hover has to change to $curtain
 
             border: $border solid $secondary;
             border-radius: 100px;
@@ -167,7 +172,7 @@ $secondary: var(--secondary);
             span.unit {
               font-size: 0.7rem;
               background: white;
-              text-align: center;
+              align-items: center;
               text-justify: center;
               padding: 1px 4px;
               color: $primary;
@@ -190,8 +195,7 @@ $secondary: var(--secondary);
                 display: flex;
                 gap: 5px;
                 > p {
-                  display: flex;
-                  flex-wrap: nowrap;
+                  white-space: nowrap;
                 }
               }
               > article:last-child {
