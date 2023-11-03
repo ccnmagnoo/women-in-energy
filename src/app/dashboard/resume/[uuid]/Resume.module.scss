@@ -105,8 +105,12 @@ $secondary: var(--secondary);
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          gap: 15px;
+          gap: 25px;
+
+          justify-content: center;
+
           margin-top: 10px;
+          margin-bottom: 30px;
 
           > li.install {
             $install-ico-size: 50px; //child icon size config
@@ -114,6 +118,7 @@ $secondary: var(--secondary);
             $curtain: rgba(255, 255, 255, 0.3);
 
             width: $install-ico-size + $border * 2; //on hover, to content-fit
+            // width: fit-content;
             display: flex;
 
             align-items: center;
@@ -125,15 +130,11 @@ $secondary: var(--secondary);
             border-radius: 100px;
 
             cursor: pointer;
-
-            transition: width, background-color, visibility, 300ms ease-in-out;
+            transition: all 400ms ease-in-out;
 
             &:hover {
               width: 200px;
               background-color: $curtain;
-              > p.outside_limits {
-                visibility: hidden;
-              }
             }
 
             //install icon
@@ -148,15 +149,33 @@ $secondary: var(--secondary);
             //ouside number 100kW
 
             > p.outside_limits {
+              opacity: 1;
               position: absolute;
-              bottom: -20px;
+              transform: translateY($install-ico-size * 0.75);
               width: $install-ico-size;
               text-align: center;
 
-              font-family: monospace;
-              font-size: 1rem;
-              font-weight: bolder;
+              font-size: 0.9rem;
+              font-weight: bold;
             }
+            &:hover {
+              > p.outside_limits {
+                opacity: 0;
+              }
+            }
+
+            span.unit {
+              font-size: 0.7rem;
+              background: white;
+              text-align: center;
+              text-justify: center;
+              padding: 1px 4px;
+              color: $primary;
+              opacity: 0.55;
+              border-radius: 4px;
+              font-weight: bold;
+            }
+
             //install description📖
             section {
               display: flex;
@@ -168,22 +187,15 @@ $secondary: var(--secondary);
               transform: scaleX(1);
 
               > article {
-                display: inline-flex;
+                display: flex;
                 gap: 5px;
+                > p {
+                  display: flex;
+                  flex-wrap: nowrap;
+                }
               }
               > article:last-child {
                 font-size: 0.7rem;
-              }
-
-              span.unit {
-                font-size: 0.7rem;
-                background: white;
-                text-align: center;
-                text-justify: center;
-                padding: 1px 4px;
-                color: $primary;
-                opacity: 0.55;
-                border-radius: 4px;
               }
 
               p.limits {

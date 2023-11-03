@@ -14,7 +14,7 @@ export const Install = <I extends GasInstall | ElectricInstall>({
       <Image src={install.icon} alt={'⚡'}></Image>
       <p className={style.outside_limits}>
         {install.limitSize === Infinity ? <NoLimit /> : install.limitSize}
-        {install.unit}
+        <span className={style.unit}>{install.unit}</span>
       </p>
       <section>
         <article>
@@ -25,6 +25,7 @@ export const Install = <I extends GasInstall | ElectricInstall>({
             {install.limitSize === Infinity ? <NoLimit /> : install.limitSize}
           </p>
           <span className={style.unit}>{install.unit}</span>
+
           {/* specific section depending on type of Service GAS/ElI */}
           {install.unit === 'kW' ? <p> voltaje: {install.voltage}</p> : undefined}
           {install.unit === 'Kg' ? (
