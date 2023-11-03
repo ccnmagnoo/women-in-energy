@@ -5,6 +5,7 @@ import { Provider, ApiResponse, Service } from '@/Models/Providers';
 
 import { Card } from './Card';
 import { Personal } from './Personal';
+import { BigContact } from './BigContact';
 
 function ProviderResume<S extends Service>({ params }: { params: { uuid: string } }) {
   const [provider, setProvider] = useState<undefined | ApiResponse<Provider<S>>>(
@@ -32,7 +33,9 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
           <Personal provider={provider?.response} />
         </div>
 
-        <div className={style.bottom}></div>
+        <div className={style.bottom}>
+          <BigContact provider={provider?.response}></BigContact>
+        </div>
       </section>
     </main>
   );
