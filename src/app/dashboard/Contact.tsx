@@ -6,7 +6,6 @@ import style from './Contact.module.scss';
 import { Provider, Service } from '@/Models/Providers';
 import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import buildMessage from '@/Util/builMessage';
 
 export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
