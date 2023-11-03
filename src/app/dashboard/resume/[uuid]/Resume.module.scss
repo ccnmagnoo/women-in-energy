@@ -124,15 +124,11 @@ $secondary: var(--secondary);
             align-items: center;
             overflow-x: hidden;
 
-            background-color: rgba(
-              255,
-              255,
-              255,
-              0.267
-            ); //on hover has to change to $curtain
+            background-color: $secondary; //on hover has to change to $curtain
 
             border: $border solid $secondary;
             border-radius: 100px;
+            box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
 
             cursor: pointer;
             transition: all 400ms ease-in-out;
@@ -154,7 +150,9 @@ $secondary: var(--secondary);
             //ouside number 100kW
 
             > p.outside_limits {
-              opacity: 1;
+              visibility: visible;
+              display: flex;
+              align-items: center;
               position: absolute;
               transform: translateY($install-ico-size * 0.75);
               width: $install-ico-size;
@@ -165,7 +163,7 @@ $secondary: var(--secondary);
             }
             &:hover {
               > p.outside_limits {
-                opacity: 0;
+                visibility: hidden;
               }
             }
 
@@ -200,6 +198,9 @@ $secondary: var(--secondary);
               }
               > article:last-child {
                 font-size: 0.7rem;
+                position: relative;
+                display: flex;
+                align-items: center;
               }
 
               p.limits {
