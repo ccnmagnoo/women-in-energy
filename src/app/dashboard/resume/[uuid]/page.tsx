@@ -1,10 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import style from './Resume.module.scss';
-import { Provider, ApiResponse, Service, ServiceDeclare } from '@/Models/Providers';
-import { LicenseTag } from '../../LicenseTag';
-import Image from 'next/image';
-import avatar from '@/app/static/woman-ico.svg';
+import { Provider, ApiResponse, Service } from '@/Models/Providers';
+
 import { Card } from './Card';
 import { Personal } from './Personal';
 
@@ -34,7 +32,7 @@ function ProviderResume<S extends Service>({ params }: { params: { uuid: string 
           <Personal provider={provider?.response} />
         </div>
 
-        <div className={style.bottom}>contacto</div>
+        <div className={style.bottom}></div>
       </section>
     </main>
   );
