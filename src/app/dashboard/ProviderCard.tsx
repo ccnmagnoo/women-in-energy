@@ -4,7 +4,8 @@ import { Provider, Service, Territory } from '@/Models/Providers';
 import { LicenseTag } from './LicenseTag';
 import { Contact } from './Contact';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { InputService } from '@/Models/Input';
 
 export function ProviderCard<S extends Service>({
   provider,
@@ -15,8 +16,26 @@ export function ProviderCard<S extends Service>({
 }) {
   const router = useRouter();
 
+  //fetch url params
+  const by_url = useSearchParams();
+
+  const toSearch: PartialStringified<InputService> = {
+    description: undefined,
+    service: undefined,
+    location: undefined,
+    magnitude: undefined,
+  };
+
+  const reqParams: Record<string, string | undefined> = {};
+  Object.keys(toSearch).forEach((key) => {
+    reqParams[key] = by_url.get(key) || undefined;
+  });
+
+  //on click avatar
   function buttonHandler<S>(e: S) {
-    router.push('dashboard/resume/' + provider.uuid);
+    router.push(
+      'dashboard/resume/' + provider.uuid + `?description=${reqParams.description}`
+    );
   }
   return (
     <article className={style.card} data-scope={scope}>
