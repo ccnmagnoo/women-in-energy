@@ -15,8 +15,8 @@ export const BigContactMedia = ({
   const description = url.get('description');
 
   return (
-    <div>
+    <li>
       {media}/{identifier}/{description}
-    </div>
+    </li>
   );
 };
