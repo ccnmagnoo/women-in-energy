@@ -6,7 +6,7 @@ import style from './Contact.module.scss';
 import { Provider, Service } from '@/Models/Providers';
 import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
-import buildMessage from '@/Util/builMessage';
+import buildMessage from '@/Util/buildMessage';
 
 export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
   const by_url = useSearchParams();
