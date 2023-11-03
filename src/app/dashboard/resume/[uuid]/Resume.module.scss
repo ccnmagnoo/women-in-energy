@@ -150,7 +150,13 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
               padding: 2px;
               border: $border solid $secondary;
               border-radius: 50px;
-              background-color: $primary;
+              background-color: $secondary;
+              filter: saturate(40%);
+            }
+            &:hover {
+              > img {
+                filter: saturate(90%);
+              }
             }
             //ouside number 100kW
 
