@@ -85,4 +85,5 @@ export type {
   Gas,
   License,
   ServiceDeclare,
+  Contact,
 };
