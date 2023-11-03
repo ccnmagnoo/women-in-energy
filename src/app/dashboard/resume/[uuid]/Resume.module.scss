@@ -97,32 +97,75 @@ $secondary: var(--secondary);
             border-radius: 0.6rem;
           }
         }
+
         > ul.competence {
-          border: 1px solid red;
+          // border: 1px solid red;
+          position: relative;
           list-style: none;
           display: flex;
-          flex-direction: column;
-          gap: 10px;
-          > li {
-            width: fit-content;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin-top: 10px;
+
+          > li.install {
+            $install-ico-size: 50px; //child icon size config
+            $border: 2px; //button contain
+            $curtain: rgba(255, 255, 255, 0.3);
+
+            width: $install-ico-size + $border * 2; //on hover, to content-fit
             display: flex;
+
             align-items: center;
-            gap: 10px;
+            overflow-x: hidden;
+
+            background-color: white; //on hover has to change to $curtain
+
+            border: $border solid $secondary;
+            border-radius: 100px;
+
+            cursor: pointer;
+
+            transition: width, background-color, visibility, 300ms ease-in-out;
+
+            &:hover {
+              width: 200px;
+              background-color: $curtain;
+              > p.outside_limits {
+                visibility: hidden;
+              }
+            }
 
             //install icon
             > img {
-              $install-ico-size: 50px;
               width: $install-ico-size;
               height: $install-ico-size;
               padding: 2px;
-              border: 4px solid $secondary;
+              border: $border solid $secondary;
               border-radius: 50px;
+              background-color: $primary;
+            }
+            //ouside number 100kW
+
+            > p.outside_limits {
+              position: absolute;
+              bottom: -20px;
+              width: $install-ico-size;
+              text-align: center;
+
+              font-family: monospace;
+              font-size: 1rem;
+              font-weight: bolder;
             }
             //install description📖
             section {
               display: flex;
               flex-direction: column;
               gap: 5px;
+              // border: 1px solid red;
+
+              padding: 0 10px;
+              transform: scaleX(1);
 
               > article {
                 display: inline-flex;
@@ -141,6 +184,11 @@ $secondary: var(--secondary);
                 color: $primary;
                 opacity: 0.55;
                 border-radius: 4px;
+              }
+
+              p.limits {
+                font-size: 0.9rem;
+                font-weight: bolder;
               }
             }
           }
