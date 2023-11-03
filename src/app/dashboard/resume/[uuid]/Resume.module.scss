@@ -36,6 +36,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
       gap: 10px;
 
       .avatarFrame {
+        position: relative;
         display: flex;
         flex-direction: column;
         background: $primary;
@@ -48,6 +49,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
         .avatar {
           $size: 100px;
           display: flex;
+          position: relative;
           align-items: center;
           justify-content: center;
           border-radius: 1000px;
@@ -55,6 +57,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
           width: $size;
           height: $size;
           border: 5px solid white;
+
           align-self: center;
           justify-self: center;
 
@@ -239,6 +242,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
       .top {
         flex-direction: column;
+
         .personal {
           > h3 {
             flex-direction: column;
