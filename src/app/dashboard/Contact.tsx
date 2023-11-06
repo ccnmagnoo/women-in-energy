@@ -7,6 +7,7 @@ import { Provider, Service } from '@/Models/Providers';
 import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
 import buildMessage from '@/Util/buildMessage';
+import { media } from '@/Util/getMediaIco';
 
 export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
   const by_url = useSearchParams();
@@ -41,7 +42,7 @@ export const Contact = <S extends Service>({ provider }: { provider?: Provider<S
         href={`https://wa.me/${provider?.contact.movil}?text=${message}`}
         target='_blank'
       >
-        <Image src={sms} alt={''}></Image>
+        {media['movil'].icon}
       </a>
       <a
         href={`mailto:${provider?.contact.email}?subject=Requerimiento de servicio ${
@@ -49,7 +50,7 @@ export const Contact = <S extends Service>({ provider }: { provider?: Provider<S
         } SEC&body=${message}`}
         target='_blank'
       >
-        <Image src={email} alt={''}></Image>
+        {media['email'].icon}
       </a>
     </section>
   );
