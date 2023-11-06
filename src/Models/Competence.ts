@@ -69,7 +69,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: Infinity,
         feederSize: Infinity,
         unit: 'kW',
-        icon: wire,
+        icon: industry,
       },
       {
         voltage: 'high',
@@ -109,7 +109,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 500,
         feederSize: Infinity,
         unit: 'kW',
-        icon: wire,
+        icon: hospital,
       },
       {
         voltage: 'low',
@@ -152,7 +152,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 500,
         feederSize: undefined,
         unit: 'kW',
-        icon: wire,
+        icon: building,
       },
       {
         voltage: 'low',
@@ -195,7 +195,7 @@ const eliCompetence: CompetenceList<Eli> = {
         limitSize: 10,
         feederSize: undefined,
         unit: 'kW',
-        icon: wire,
+        icon: house,
       },
       {
         voltage: 'low',
