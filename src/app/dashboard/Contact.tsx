@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import sms from '@/app/static/send-sms-ico.svg';
-import email from '@/app/static/send-email-ico.svg';
 import style from './Contact.module.scss';
 import { Provider, Service } from '@/Models/Providers';
 import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
-import buildMessage from '@/Util/buildMessage';
-import { media } from '@/Util/getMediaIco';
 import buildContactLink from '@/Util/buildContactLink';
 
 export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
