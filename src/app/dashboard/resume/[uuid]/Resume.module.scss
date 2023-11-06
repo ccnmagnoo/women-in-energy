@@ -263,7 +263,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
             transition: width 300ms ease-out;
 
             &:hover {
-              width: 370px;
+              width: 400px;
               border-radius: 100px 50px 50px 100px;
             }
 
@@ -283,7 +283,15 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
               &.tail {
                 background-color: black;
-                align-self: end;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                height: 100%;
+
+                img {
+                  width: $widget-size * 0.5;
+                  height: $widget-size * 0.5;
+                }
               }
 
               img {
@@ -293,6 +301,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
             }
             > .display {
               margin: 0 10px;
+              flex: 1 1 0;
             }
           }
         }
