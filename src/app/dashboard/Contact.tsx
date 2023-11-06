@@ -8,50 +8,42 @@ import { InputService } from '@/Models/Input';
 import { useSearchParams } from 'next/navigation';
 import buildMessage from '@/Util/buildMessage';
 import { media } from '@/Util/getMediaIco';
+import buildContactLink from '@/Util/buildContactLink';
 
 export const Contact = <S extends Service>({ provider }: { provider?: Provider<S> }) => {
   const by_url = useSearchParams();
 
-  const [message, setMessage] = useState<string | undefined>(undefined);
+  const toSearch: PartialStringified<InputService> = {
+    description: undefined,
+    service: undefined,
+    location: undefined,
+    magnitude: undefined,
+  };
+
+  const reqParams: Record<string, string | undefined> = {};
+  Object.keys(toSearch).forEach((key) => {
+    reqParams[key] = by_url.get(key) || undefined;
+  });
+  const [sendSMS, setSMSLink] = useState<React.ReactNode>(undefined);
+  const [sendEmail, setEmailLink] = useState<React.ReactNode>(undefined);
 
   useEffect(() => {
     async function fetchMessage() {
-      const toSearch: PartialStringified<InputService> = {
-        description: undefined,
-        service: undefined,
-        location: undefined,
-        magnitude: undefined,
-      };
-
-      const reqParams: Record<string, string | undefined> = {};
-      Object.keys(toSearch).forEach((key) => {
-        reqParams[key] = by_url.get(key) || undefined;
-      });
-
-      const message = await buildMessage(provider, reqParams);
-      setMessage(message);
+      const toSms = await buildContactLink('movil', reqParams, provider);
+      setSMSLink(toSms);
+      const toEmail = await buildContactLink('email', reqParams, provider);
+      setEmailLink(toEmail);
     }
 
     fetchMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [provider, by_url]);
 
   return (
     <section className={style.contact}>
       {/* https://faq.whatsapp.com/5913398998672934 */}
-      <a
-        href={`https://wa.me/${provider?.contact.movil}?text=${message}`}
-        target='_blank'
-      >
-        {media['movil'].icon}
-      </a>
-      <a
-        href={`mailto:${provider?.contact.email}?subject=Requerimiento de servicio ${
-          provider?.license.service === 'eli' ? 'eléctrico' : ' de Gas'
-        } SEC&body=${message}`}
-        target='_blank'
-      >
-        {media['email'].icon}
-      </a>
+      {sendSMS}
+      {sendEmail}
     </section>
   );
 };
