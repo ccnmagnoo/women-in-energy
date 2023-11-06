@@ -47,22 +47,22 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
         border-radius: 0.5rem;
 
         .avatar {
-          $size: 100px;
+          $avatar-size: 100px;
           display: flex;
           position: relative;
           align-items: center;
           justify-content: center;
           border-radius: 1000px;
           background: $card;
-          width: $size;
-          height: $size;
+          width: $avatar-size;
+          height: $avatar-size;
           border: 5px solid white;
 
           align-self: center;
           justify-self: center;
 
           > img {
-            width: $size * 0.6;
+            width: $avatar-size * 0.6;
             aspect-ratio: 1/1;
           }
         }
@@ -240,6 +240,62 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
         border-radius: 10px 10px 10px 10px;
         min-height: 200px; //temporal
         padding: 1rem;
+
+        > ul {
+          border: red 1px solid;
+          display: flex;
+          justify-content: space-evenly;
+          > li {
+            //widget with contact information
+            $widget-size: 80px; //link card size height
+            $widget-border: 3px;
+
+            border: $secondary $widget-border solid;
+            border-radius: 100px;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+
+            height: $widget-size;
+            width: $widget-size; //hover
+            overflow-x: hidden;
+
+            transition: width 300ms ease-out;
+
+            &:hover {
+              width: 370px;
+              border-radius: 100px 50px 50px 100px;
+            }
+
+            > .button {
+              // border: $widget-border solid $secondary;
+              border-radius: 2px;
+              width: $widget-size;
+              aspect-ratio: 1/1;
+
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: $secondary;
+              filter: saturate(0.5);
+              padding: 2px;
+
+              &.tail {
+                background-color: black;
+                align-self: end;
+              }
+
+              img {
+                width: $widget-size * 0.6;
+                height: $widget-size * 0.6;
+              }
+            }
+            > .display {
+              margin: 0 10px;
+            }
+          }
+        }
       }
     }
   }

@@ -15,7 +15,7 @@ export const BigContact = <S extends Service>({
           Object.entries(provider?.contact).map((par) => {
             const [media, identifier] = par;
             return (
-              <Media key={media} media={media as keyof Contact} identifier={identifier} />
+              <Media key={media} media={media as keyof Contact} provider={provider} />
             );
           })}
       </ul>
