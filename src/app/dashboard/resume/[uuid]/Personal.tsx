@@ -17,14 +17,30 @@ export const Personal = <S extends Service>({
       <h2>
         {provider?.personal.name?.split(' ')[0]} {provider?.personal.surname}
       </h2>
-      <h3>
-        <p>cerficación SEC</p>
-        <p>{provider?.license.service === 'eli' ? 'eléctrica' : 'gas'}</p>
-        <span>clase {provider?.license.category}</span>
-      </h3>
+      <a href={regulationResource(provider?.license.service)} target='_blank'>
+        <h3>
+          <p>cerficación SEC</p>
+          <p>{provider?.license.service === 'eli' ? 'eléctrica' : 'gas'}</p>
+          <span>clase {provider?.license.category}</span>
+        </h3>
+      </a>
       <p>Servicios en {provider?.address.city} y alrededores</p>
 
       {provider && <CompetenceCards competence={competence[provider.license.category]} />}
     </article>
   );
+};
+
+const regulationResource = (service?: Service) => {
+  switch (service) {
+    case 'eli': {
+      return 'https://www.sec.cl/area-instaladores/instaladores-electricos/#1582631689365-5ce39298-c21f';
+    }
+    case 'gas': {
+      return 'https://www.sec.cl/area-instaladores/instaladores-electricos/#1582631689386-798bb9c4-c517';
+    }
+    default: {
+      return undefined;
+    }
+  }
 };

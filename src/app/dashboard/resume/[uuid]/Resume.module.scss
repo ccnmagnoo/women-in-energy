@@ -82,7 +82,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
             'Lucida Sans', Arial, sans-serif;
           font-weight: 200;
         }
-        > h3 {
+        h3 {
           font-family: monospace;
           font-size: 1.1rem;
           display: flex;
@@ -97,12 +97,20 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
           padding: 0.5rem;
           width: fit-content;
 
+          transition: transform 79ms ease-out;
+
           > span {
             font-weight: 900;
             background-color: $primary;
             color: $secondary;
             padding: 2px 5px;
             border-radius: 0.6rem;
+          }
+          &:hover {
+            transform: translateY(-2px);
+          }
+          &:active {
+            transform: translate(2px);
           }
         }
 
