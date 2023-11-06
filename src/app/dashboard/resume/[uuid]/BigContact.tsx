@@ -1,7 +1,7 @@
 import { Contact, Provider, Service } from '@/Models/Providers';
 import React from 'react';
 import style from './Resume.module.scss';
-import { BigContactMedia } from './BigContactMedia';
+import { Media } from './BigContactMedia';
 
 export const BigContact = <S extends Service>({
   provider,
@@ -15,11 +15,7 @@ export const BigContact = <S extends Service>({
           Object.entries(provider?.contact).map((par) => {
             const [media, identifier] = par;
             return (
-              <BigContactMedia
-                key={media}
-                media={media as keyof Contact}
-                identifier={identifier}
-              />
+              <Media key={media} media={media as keyof Contact} identifier={identifier} />
             );
           })}
       </ul>

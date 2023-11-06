@@ -3,7 +3,7 @@ import { Contact } from '@/Models/Providers';
 import { useSearchParams } from 'next/navigation';
 import style from './Resume.module.scss';
 
-export const BigContactMedia = ({
+export const Media = ({
   media,
   identifier,
 }: {
