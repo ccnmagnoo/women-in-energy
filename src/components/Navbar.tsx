@@ -12,8 +12,10 @@ export const Navbar = () => {
   return (
     <section>
       {/* Instaladoras mt */}
-      <Image src={logo} id='site-logo' alt='' />
-
+      <div id='site-logo'>
+        <Image src={logo} alt='' />
+        <p>de gas y electricidad</p>
+      </div>
       {/* Navigation */}
       <nav className={styles.navbar}>
         <Link id={styles.newSearch} href='/'>
