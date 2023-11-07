@@ -5,6 +5,7 @@ $card: radial-gradient(
 );
 $primary: var(--primary);
 $secondary: var(--secondary);
+$accent: var(--accent);
 $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
 .main {
@@ -23,7 +24,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
     gap: 10px;
 
     width: min(800px, 100%);
-    min-height: 80%;
+    // min-height: 80%;
     margin: 0 5px;
 
     backdrop-filter: blur(5px);
@@ -245,7 +246,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
         align-items: center;
 
         > ul {
-          border: red 1px solid;
+          // border: red 1px solid;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
@@ -258,10 +259,11 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
             // border: rgba(255, 255, 255, 0.1) $widget-border solid;
             box-shadow: $shadow;
-            border-radius: 20px; //main contanct button
+            border-radius: 20px; //main contact button
             position: relative;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
             display: flex;
+            flex-direction: row;
 
             height: $widget-size;
             width: $widget-size; //hover
@@ -288,12 +290,12 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
               flex-direction: column;
               justify-content: center;
               align-items: center;
-              background-color: $primary;
-              // filter: saturate(0.5);
+              background-color: $secondary;
+              filter: saturate(0.5);
               padding: 2px;
 
               &.tail {
-                background-color: black;
+                background-color: $primary;
                 flex-direction: column;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -318,6 +320,11 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
               flex-direction: column;
               justify-content: space-evenly;
 
+              > p {
+                font-size: 1.2rem;
+                font-weight: 200;
+              }
+
               h3 {
                 color: $secondary;
               }
@@ -334,6 +341,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
                 align-items: center;
                 padding: 0 15px 0 0;
                 background: transparent;
+
                 border: 2px rgba(255, 255, 255, 0.2) solid;
 
                 transition: top 100ms ease-out;
@@ -361,23 +369,34 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
             > li {
               margin: 4px;
               height: 60px;
-              width: 80px;
+              width: 60px;
               font-size: 0.8rem;
-
-              img {
+              > .button {
+                width: 60px;
                 img {
-                  width: 20px;
-                  height: 20px;
+                  width: 30px;
+                  height: 30px;
                 }
-              }
-              > .display {
-                button {
-                  padding: 0 5px;
-                  background-color: rgba(255, 255, 255, 0.226);
+                &.tail {
                   p {
                     display: none;
                   }
                 }
+              }
+
+              > .display {
+                font-size: 1rem;
+
+                button {
+                  padding: 0 5px;
+                  background-color: rgba(255, 255, 255, 0.226);
+                  > p {
+                    display: none;
+                  }
+                }
+              }
+              &:hover {
+                width: 100%; //extended contact widget on small screens
               }
             }
           }
