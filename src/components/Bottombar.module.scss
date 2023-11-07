@@ -1,23 +1,39 @@
 .bottombar {
   display: flex;
   position: absolute;
-  bottom: 20px;
-  left: 30px;
+  bottom: 10px;
+  left: 20px;
 
   align-items: center;
   justify-content: center;
   gap: 10px;
 
-  ul {
+  #seremi {
+    $seremi-size: 80px;
+    width: $seremi-size;
+    height: $seremi-size;
+    border-radius: $seremi-size;
+  }
+
+  > ul {
     display: flex;
     list-style-type: none;
     gap: 20px;
 
-    li {
+    > li {
       cursor: pointer;
+      display: flex;
+      align-items: center;
       padding: 5px;
+      gap: 10px;
+
+      > a {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
     }
-    li:hover {
+    > li:hover {
       text-decoration: underline;
     }
   }
