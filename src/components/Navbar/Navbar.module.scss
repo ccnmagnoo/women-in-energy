@@ -1,4 +1,4 @@
-$polimorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
+$polymorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
   2px 2px 4px 0px rgba(245, 245, 245, 0.2) inset;
 
 .navbar {
@@ -18,7 +18,7 @@ $polimorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
     font-weight: 400;
     text-shadow: 2px 2px 4px 4px black;
     border-radius: 100px;
-    box-shadow: $polimorph-shadow;
+    box-shadow: $polymorph-shadow;
     height: 50px;
     padding: 10px;
     backdrop-filter: blur(2px);
@@ -31,6 +31,7 @@ $polimorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
 
     &:hover {
       background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
     }
     &:active {
       transform: translateY(2px);
@@ -67,7 +68,7 @@ $polimorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
     }
     &.logout {
       border: unset;
-      box-shadow: $polimorph-shadow;
+      box-shadow: $polymorph-shadow;
       backdrop-filter: blur(2px);
     }
     &:hover.login {
@@ -87,7 +88,7 @@ $polimorph-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1),
     padding-left: 20px;
 
     border-radius: 100px;
-    box-shadow: $polimorph-shadow;
+    box-shadow: $polymorph-shadow;
     backdrop-filter: blur(3px);
 
     .user_pic {
