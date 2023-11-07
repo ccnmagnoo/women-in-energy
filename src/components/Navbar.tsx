@@ -5,6 +5,7 @@ import Link from 'next/link';
 import logo from '@/app/static/mi-logo.svg';
 import styles from '@/components/Navbar/Navbar.module.scss';
 import { User } from './Navbar/User';
+import searchIco from '@/app/static/search-ico.svg';
 
 export const Navbar = () => {
   const session = useSession().data;
@@ -15,7 +16,12 @@ export const Navbar = () => {
 
       {/* Navigation */}
       <nav className={styles.navbar}>
-        <Link href='/'>buscar instaladoras</Link>
+        <Link id={styles.newSearch} href='/'>
+          <Image src={searchIco} alt={'🔍'} />
+          <p>
+            buscar <span>instaladora</span>
+          </p>
+        </Link>
 
         {/* session info👤 */}
         <User session={session} />
