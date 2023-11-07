@@ -2,17 +2,31 @@
   display: flex;
   position: absolute;
   bottom: 10px;
-  left: 20px;
+  left: 10px;
 
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 10px;
+  font-size: 1.1rem;
+  @media (width < 765px) {
+    font-size: 0.9rem;
+  }
 
+  $seremi-size: 100px;
   #seremi {
-    $seremi-size: 80px;
     width: $seremi-size;
     height: $seremi-size;
     border-radius: $seremi-size;
+  }
+  @media (width < 765px) {
+    bottom: 0px;
+    left: 5px;
+
+    $seremi-size: 50px;
+    #seremi {
+      width: $seremi-size;
+      height: $seremi-size;
+    }
   }
 
   > ul {
@@ -23,14 +37,20 @@
     > li {
       cursor: pointer;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       padding: 5px;
       gap: 10px;
+      @media (width < 765px) {
+        align-items: center;
+      }
 
       > a {
         display: flex;
         gap: 10px;
-        align-items: center;
+        align-items: flex-end;
+        @media (width < 765px) {
+          align-items: center;
+        }
       }
     }
     > li:hover {

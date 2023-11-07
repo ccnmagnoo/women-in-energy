@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Bottombar.module.scss';
 import Link from 'next/link';
-import seremi from '@/app/static/logoSEV.png';
+import seremi from '@/app/static/seremi-logo.svg';
 import Image from 'next/image';
 
 export const Bottombar = () => {
@@ -15,7 +15,7 @@ export const Bottombar = () => {
             rel='noopener noreferrer'
           >
             <Image id={styles.seremi} src={seremi} alt='Energía Valpo' />
-            <p>Por @EnergíaValpo</p>
+            <p>por @EnergíaValpo</p>
           </a>
         </li>
         <li>
