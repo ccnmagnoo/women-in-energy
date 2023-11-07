@@ -133,7 +133,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
             $border: 2px; //button contain
             $curtain: rgba(255, 255, 255, 0.3);
 
-            width: $install-ico-size + $border * 2; //on hover, to content-fit
+            width: $install-ico-size; //on hover, to content-fit
             // width: 170px;
             display: flex;
 
@@ -142,7 +142,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
             background-color: $secondary; //on hover has to change to $curtain
 
-            border: $border solid $secondary;
+            // border: $border solid $secondary;
             border-radius: 100px;
             box-shadow: $shadow;
 
