@@ -8,6 +8,7 @@ import Image from 'next/image';
 import messenger from '@/app/static/send-sms-ico.svg';
 import email from '@/app/static/send-email-ico.svg';
 import phone from '@/app/static/send-phone-ico.svg';
+import copyIco from '@/app/static/copy-ico.svg';
 
 export const Media = <S extends Service>({
   media,
@@ -31,6 +32,14 @@ export const Media = <S extends Service>({
 
   const [linkComponent, setLink] = useState<React.ReactNode>(undefined);
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(provider.contact[media]?.toString() ?? '');
+    } catch (error) {
+      console.log('cliboard error', error);
+    }
+  };
+
   useEffect(() => {
     async function getAnchor() {
       const anchor = await buildContactLink(media, params, provider);
@@ -46,8 +55,14 @@ export const Media = <S extends Service>({
           <div className={style.button}>{mediaIco[media]}</div>
           <div className={style.display}>
             <h3>{media}</h3>
-            {media === 'movil' ? '+' : undefined}
-            {provider.contact[media]}
+            <p>
+              {media === 'movil' ? '+' : undefined}
+              {provider.contact[media]}
+            </p>
+            <button onClick={copyToClipboard}>
+              <Image src={copyIco} alt='📄' />
+              <p>copiar</p>
+            </button>
           </div>
           <div className={[style.button, style.tail].join(' ')}>
             {linkComponent} <p>enviar</p>
