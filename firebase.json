@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "intaladoras",
+    "public": "./",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
