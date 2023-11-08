@@ -3,7 +3,7 @@ const path = require('path');
 const nextConfig = {
   distDir: 'build',
   sassOptions: { includePaths: [path.join(__dirname, 'styles')] },
-  output: 'export',
+  // output: 'export',
   images: {
     remotePatterns: [
       {
