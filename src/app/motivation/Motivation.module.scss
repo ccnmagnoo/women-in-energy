@@ -1,0 +1,162 @@
+$card: radial-gradient(
+  circle at left 20% top 20%,
+  rgba(255, 255, 255, 0.8) 0%,
+  rgba(255, 255, 255, 0.1) 100%
+);
+$primary: var(--primary);
+$secondary: var(--secondary);
+$accent: var(--accent);
+$shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
+
+.container {
+  background: $card;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  // border: 2px $primary solid;
+  gap: 10px;
+
+  width: min(800px, 100%);
+
+  //   overflow-y: auto;
+  // min-height: 80%;
+  margin: 0 5px;
+
+  backdrop-filter: blur(5px);
+  transition: height 200ms ease-out;
+  padding: 10px;
+
+  .title {
+    > h2 {
+      color: rgb(211, 135, 211);
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      font-size: 5rem;
+      > span {
+        font-size: 1.2rem;
+        position: relative;
+
+        text-wrap: nowrap;
+        color: white;
+      }
+    }
+    > h3 {
+      font-size: 2rem;
+      padding: 0;
+      position: relative;
+    }
+    @media (width < 765px) {
+      margin-bottom: 2rem;
+      > h2 {
+        font-size: 3rem;
+      }
+      > h3 {
+        font-size: 2rem;
+        position: relative;
+        bottom: 10px;
+      }
+    }
+  }
+
+  > .diatribe {
+    display: flex;
+    position: relative;
+
+    gap: 10px;
+    flex-wrap: wrap;
+
+    @media (width < 765px) {
+      flex-direction: column;
+    }
+
+    &:last-child {
+      background-color: black;
+    }
+
+    > p {
+      background-color: $primary;
+      padding: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: 0px;
+      line-height: 2rem;
+      font-weight: 200;
+      border-radius: 10px;
+      text-align: justify;
+      flex: 1 1 0;
+
+      @media (width < 765px) {
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+      }
+    }
+
+    a {
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        transform: translateY(-2px);
+      }
+    }
+  }
+  .disclaimer {
+    color: $primary;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    max-width: 400px;
+    padding: 10px;
+    bottom: 10px;
+    right: 10px;
+
+    font-size: 1rem;
+    line-height: normal;
+    border-radius: 20px;
+    text-align: justify;
+
+    > a {
+      font-weight: bold;
+    }
+
+    @media (width < 765px) {
+      font-size: 0.9rem;
+      top: 10px;
+      bottom: unset;
+      max-width: 200px;
+    }
+
+    > span {
+      font-family: monospace;
+    }
+
+    &::after {
+      //arrow
+      $arrow-size: 10px;
+      content: '';
+      border: $arrow-size solid transparent;
+      position: absolute;
+      top: -1.9 * $arrow-size;
+      left: $arrow-size * 1.5;
+      width: 0;
+      height: 0;
+      border-bottom: $arrow-size solid white;
+
+      @media (width < 765px) {
+        border-right: $arrow-size solid white;
+        border-bottom: $arrow-size solid transparent;
+        left: -1.9 * $arrow-size;
+        top: 1.9 * $arrow-size;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  section.usefulLinks {
+    position: relative;
+    display: flex;
+  }
+}
