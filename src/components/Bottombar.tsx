@@ -19,7 +19,7 @@ export const Bottombar = () => {
           </a>
         </li>
         <li>
-          <Link href={'/motivation'}> motivaciones</Link>
+          <Link href={'/motivation'}> ¿porqué esta app?</Link>
         </li>
         <li>
           <a
