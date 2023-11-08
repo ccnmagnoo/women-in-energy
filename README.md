@@ -15,9 +15,9 @@ exclusively focusing on the women professionals certified by SEC. It aims to pro
 gender diversity within the energy industry and empower women in their pursuit of
 energy-related careers.
 
-[in any device](https://i.postimg.cc/dQnc4nmL/1-1.jpg)](https://postimg.cc/fk3PbcPN)
+[![in any device](https://i.postimg.cc/dQnc4nmL/1-1.jpg)](https://postimg.cc/fk3PbcPN)
 
-[easy to read](https://i.postimg.cc/hvvyC8cd/2-1.jpg)](https://postimg.cc/4HCQy9Kf)
+[![easy to read](https://i.postimg.cc/hvvyC8cd/2-1.jpg)](https://postimg.cc/4HCQy9Kf)
 
 [![usefull & quick access](https://i.postimg.cc/L4Gwy7g4/3-1.jpg)](https://postimg.cc/BtcmbmCR)
 
