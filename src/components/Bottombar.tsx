@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Bottombar.module.scss';
 import Link from 'next/link';
-import seremi from '@/app/static/seremi-logo.svg';
+import seremi from '@/app/static/seremi-logo-animated.svg';
 import Image from 'next/image';
 
 export const Bottombar = () => {
