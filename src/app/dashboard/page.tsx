@@ -1,12 +1,9 @@
-'use client';
 import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
-import { useEffect, useState } from 'react';
 import { Eli, Gas, ApiResponse, SearchResponse, Provider } from '@/Models/Providers';
 import dynamic from 'next/dynamic';
 import { Loading } from '@/components/Loading';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
-import { KeyObject } from 'crypto';
 
 const DynamicProviderContainer = dynamic(
   () => import('./ProvidersContainer').then((mod) => mod.ProvidersContainer),
