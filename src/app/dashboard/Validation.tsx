@@ -1,3 +1,4 @@
+'use client';
 import { Provider, Service } from '@/Models/Providers';
 import React, { useEffect, useState } from 'react';
 import style from './Validation.module.scss';

@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import style from './Contact.module.scss';
 import { Provider, Service } from '@/Models/Providers';

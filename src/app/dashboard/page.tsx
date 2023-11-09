@@ -1,36 +1,15 @@
-import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { Eli, Gas, ApiResponse, SearchResponse, Provider } from '@/Models/Providers';
-import dynamic from 'next/dynamic';
-import { Loading } from '@/components/Loading';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
-
-const DynamicProviderContainer = dynamic(
-  () => import('./ProvidersContainer').then((mod) => mod.ProvidersContainer),
-  {
-    loading: () => <Loading size={40} />,
-  }
-);
+import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = ({
   providers,
+  buildParams,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const by_url = useSearchParams();
-  const searchParams: PartialStringified<InputService> = {
-    description: undefined,
-    service: undefined,
-    location: undefined,
-    magnitude: undefined,
-  };
-
-  const buildParams: Record<string, string | undefined> = {};
-  Object.keys(searchParams).forEach((key) => {
-    buildParams[key] = by_url.get(key) || undefined;
-  });
-
   return (
     <main>
-      <DynamicProviderContainer res={providers} req={buildParams} />
+      <ProvidersContainer res={providers} req={buildParams} />
     </main>
   );
 };
@@ -53,23 +32,26 @@ export const getServerSideProps = (async (context) => {
     magnitude: undefined,
   };
 
-  const build: Record<string, string | undefined> = {};
+  const buildParams: Record<string, string | undefined> = {};
   Object.keys(params).forEach((key) => {
     const get = context.query[key];
-    build[key] = get as string;
+    buildParams[key] = get as string;
   });
 
   //url fetch
-  const request_params = Object.entries(build)
+  const request_params = Object.entries(buildParams)
     .map(([key, value]) => key + '=' + value)
     .join('&');
   const request_url = '/api/provider?' + request_params;
 
-  const res = await fetch(request_params);
+  console.log('api request to url: ', request_url);
+
+  const res = await fetch(request_url);
   const providers = await res.json();
-  return { props: { providers } };
+  return { props: { providers, buildParams } };
 }) satisfies GetServerSideProps<{
   providers: ApiResponse<SearchResponse<Provider<Eli | Gas>>>;
+  buildParams: Record<string, string | undefined>;
 }>;
 
 export default Dashboard;
