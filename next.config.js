@@ -1,4 +1,8 @@
-// https://firebase.google.com/docs/hosting/frameworks/nextjs?hl=es-419
+/**
+ * How to deploy at hosting Next JS on firebase
+ * https://firebase.google.com/docs/hosting/frameworks/nextjs?hl=es-419
+ * https://youtu.be/TJqJ-WY3XxA
+ */
 
 /** @type {import('next').NextConfig} */
 const path = require('path');
