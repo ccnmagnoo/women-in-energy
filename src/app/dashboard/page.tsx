@@ -16,13 +16,6 @@ const DynamicProviderContainer = dynamic(
 
 const Dashboard = () => {
   const by_url = useSearchParams();
-  // const service: Partial<InputService> = {
-  //   description: by_url.get('description') || undefined,
-  //   service: (by_url.get('service') || undefined) as InputService['service'],
-  //   location: by_url.get('location') || undefined,
-  //   magnitude: (by_url.get('magnitude') || undefined) as InputService['magnitude'],
-  // };
-
   const searchParams: PartialStringified<InputService> = {
     description: undefined,
     service: undefined,
