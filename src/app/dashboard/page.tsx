@@ -15,7 +15,9 @@ const DynamicProviderContainer = dynamic(
   }
 );
 
-const Dashboard = () => {
+const Dashboard = ({
+  providers,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const by_url = useSearchParams();
   const searchParams: PartialStringified<InputService> = {
     description: undefined,
@@ -28,24 +30,6 @@ const Dashboard = () => {
   Object.keys(searchParams).forEach((key) => {
     buildParams[key] = by_url.get(key) || undefined;
   });
-
-  //validation type
-  type SetService = typeof buildParams.service extends Eli ? Eli : Gas;
-
-  //providers hooks
-  const [providers, setProviders] = useState<
-    ApiResponse<SearchResponse<Provider<SetService>>> | undefined
-  >(undefined);
-
-  useEffect(() => {
-    async function fetch() {
-      //const data = await fetchProviders(buildParams);
-      //setProviders(data);
-    }
-
-    fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <main>
@@ -85,10 +69,10 @@ export const getServerSideProps = (async (context) => {
   const request_url = '/api/provider?' + request_params;
 
   const res = await fetch(request_params);
-  const repo = await res.json();
-  return { props: { repo } };
+  const providers = await res.json();
+  return { props: { providers } };
 }) satisfies GetServerSideProps<{
-  repo: number;
+  providers: ApiResponse<SearchResponse<Provider<Eli | Gas>>>;
 }>;
 
 export default Dashboard;
