@@ -3,7 +3,6 @@ import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
 import { Eli, Gas, ApiResponse, SearchResponse, Provider } from '@/Models/Providers';
-import { ProvidersContainer } from './ProvidersContainer';
 import dynamic from 'next/dynamic';
 import { Loading } from '@/components/Loading';
 
