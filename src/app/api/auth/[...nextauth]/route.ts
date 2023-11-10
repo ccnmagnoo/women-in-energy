@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth/next';
 // import FacebookProvider from 'next-auth/providers/facebook';
 // import InstagramProvider from 'next-auth/providers/instagram';
+import Auth0Provider from 'next-auth/providers/auth0';
 import GoogleProvider from 'next-auth/providers/google';
 import { AuthOptions, Theme } from 'next-auth';
 
@@ -18,6 +19,11 @@ const authOptions: AuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID!,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      issuer: process.env.AUTH0_ISSUER,
     }),
   ],
   theme: theme,
