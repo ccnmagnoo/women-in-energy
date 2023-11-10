@@ -61,12 +61,12 @@ body {
     #site-logo {
       position: absolute;
       left: 10vw;
-      top: 12vh;
+      top: 11vh;
       height: max-content;
       object-fit: contain;
       filter: drop-shadow(2px 2px 1px var(--secondary));
       > img {
-        width: min(70vw, 615px);
+        width: min(50vw, 615px);
         height: max-content;
       }
       > p {
