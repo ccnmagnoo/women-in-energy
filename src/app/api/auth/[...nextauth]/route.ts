@@ -8,9 +8,9 @@ import app_logo from '@/app/static/mi-logo.svg';
 
 //res https://www.youtube.com/watch?v=YCEnpcCYlyo
 const theme: Theme = {
-  colorScheme: 'light',
+  colorScheme: 'auto',
   brandColor: '#A233EC01',
-  logo: app_logo,
+  logo: undefined,
   buttonText: '#A233EC01',
 };
 
@@ -18,8 +18,8 @@ const authOptions: AuthOptions = {
   //Configuration access providers
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
   theme: theme,
