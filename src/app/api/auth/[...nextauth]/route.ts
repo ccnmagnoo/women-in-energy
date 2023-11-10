@@ -2,14 +2,17 @@ import NextAuth from 'next-auth/next';
 import FacebookProvider from 'next-auth/providers/facebook';
 import InstagramProvider from 'next-auth/providers/instagram';
 import GoogleProvider from 'next-auth/providers/google';
+import { FirebaseAdapter } from '@next-auth/firebase-adapter';
 
 import { AuthOptions, Theme } from 'next-auth';
+import { db } from '../../libs/database';
+import app_logo from '@/app/static/mi-logo.svg';
 
 //res https://www.youtube.com/watch?v=YCEnpcCYlyo
 const theme: Theme = {
   colorScheme: 'light',
   brandColor: '#A233EC01',
-  logo: '/_next/static/media/mi-logo.a7490708.svg',
+  logo: app_logo,
   buttonText: '#A233EC01',
 };
 
@@ -22,6 +25,7 @@ const authOptions: AuthOptions = {
     }),
   ],
   theme: theme,
+  adapter: FirebaseAdapter(db),
 };
 
 const handler = NextAuth(authOptions);
