@@ -23,6 +23,7 @@ function RootLayout({ children }: { children: ReactNode }) {
     <html lang='en'>
       <body className={inter.className}>
         <Providers>
+          {/* //session provider */}
           <header>
             <Navbar />
           </header>
