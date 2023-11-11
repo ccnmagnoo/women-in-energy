@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   const logoutHandler = () => {
     signOut();
-    router.push('/');
+    router.push('/home');
   };
   return (
     <section>
