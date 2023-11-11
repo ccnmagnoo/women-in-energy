@@ -6,9 +6,16 @@ import logo from '@/app/static/mi-logo.svg';
 import styles from '@/components/Navbar/Navbar.module.scss';
 import { User } from './Navbar/User';
 import searchIco from '@/app/static/search-ico.svg';
+import { useRouter } from 'next/navigation';
 
 export const Navbar = () => {
   const session = useSession().data;
+  const router = useRouter();
+
+  const logoutHandler = () => {
+    signOut();
+    router.push('/');
+  };
   return (
     <section>
       {/* Instaladoras mt */}
@@ -31,7 +38,7 @@ export const Navbar = () => {
         {session ? (
           <button
             className={[styles.logButton, styles.logout].join(' ')}
-            onClick={() => signOut()}
+            onClick={() => logoutHandler()}
           >
             salir
           </button>
