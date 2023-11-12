@@ -15,8 +15,8 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
         const query = fetch(
           `/api/verification?service=${provider.license.service}&rut=${provider.rut}`
         );
-        const validation = await query;
-        const result = await validation.json();
+        const response = await query;
+        const result: ValidationRequest | undefined = await response.json();
         setValidation(result);
       } catch (error) {
         console.error(error);
@@ -30,11 +30,13 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
     <>
       {validation && (
         <section className={style.stamp}>
-          {validation.response.at(-1) === 'VIGENTE' ? (
-            <Image src={validStamp} alt='' />
-          ) : (
-            <Image src={invalidStamp} alt='' />
-          )}
+          {validation &&
+            (validation.response.at(-1) === 'VIGENTE' ? (
+              <Image src={validStamp} alt='' />
+            ) : (
+              <Image src={invalidStamp} alt='' />
+            ))}
+
           <article className={style.dialog}>
             <a href={validation.source} target='_blank'>
               <p>licencia</p>
