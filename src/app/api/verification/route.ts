@@ -57,7 +57,14 @@ async function handler(req: Req, res: Res) {
       response: result.slice(0, 5).map((it) => cheerio.load(it).text()),
       source: data.url,
     },
-    { status: 200 }
+    {
+      status: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      },
+    }
   );
 }
 

@@ -20,7 +20,7 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
         console.log('api validation result: ', result?.response);
         setValidation(result);
       } catch (error) {
-        console.error('erro detail', error);
+        console.error('error detail', error);
       }
     };
 

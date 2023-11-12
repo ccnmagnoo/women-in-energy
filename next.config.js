@@ -11,7 +11,11 @@ const nextConfig = {
   // output: 'export',
 
   images: {
-    domains: ['instaladoras.web.app', 'energy-providers.web.app'],
+    domains: [
+      'instaladoras.web.app',
+      'energy-providers.web.app',
+      'instaladoras.vercel.app',
+    ],
     remotePatterns: [
       {
         protocol: 'https',
