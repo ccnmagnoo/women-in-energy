@@ -17,7 +17,7 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
         );
         const response = await query;
         const result: ValidationRequest | undefined = await response.json();
-        console.log('api validation result: ', response);
+        console.log('api validation result: ', result?.response);
         setValidation(result);
       } catch (error) {
         console.error(error);
