@@ -32,7 +32,7 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
         <section className={style.stamp}>
           {validation &&
             //FIXME: validation is nullable, so y async load drops Null pointer exception error.
-            (validation.response.at(-1) === 'VIGENTE' ? (
+            (validation?.response?.at(-1) === 'VIGENTE' ? (
               <Image src={validStamp} alt='' />
             ) : (
               <Image src={invalidStamp} alt='' />
