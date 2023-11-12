@@ -12,7 +12,6 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('proxy', process.env.NEXTAUTH_URL);
         const query = fetch(
           `/api/verification?service=${provider.license.service}&rut=${provider.rut}`
         );

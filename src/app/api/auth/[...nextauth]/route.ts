@@ -17,12 +17,12 @@ const authOptions: AuthOptions = {
   //Configuration access providers
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     Auth0Provider({
-      clientId: process.env.AUTH0_CLIENT_ID!,
-      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      clientId: process.env.AUTH0_CLIENT_ID as string,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET as string,
       issuer: process.env.AUTH0_ISSUER,
     }),
   ],
