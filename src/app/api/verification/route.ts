@@ -31,7 +31,12 @@ async function handler(req: Req, res: Res) {
     'https://wlhttp.sec.cl/validadorInstaladores/sec/consulta.do',
     {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        Accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        Connection: 'keep-alive',
+      },
       body: buildUrl(payload),
     }
   );
