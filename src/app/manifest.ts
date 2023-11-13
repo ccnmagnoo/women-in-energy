@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-
+/* cSpell:disable */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'instaladoras App',

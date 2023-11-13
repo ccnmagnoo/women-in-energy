@@ -10,14 +10,6 @@ import { Bottombar } from '@/components/Bottombar';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'instaladoras',
-  authors: { name: 'Carlos Campos', url: new URL('https://github.com/ccnmagnoo') },
-  description: 'Instaladoras certificadas SEC de electricidad y gas',
-  icons: {
-    icon: '/src/app/static/mi-ico.png',
-  },
-};
 function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
