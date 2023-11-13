@@ -61,11 +61,13 @@ const Motivation = () => {
           >
             <p>más info</p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={
                 'https://energia.gob.cl/sites/default/files/logo-energia-mas-mujer.png'
               }
               alt='Energía+Mujer'
+              width={100}
+              height={60}
             />
           </a>
         </section>
