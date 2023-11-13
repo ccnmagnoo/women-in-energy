@@ -15,6 +15,7 @@ const nextConfig = {
       'instaladoras.web.app',
       'energy-providers.web.app',
       'instaladoras.vercel.app',
+      'energia.gob.cl',
     ],
     remotePatterns: [
       {
@@ -22,6 +23,12 @@ const nextConfig = {
         hostname: 'lh3.googleusercontent.com',
         port: '',
         pathname: '/a/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'energia.gob.cl',
+        port: '',
+        pathname: '/**',
       },
     ],
   },
