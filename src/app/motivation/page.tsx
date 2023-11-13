@@ -16,10 +16,10 @@ const Motivation = () => {
         {/* <article className={style.graph}>graph</article> */}
         <section className={style.diatribe}>
           <p>
-            Hoy en día en Chile cuenta con altamente calificados profesionales
-            certificados en la instalación de equipamientos y sistemas de{' '}
-            <span>gas y electricidad</span>, pero sólo menos de un{' '}
-            <span>2% son mujeres</span>.
+            En la actualidad, Chile se enorgullece de contar con profesionales altamente
+            capacitados y certificados en la instalación de equipos y sistemas de gas y
+            electricidad. Sin embargo, es importante destacar que{' '}
+            <span>menos del 2%</span> de estos expertos son mujeres.
           </p>
 
           <p>
