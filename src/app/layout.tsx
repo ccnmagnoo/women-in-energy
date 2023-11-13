@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   description: 'Promoviendo a las Mujeres certificadas SEC de Chile',
   icons: [
     {
-      rel: 'shortcut icon',
-      url: '/favicon.ico',
+      rel: 'icon',
+      url: './static/icon.svg',
     },
   ],
 };
