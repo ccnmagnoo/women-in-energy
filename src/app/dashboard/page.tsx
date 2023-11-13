@@ -3,15 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { InputService } from '@/Models/Input';
 import { useEffect, useState } from 'react';
 import { Eli, Gas, ApiResponse, SearchResponse, Provider } from '@/Models/Providers';
-import dynamic from 'next/dynamic';
-import { Loading } from '@/components/Loading';
-
-const DynamicProviderContainer = dynamic(
-  () => import('./ProvidersContainer').then((mod) => mod.ProvidersContainer),
-  {
-    loading: () => <Loading size={40} />,
-  }
-);
+import { ProvidersContainer } from './ProvidersContainer';
 
 const Dashboard = () => {
   const by_url = useSearchParams();
@@ -47,7 +39,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <DynamicProviderContainer res={providers} req={buildParams} />
+      <ProvidersContainer res={providers} req={buildParams} />
     </main>
   );
 };
