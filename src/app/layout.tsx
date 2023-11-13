@@ -13,14 +13,17 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Instaladoras',
   description: 'Promoviendo a las Mujeres certificadas SEC de Chile',
+  icons: [
+    {
+      rel: 'shortcut icon',
+      url: '/favicon.ico',
+    },
+  ],
 };
 
 function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='es'>
-      <Head>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <body className={inter.className}>
         <Providers>
           {/* //session provider */}
