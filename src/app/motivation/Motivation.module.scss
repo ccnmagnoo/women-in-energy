@@ -6,6 +6,7 @@ $card: radial-gradient(
 $primary: var(--primary);
 $secondary: var(--secondary);
 $accent: var(--accent);
+$font: var(--text);
 $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
 
 .container {
@@ -39,7 +40,7 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
         position: relative;
 
         text-wrap: nowrap;
-        color: white;
+        color: $font;
       }
     }
     > h3 {
