@@ -23,8 +23,8 @@ export function ProvidersContainer<S extends Service>({
         <h2>resultado</h2>
 
         <p>
-          {res?.search?.size} mujeres profesionales encontradas en{' '}
-          <span>{res?.search?.location}</span> :{/* scope loop */}
+          {res?.search?.size} profesionales encontradas en{' '}
+          <span>{res?.search?.location}</span> y alrededores :{/* scope loop */}
         </p>
       </section>
       <section className={style.body}>
