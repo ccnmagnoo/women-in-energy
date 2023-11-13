@@ -1,5 +1,6 @@
 //ref https://www.sec.cl/area-instaladores/instaladores-electricos/#1582631689365-5ce39298-c21f
 //size ico
+
 import house from '@/app/static/size-domestic-ico.svg';
 import building from '@/app/static/size-building-ico.svg';
 import hospital from '@/app/static/size-hospital-ico.svg';
@@ -25,7 +26,7 @@ import { Eli, Gas, License, Service } from './Providers';
 type High = 'high';
 type Medium = 'medium';
 type Low = 'low';
-
+/* cSpell:disable */
 interface Install<S extends Service> {
   technology: S extends Eli
     ? 'instalaciones' | 'motores' | 'alumbrado' | 'calefacción'

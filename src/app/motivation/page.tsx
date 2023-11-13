@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Motivation.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+/* cSpell:disable */
 
 const Motivation = () => {
   return (
