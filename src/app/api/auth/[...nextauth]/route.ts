@@ -9,7 +9,7 @@ import { AuthOptions, Theme } from 'next-auth';
 const theme: Theme = {
   colorScheme: 'auto',
   brandColor: '#AD00FF01',
-  logo: '/_next/static/media/seremi-logo-animated.0995f4d6.svg',
+  logo: 'https://i.postimg.cc/sgGLWDD8/SEREMI-logo-thin.png',
   buttonText: '#AD00FF01',
 };
 
