@@ -4,6 +4,7 @@ import style from './Validation.module.scss';
 import { ValidationRequest } from '@/Models/Validation';
 import validStamp from '@/app/static/valid-ico.svg';
 import invalidStamp from '@/app/static/novalid-ico.svg';
+import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
 
 function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
@@ -34,9 +35,9 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
           {
             //FIXME: validation is nullable, so y async load drops Null pointer exception error.
             validation?.response?.at(-1) === 'VIGENTE' ? (
-              <Image src={validStamp} alt='' />
+              <Image src={validStamp} alt='valid' />
             ) : (
-              <Image src={invalidStamp} alt='' />
+              <Image src={nullStamp} alt='void' />
             )
           }
 
