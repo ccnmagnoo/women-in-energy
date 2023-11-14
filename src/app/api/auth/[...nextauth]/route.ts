@@ -8,9 +8,9 @@ import { AuthOptions, Theme } from 'next-auth';
 //res https://www.youtube.com/watch?v=YCEnpcCYlyo
 const theme: Theme = {
   colorScheme: 'auto',
-  brandColor: '#A233EC01',
-  logo: undefined,
-  buttonText: '#A233EC01',
+  brandColor: '#AD00FF01',
+  logo: '/_next/static/media/seremi-logo-animated.0995f4d6.svg',
+  buttonText: '#AD00FF01',
 };
 
 const authOptions: AuthOptions = {
