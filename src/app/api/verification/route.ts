@@ -47,7 +47,9 @@ async function handler(req: Req, res: Res) {
   const $ = cheerio.load(hypertext);
   const result = $('tr.odd').find('td').toArray();
 
-  if (!result.length)
+  const extraction = result.splice(0, 5).map((it) => cheerio.load(it).text());
+
+  if (!extraction.length)
     return Res.json(
       {},
       {
@@ -59,7 +61,7 @@ async function handler(req: Req, res: Res) {
   //data res
   return Res.json(
     {
-      response: result.slice(0, 5).map((it) => cheerio.load(it).text()),
+      response: extraction,
       source: data.url,
     },
     {
