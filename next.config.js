@@ -16,6 +16,7 @@ const nextConfig = {
       'energy-providers.web.app',
       'instaladoras.vercel.app',
       'energia.gob.cl',
+      'https://i.postimg.cc',
     ],
     remotePatterns: [
       {
@@ -27,6 +28,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'energia.gob.cl',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.postimg.cc',
         port: '',
         pathname: '/**',
       },
