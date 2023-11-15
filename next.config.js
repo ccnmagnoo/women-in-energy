@@ -35,7 +35,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.postimg.cc',
         port: '',
-        pathname: '/**',
+        pathname: '/**/*',
       },
     ],
   },
