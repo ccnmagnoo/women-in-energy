@@ -27,13 +27,9 @@ function RootLayout({ children }: { children: ReactNode }) {
       <body className={inter.className}>
         <Providers>
           {/* //session provider */}
-          <header>
-            <Navbar />
-          </header>
+          <Navbar />
           {children}
-          <footer>
-            <Bottombar />
-          </footer>
+          <Bottombar />
         </Providers>
         <Background />
       </body>

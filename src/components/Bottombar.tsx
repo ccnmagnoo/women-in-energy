@@ -6,33 +6,35 @@ import Image from 'next/image';
 
 export const Bottombar = () => {
   return (
-    <nav className={styles.bottombar}>
-      <ul>
-        <li>
-          <a
-            href='https://www.instagram.com/energiavalpo/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <Image id={styles.seremi} src={seremi} alt='Energía Valpo' />
-            <p>por @EnergíaValpo</p>
-          </a>
-        </li>
-        <li>
-          <Link href={'/motivation'}> ¿porqué esta app?</Link>
-        </li>
-        <li>
-          <a
-            href='https://github.com/ccnmagnoo/women-in-energy'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {github}
-            <p>repositorio</p>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <footer>
+      <nav className={styles.bottombar}>
+        <ul>
+          <li>
+            <a
+              href='https://www.instagram.com/energiavalpo/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <Image id={styles.seremi} src={seremi} alt='Energía Valpo' />
+              <p>por @EnergíaValpo</p>
+            </a>
+          </li>
+          <li>
+            <Link href={'/motivation'}> ¿porqué esta app?</Link>
+          </li>
+          <li>
+            <a
+              href='https://github.com/ccnmagnoo/women-in-energy'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {github}
+              <p>repositorio</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   );
 };
 
