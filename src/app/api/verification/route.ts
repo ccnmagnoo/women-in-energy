@@ -34,7 +34,7 @@ async function handler(req: Req, res: Res) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         Accept:
-          'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/png,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         Connection: 'keep-alive',
       },
       body: buildUrl(payload),
@@ -46,12 +46,13 @@ async function handler(req: Req, res: Res) {
   //extracting data if exists
   const $ = cheerio.load(hypertext);
   const result = $('tr.odd').find('td').toArray();
+  console.log('cheerio result:', result);
 
   const extraction = result.splice(0, 5).map((it) => cheerio.load(it).text());
 
   if (!extraction.length)
     return Res.json(
-      {},
+      { response: extraction, source: data.url },
       {
         status: 206,
         statusText: `no certification found for ${service.service}`,
@@ -59,6 +60,7 @@ async function handler(req: Req, res: Res) {
     );
 
   //data res
+
   return Res.json(
     {
       response: extraction,
