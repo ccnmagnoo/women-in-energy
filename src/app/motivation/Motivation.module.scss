@@ -14,13 +14,9 @@ $shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.137);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  // border: 2px $primary solid;
   gap: 10px;
 
   width: min(800px, 100%);
-
-  //   overflow-y: auto;
-  // min-height: 80%;
   margin: 0 5px;
 
   backdrop-filter: blur(5px);

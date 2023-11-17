@@ -16,7 +16,8 @@ const nextConfig = {
       'energy-providers.web.app',
       'instaladoras.vercel.app',
       'energia.gob.cl',
-      'https://i.postimg.cc',
+      'i.postimg.cc',
+      'platform-lookaside.fbsbx.com',
     ],
     remotePatterns: [
       {
@@ -36,6 +37,12 @@ const nextConfig = {
         hostname: 'i.postimg.cc',
         port: '',
         pathname: '/**/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'platform-lookaside.fbsbx.com',
+        port: '',
+        pathname: '/*',
       },
     ],
   },
