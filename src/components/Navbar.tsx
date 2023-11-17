@@ -17,7 +17,7 @@ export const Navbar = () => {
     router.push('/home');
   };
   return (
-    <section>
+    <header>
       {/* Instaladoras mt */}
       <div id='site-logo'>
         <Image src={logo} alt='' />
@@ -51,6 +51,6 @@ export const Navbar = () => {
           </button>
         )}
       </nav>
-    </section>
+    </header>
   );
 };
