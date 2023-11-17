@@ -1,17 +1,14 @@
+$primary: var(--primary);
+$secondary: var(--secondary);
+$accent: rgba(255, 255, 255, 0.2);
+
 .container {
-  $primary: var(--primary);
-  $secondary: var(--secondary);
-  $accent: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
-  position: absolute;
   align-self: flex-start;
-  top: 22vh;
-
-  width: min(100vw, 1000px);
-  max-height: 70vh;
-  overflow-y: auto;
+  width: min(90dvw, 1000px);
   scrollbar-gutter: stable both-edges;
+  margin-bottom: 2rem;
 
   border-radius: 5px;
   backdrop-filter: blur(4px);
@@ -22,6 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
   }
 
   .territorialSection {
@@ -34,12 +32,11 @@
     }
 
     ul {
-      // border: 1px white dotted;
       display: flex;
       position: relative;
       flex-wrap: wrap;
       gap: 16px;
-      justify-content: flex-start;
+      justify-content: space-between;
 
       li {
         list-style: none;
