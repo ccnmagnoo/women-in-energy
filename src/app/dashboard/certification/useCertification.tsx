@@ -38,6 +38,7 @@ async function fetchCertification(payload: SecPayload) {
       'https://wlhttp.sec.cl/validadorInstaladores/sec/consulta.do',
       {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           Accept:
@@ -47,8 +48,6 @@ async function fetchCertification(payload: SecPayload) {
       }
     );
 
-    console.log('fetch certification data', data.status);
-
     const html = await data.text();
 
     //cheerio data extract
@@ -56,7 +55,6 @@ async function fetchCertification(payload: SecPayload) {
     const result = $('tr.odd').find('td').toArray();
     //extract data for first 6 rows
     const extract = result.splice(0, 5).map((row) => cheerio.load(row).text());
-    console.log('fecthing with hook', extract);
 
     return { response: extract, source: data.url };
   } catch (error) {
