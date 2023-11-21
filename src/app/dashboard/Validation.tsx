@@ -7,12 +7,17 @@ import invalidStamp from '@/app/static/novalid-ico.svg';
 import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
 
-function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
+async function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
   const [validation, setValidation] = useState<ValidationRequest | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(
+          'requesting API verification:',
+          provider.license.service,
+          provider.rut
+        );
         const query = fetch(
           `/api/verification?service=${provider.license.service}&rut=${provider.rut}`
         );

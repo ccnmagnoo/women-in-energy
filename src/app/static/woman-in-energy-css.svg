@@ -158,13 +158,13 @@
     <defs>
         <linearGradient id="eyXuZREt7Vj25-fill" x1="169.09587" y1="7.33959" x2="172.81078" y2="7.821636"
             spreadMethod="pad" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0)">
-            <stop id="eyXuZREt7Vj25-fill-0" offset="0%" stop-color="#a233ec" />
+            <stop id="eyXuZREt7Vj25-fill-0" offset="0%" stop-color="#9226c4" />
             <stop id="eyXuZREt7Vj25-fill-1" offset="100%" stop-color="#c685f1" />
         </linearGradient>
         <linearGradient id="eyXuZREt7Vj52-fill" x1="11.6391" y1="107.90489" x2="82.38754" y2="107.90489"
             spreadMethod="pad" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0)">
-            <stop id="eyXuZREt7Vj52-fill-0" offset="0%" stop-color="#e6bbfa" />
-            <stop id="eyXuZREt7Vj52-fill-1" offset="100%" stop-color="#9226c4" />
+            <stop id="eyXuZREt7Vj52-fill-0" offset="0%" stop-color="#9226c4" />
+            <stop id="eyXuZREt7Vj52-fill-1" offset="100%" stop-color="#e6bbfa" />
         </linearGradient>
     </defs>
     <g>
