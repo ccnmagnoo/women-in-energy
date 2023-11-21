@@ -10,16 +10,16 @@ export const useCertification = ({ service }: { service: Partial<ServiceUrl> }) 
   >(undefined);
 
   useEffect(() => {
-    // const payload: SecPayload = {
-    //   ambito: service.service === 'gas' ? 2 : 1,
-    //   rut: getDottedRut(service.rut) ?? 'nd',
-    //   accion: 'buscar',
-    // };
     const payload: SecPayload = {
-      ambito: 1,
-      rut: '7.324.296-7',
+      ambito: service.service === 'gas' ? 2 : 1,
+      rut: getDottedRut(service.rut) ?? 'nd',
       accion: 'buscar',
     };
+    // const payload: SecPayload = {
+    //   ambito: 1,
+    //   rut: '7.324.296-7',
+    //   accion: 'buscar',
+    // };
 
     async function get() {
       const data = await fetchCertification(payload);
