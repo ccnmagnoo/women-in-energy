@@ -3,13 +3,17 @@ import React, { useEffect, useState } from 'react';
 import style from './Validation.module.scss';
 import { ValidationRequest } from '@/Models/Validation';
 import validStamp from '@/app/static/valid-ico.svg';
-import invalidStamp from '@/app/static/novalid-ico.svg';
+// import invalidStamp from '@/app/static/novalid-ico.svg';
 import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
+// import { useCertification } from './certification/useCertification';
 
 async function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
-  const [validation, setValidation] = useState<ValidationRequest | undefined>(undefined);
+  // const [certification] = useCertification({
+  //   service: { service: provider.license.service, rut: provider.rut },
+  // });
 
+  const [validation, setValidation] = useState<ValidationRequest | undefined>(undefined);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +39,7 @@ async function Validation<S extends Service>({ provider }: { provider: Provider<
   }, []);
   return (
     <>
-      {validation && (
+      {validation?.response && (
         <section className={style.stamp}>
           {
             //FIXME: validation is nullable, so y async load drops Null pointer exception error.
@@ -48,6 +52,7 @@ async function Validation<S extends Service>({ provider }: { provider: Provider<
 
           <article className={style.dialog}>
             <a href={validation.source} target='_blank'>
+              {/* cspell:disable */}
               <p>licencia</p>
               <p>{validation?.response?.at(-1)?.toLowerCase()}</p>
             </a>
