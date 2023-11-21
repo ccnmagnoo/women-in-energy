@@ -2,6 +2,7 @@ import { NextRequest as Req, NextResponse as Res } from 'next/server';
 import { SecPayload, ServiceUrl } from './Service';
 import * as cheerio from 'cheerio';
 import { getDottedRut, getService } from '../libs/validationLibs';
+import buildUrl from '../libs/buildUrl';
 
 /**
  *
@@ -82,10 +83,5 @@ async function handler(req: Req, res: Res) {
  * @param payload object to convert to x-www-form request
  * @returns string with x-www-form format, this is requested by POST source
  */
-const buildUrl = (payload: Object): string => {
-  return Object.entries(payload)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-    .join('&');
-};
 
 export { handler as GET };
