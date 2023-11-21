@@ -8,7 +8,7 @@ import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
 import { useCertification } from './certification/useCertification';
 
-async function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
+function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
   const certification: ValidationRequest | undefined = useCertification({
     service: { service: provider.license.service, rut: provider.rut },
   });
