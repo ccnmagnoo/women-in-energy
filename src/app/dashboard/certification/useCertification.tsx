@@ -10,9 +10,14 @@ export const useCertification = ({ service }: { service: Partial<ServiceUrl> }) 
   >(undefined);
 
   useEffect(() => {
+    // const payload: SecPayload = {
+    //   ambito: service.service === 'gas' ? 2 : 1,
+    //   rut: getDottedRut(service.rut) ?? 'nd',
+    //   accion: 'buscar',
+    // };
     const payload: SecPayload = {
-      ambito: service.service === 'gas' ? 2 : 1,
-      rut: getDottedRut(service.rut) ?? 'nd',
+      ambito: 1,
+      rut: '7.324.296-7',
       accion: 'buscar',
     };
 
@@ -24,7 +29,7 @@ export const useCertification = ({ service }: { service: Partial<ServiceUrl> }) 
     get();
   }, []);
 
-  return [response];
+  return response;
 };
 
 async function fetchCertification(payload: SecPayload) {
@@ -45,8 +50,6 @@ async function fetchCertification(payload: SecPayload) {
     console.log('fetch certification data', data.status);
 
     const html = await data.text();
-
-    console.log('fetch certification data', html.toString());
 
     //cheerio data extract
     const $ = cheerio.load(html);
