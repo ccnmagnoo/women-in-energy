@@ -6,7 +6,7 @@ import validStamp from '@/app/static/valid-ico.svg';
 // import invalidStamp from '@/app/static/novalid-ico.svg';
 import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
-import { useCertification } from './certification/useCertification';
+// import { useCertification } from './certification/useCertification';
 
 function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
   // const certification: ValidationRequest | undefined = useCertification({
