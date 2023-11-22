@@ -32,7 +32,7 @@ async function handler(req: Req, res: Res) {
     'https://wlhttp.sec.cl/validadorInstaladores/sec/consulta.do',
     {
       method: 'POST',
-      mode: 'no-cors',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         Accept:

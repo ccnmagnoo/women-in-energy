@@ -10,6 +10,7 @@ export const useCertification = ({ service }: { service: Partial<ServiceUrl> }) 
   >(undefined);
 
   useEffect(() => {
+    // cspell:disable
     const payload: SecPayload = {
       ambito: service.service === 'gas' ? 2 : 1,
       rut: getDottedRut(service.rut) ?? 'nd',
@@ -27,7 +28,7 @@ export const useCertification = ({ service }: { service: Partial<ServiceUrl> }) 
     }
 
     get();
-  }, []);
+  }, [service.rut, service.service]);
 
   return response;
 };
@@ -38,7 +39,7 @@ async function fetchCertification(payload: SecPayload) {
       'https://wlhttp.sec.cl/validadorInstaladores/sec/consulta.do',
       {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           Accept:
@@ -49,12 +50,15 @@ async function fetchCertification(payload: SecPayload) {
     );
 
     const html = await data.text();
+    console.log('async response from sec', html.length);
 
     //cheerio data extract
     const $ = cheerio.load(html);
     const result = $('tr.odd').find('td').toArray();
+    console.log('extact all td on response', result.length);
     //extract data for first 6 rows
     const extract = result.splice(0, 5).map((row) => cheerio.load(row).text());
+    console.log('certification hook response', extract);
 
     return { response: extract, source: data.url };
   } catch (error) {
