@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Resume.module.scss';
 import { gasCompetence, eliCompetence, CompetenceList } from '@/Models/Competence';
 import { CompetenceCards } from './Competence';
+import watchLicense from '@/app/api/libs/watchLicense';
 
 export const Personal = <S extends Service>({
   provider,
@@ -17,7 +18,8 @@ export const Personal = <S extends Service>({
       <h2>
         {provider?.personal.name?.split(' ')[0]} {provider?.personal.surname}
       </h2>
-      <a href={regulationResource(provider?.license.service)} target='_blank'>
+      {/* <a href={regulationResource(provider?.license.service)} target='_blank'> */}
+      <a href={watchLicense(provider)} target='_blank'>
         <h3>
           <p>cerficación SEC</p>
           <p>{provider?.license.service === 'eli' ? 'eléctrica' : 'gas'}</p>
