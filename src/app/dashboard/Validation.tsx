@@ -6,6 +6,7 @@ import validStamp from '@/app/static/valid-ico.svg';
 // import invalidStamp from '@/app/static/novalid-ico.svg';
 import nullStamp from '@/app/static/null-ico.svg';
 import Image from 'next/image';
+import watchLicense from '../api/libs/watchLicense';
 // import { useCertification } from './certification/useCertification';
 
 function Validation<S extends Service>({ provider }: { provider: Provider<S> }) {
@@ -51,9 +52,12 @@ function Validation<S extends Service>({ provider }: { provider: Provider<S> }) 
           }
 
           <article className={style.dialog}>
-            <a href={validation.source} target='_blank'>
+            {/* <a href={validation.source} target='_blank'>
+              test
+            </a> */}
+            <a href={watchLicense(provider)} target='_blank'>
               {/* cspell:disable */}
-              <p>licencia</p>
+              <p>ver SEC</p>
               <p>{validation?.response?.at(-1)?.toLowerCase()}</p>
             </a>
           </article>
